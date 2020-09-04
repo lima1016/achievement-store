@@ -195,3 +195,6 @@ gradle-app.setting
 **/build/
 
 # End of https://www.toptal.com/developers/gitignore/api/java-web,gradle,intellij,eclipse
+build.gradle
+gradlew.bat
+settings.gradle
