@@ -29,13 +29,9 @@ public class AppWebApplicationInitializer extends AbstractAnnotationConfigDispat
 
     @Override
     protected String[] getServletMappings() {
-        return new String[] {"/app/*"};
+        return new String[] {"/"};
     }
 
-    @Override
-    protected String getServletName() {
-        return "app";
-    }
 
     // build.gradle: javax.annotation-api
     @Override
