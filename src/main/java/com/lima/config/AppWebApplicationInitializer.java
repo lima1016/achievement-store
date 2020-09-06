@@ -32,7 +32,6 @@ public class AppWebApplicationInitializer extends AbstractAnnotationConfigDispat
         return new String[] {"/"};
     }
 
-
     // build.gradle: javax.annotation-api
     @Override
     protected Filter[] getServletFilters() {
