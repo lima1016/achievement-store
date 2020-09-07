@@ -34,11 +34,11 @@
         )
     </insert>
 
-    <select id="findByEmailPassword" parameterType="map" resultMap="MemberMap">
+    <select id="findByUserIdPassword" parameterType="map" resultMap="MemberMap">
         select
         *
         from member
-        where email = #{email} and password = password(#{password})
+        where user_id = #{userId} and password = password(#{password})
     </select>
 
 </mapper>

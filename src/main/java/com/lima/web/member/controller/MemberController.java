@@ -26,25 +26,21 @@ public class MemberController {
         model.addAttribute("members", member);
     }
 
-    // sign up page
+    // sign in & sign up page
     @GetMapping("signUpForm")
     public void signUp() throws ExecutionException {}
-
-    // sign in page
-    @GetMapping("signInForm")
-    public void signIn() throws Exception {}
 
     // member sign up
     @PostMapping("signUp")
     public String add(Member member) throws Exception {
         memberService.insert(member);
-        return "redirect:signIn";
+        return "redirect:list";
     }
 
     // member sign in
     @PostMapping("signIn")
-    public String signIn(String email, String password) throws Exception {
-        Member member = memberService.findByEmailPassword(email, password);
+    public String signIn(String userId, String password) throws Exception {
+        Member member = memberService.findByEmailPassword(userId, password);
         return "redirect:list";
     }
 }

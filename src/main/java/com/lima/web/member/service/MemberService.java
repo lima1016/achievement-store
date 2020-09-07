@@ -22,12 +22,14 @@ public class MemberService {
         memberDao.insert(member);
     }
 
-    public Member findByEmailPassword(String email, String password) throws Exception {
+    public Member findByEmailPassword(String userId, String password) throws Exception {
         HashMap<String, Object> map = new HashMap<>();
-        map.put("email", email );
+        map.put("userId", userId );
         map.put("password", password);
-        Member member = memberDao.findByEmailPassword(map);
-
+        System.out.println("userId= " + userId);
+        System.out.println(password);
+        Member member = memberDao.findByUserIdPassword(map);
+        System.out.println("member.getUserId = " + member.getUserId());
         if (member == null) {
             throw new Exception("member 없음.");
         }

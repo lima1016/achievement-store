@@ -9,5 +9,5 @@ public interface MemberDao {
 
     List<Member> findAll() throws Exception;
     void insert(Member member) throws Exception;
-    Member findByEmailPassword(Map<String, Object> map) throws Exception;
+    Member findByUserIdPassword(Map<String, Object> map) throws Exception;
 }
