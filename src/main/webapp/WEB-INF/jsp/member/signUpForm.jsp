@@ -42,8 +42,8 @@
             </div>
 
             <!-- LOGIN form -->
-            <form method="post" action="signIn">
-                <div class="cont_forms">
+            <div class="cont_forms">
+                <form method="post" action="signIn">
                     <div class="cont_img_back_">
                         <img src="https://images.unsplash.com/photo-1453831362806-3d5577f014a4?dpr=1&auto=compress,format&fit=crop&w=1199&h=812&q=80&cs=tinysrgb&crop="
                              alt=""/>
@@ -55,23 +55,22 @@
                         <input type="password" name="password" placeholder="Password" required/>
                         <input type="submit" value="LOGIN" class="btn_login" onclick="cambiar_login()"/>
                     </div>
-                </div>
-            </form>
+                </form>
 
-            <!-- SIGNUP form -->
-            <form method="post" action="signUp">
-                <div class="cont_form_sign_up">
-                    <a href="#" onclick="ocultar_login_sign_up()"><i class="material-icons">&#xE5C4;</i></a>
-                    <h2>SIGN UP</h2>
-                    <input type="text" name="memberName" placeholder="User Name" required/>
-                    <input type="text" name="userId" placeholder="User ID" required/>
-                    <input type="text" name="email" placeholder="Email" required/>
-                    <input type="password" name="password" placeholder="Password" required/>
-                    <%--                        <input type="password" placeholder="Confirm Password"/>--%>
-                    <input type="submit" value="SIGN UP" class="btn_sign_up" onclick="cambiar_sign_up()"/>
-                </div>
-            </form>
-        </div>
+                <!-- SIGNUP form -->
+                <form method="post" action="signUp">
+                    <div class="cont_form_sign_up">
+                        <a href="#" onclick="ocultar_login_sign_up()"><i class="material-icons">&#xE5C4;</i></a>
+                        <h2>SIGN UP</h2>
+                        <input type="text" name="memberName" placeholder="User Name" required/>
+                        <input type="text" name="userId" placeholder="User ID" required/>
+                        <input type="text" name="email" placeholder="Email" required/>
+                        <input type="password" name="password" placeholder="Password" required/>
+                        <%--                        <input type="password" placeholder="Confirm Password"/>--%>
+                        <input type="submit" value="SIGN UP" class="btn_sign_up" onclick="cambiar_sign_up()"/>
+                    </div>
+                </form>
+            </div>
     </div>
 </div>
 </div>
