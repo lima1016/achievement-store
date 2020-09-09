@@ -58,6 +58,9 @@ dependencies {
     // JSTL
     compile group: 'javax.servlet', name: 'jstl', version: '1.2'
 
+    // JSON 데이터 처리
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.10'
+
     // This dependency is used by the application.
     implementation 'com.google.guava:guava:28.1-jre'
 

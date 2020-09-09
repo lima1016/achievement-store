@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
 
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="/js/member/signUpLogin.js" type="text/javascript"></script>
 </head>
 <body>
@@ -43,7 +44,7 @@
 
             <!-- LOGIN form -->
             <div class="cont_forms">
-                <form method="post" action="signIn">
+                <form method="POST" action="signIn" name="form">
                     <div class="cont_img_back_">
                         <img src="https://images.unsplash.com/photo-1453831362806-3d5577f014a4?dpr=1&auto=compress,format&fit=crop&w=1199&h=812&q=80&cs=tinysrgb&crop="
                              alt=""/>
@@ -53,26 +54,26 @@
                         <h2>LOGIN</h2>
                         <input type="text" name="userId" placeholder="UserId" required/>
                         <input type="password" name="password" placeholder="Password" required/>
-                        <input type="submit" value="LOGIN" class="btn_login" onclick="cambiar_login()"/>
+                        <button type="submit" class="btn_login">LOGIN</button>
                     </div>
                 </form>
 
                 <!-- SIGNUP form -->
-                <form method="post" action="signUp">
+                <form method="post" action="signUp" name="form">
                     <div class="cont_form_sign_up">
                         <a href="#" onclick="ocultar_login_sign_up()"><i class="material-icons">&#xE5C4;</i></a>
                         <h2>SIGN UP</h2>
                         <input type="text" name="memberName" placeholder="User Name" required/>
-                        <input type="text" name="userId" placeholder="User ID" required/>
+                        <input type="text" id="userId" name="userId" placeholder="User ID" onblur="idCheckFunc();" required/>
+                        <div id="userId_chk" class="vali_check"></div>
                         <input type="text" name="email" placeholder="Email" required/>
                         <input type="password" name="password" placeholder="Password" required/>
-                        <%--                        <input type="password" placeholder="Confirm Password"/>--%>
-                        <input type="submit" value="SIGN UP" class="btn_sign_up" onclick="cambiar_sign_up()"/>
+                        <button type="submit" class="btn_sign_up">SIGN UP</button>
                     </div>
                 </form>
             </div>
+        </div>
     </div>
-</div>
 </div>
 </body>
 </html>

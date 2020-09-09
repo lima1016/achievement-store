@@ -26,14 +26,23 @@ public class MemberService {
         HashMap<String, Object> map = new HashMap<>();
         map.put("userId", userId );
         map.put("password", password);
-        System.out.println("userId= " + userId);
-        System.out.println(password);
         Member member = memberDao.findByUserIdPassword(map);
-        System.out.println("member.getUserId = " + member.getUserId());
-        if (member == null) {
-            throw new Exception("member 없음.");
-        }
 
+        return member;
+    }
+
+    public int userIdCheck(String userId) throws Exception {
+        return memberDao.checkUserId(userId);
+    }
+
+    public Member get(String userId, String password) throws Exception {
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("userId", userId);
+        map.put("password", password);
+        Member member = memberDao.findByUserIdPassword(map);
+        if (member == null) {
+            new Exception("맴버 없음.");
+        }
         return member;
     }
 }

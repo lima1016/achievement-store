@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -41,6 +42,16 @@ public class MemberController {
     @PostMapping("signIn")
     public String signIn(String userId, String password) throws Exception {
         Member member = memberService.findByEmailPassword(userId, password);
+        if (member == null) {
+            return "redirect:signUpForm";
+        }
         return "redirect:list";
+    }
+
+    // 메소드에 @ResponseBody 로 어노테이션이 되어 있다면 메소드에서 리턴되는 값은 View 를 통해서
+    // 출력되지 않고 HTTP Response Body 에 직접 쓰여지게 됩니다.
+    @GetMapping("idCheck")
+    public @ResponseBody int idCheck(String userId) throws Exception {
+        return memberService.userIdCheck(userId);
     }
 }

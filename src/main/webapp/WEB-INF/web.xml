@@ -5,10 +5,6 @@
                       http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0" metadata-complete="false">
 
-    <description>
-        achievement-store
-    </description>
-
     <display-name>achievement-store</display-name>
 
     <!-- https://leegaworld.tistory.com/360 -->
