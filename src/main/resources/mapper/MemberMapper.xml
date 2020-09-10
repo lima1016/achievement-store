@@ -48,4 +48,11 @@
 		where user_id = #{userId}
     </select>
 
+    <select id="checkEmail" parameterType="String" resultType="int">
+        select
+        count(*)
+        from member
+        where email = #{email};
+    </select>
+
 </mapper>

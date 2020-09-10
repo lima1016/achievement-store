@@ -35,6 +35,10 @@ public class MemberService {
         return memberDao.checkUserId(userId);
     }
 
+    public int emailCheck(String email) throws Exception {
+        return memberDao.checkEmail(email);
+    }
+
     public Member get(String userId, String password) throws Exception {
         HashMap<String, Object> map = new HashMap<>();
         map.put("userId", userId);

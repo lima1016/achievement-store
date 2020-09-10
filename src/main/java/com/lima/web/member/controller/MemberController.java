@@ -4,10 +4,7 @@ import com.lima.web.member.domain.Member;
 import com.lima.web.member.service.MemberService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -53,5 +50,10 @@ public class MemberController {
     @GetMapping("idCheck")
     public @ResponseBody int idCheck(String userId) throws Exception {
         return memberService.userIdCheck(userId);
+    }
+
+    @GetMapping("emailCheck")
+    public @ResponseBody int emailCheck(String email) throws Exception {
+        return memberService.emailCheck(email);
     }
 }
