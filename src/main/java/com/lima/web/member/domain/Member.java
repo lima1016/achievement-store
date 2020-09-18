@@ -4,42 +4,36 @@ import java.util.Objects;
 
 public class Member {
 
-    private int memberId;
-    private String memberName;
-    private String userId;
-    private String password;
+    private int memberNo;
+    private String id;
+    private String name;
     private String email;
+    private String password;
+    // 웹싸이트에서 사용하는 돈 (원)
+    private int ham;
 
-    public int getMemberId() {
-        return memberId;
+    public int getMemberNo() {
+        return memberNo;
     }
 
-    public void setMemberId(int memberId) {
-        this.memberId = memberId;
+    public void setMemberNo(int memberNo) {
+        this.memberNo = memberNo;
     }
 
-    public String getMemberName() {
-        return memberName;
+    public String getId() {
+        return id;
     }
 
-    public void setMemberName(String memberName) {
-        this.memberName = memberName;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public String getUserId() {
-        return userId;
+    public String getName() {
+        return name;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getEmail() {
@@ -50,31 +44,49 @@ public class Member {
         this.email = email;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public int getHam() {
+        return ham;
+    }
+
+    public void setHam(int ham) {
+        this.ham = ham;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Member member = (Member) o;
-        return memberId == member.memberId &&
-                Objects.equals(memberName, member.memberName) &&
-                Objects.equals(userId, member.userId) &&
-                Objects.equals(password, member.password) &&
-                Objects.equals(email, member.email);
+        return memberNo == member.memberNo &&
+                ham == member.ham &&
+                Objects.equals(id, member.id) &&
+                Objects.equals(name, member.name) &&
+                Objects.equals(email, member.email) &&
+                Objects.equals(password, member.password);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(memberId, memberName, userId, password, email);
+        return Objects.hash(memberNo, id, name, email, password, ham);
     }
 
     @Override
     public String toString() {
         return "Member{" +
-                "memberId=" + memberId +
-                ", memberName='" + memberName + '\'' +
-                ", userId='" + userId + '\'' +
-                ", password='" + password + '\'' +
+                "memberNo=" + memberNo +
+                ", id='" + id + '\'' +
+                ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", ham=" + ham +
                 '}';
     }
 }

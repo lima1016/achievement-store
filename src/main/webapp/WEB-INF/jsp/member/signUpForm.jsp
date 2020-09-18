@@ -35,22 +35,27 @@
                 <!--Login Form -->
                 <div class="form-content current" id="member">
                     <form id="sign-in" method="POST" action="signIn" name="form">
-                        <input type="userId" name="userId-id"  placeholder="USERID" class="field" required>
+                        <input type="userId" name="id" placeholder="USERID" class="field" required>
                         <input type="password" name="password" placeholder="PASSWORD" class="field" required>
                         <div class="clear"></div>
-                        <input type="checkbox" name="rmbrme" id="custom-check" class="check"><label for="custom-check" class="check-label secondary-text">Remember me</label><a href=""><span class="forgot secondary-text">Forgot password?</span></a>
+                        <input type="checkbox" name="rmbrme" id="custom-check" class="check"><label for="custom-check"
+                                                                                                    class="check-label secondary-text">Remember
+                        me</label><a href=""><span class="forgot secondary-text">Forgot password?</span></a>
                         <button type="submit" name="sign-in-button" class="flat-button signin">Log In</button>
                     </form>
                 </div>
                 <!--Registration form-->
                 <div class="form-content" id="new">
                     <form id="reg" method="post" action="signUp" name="form" onsubmit="return checkAll();">
-                        <input type="text" name="memberName" placeholder="User Name" class="field" required/>
-                        <input type="text" id="userId" name="userId-id" placeholder="USERNAME" class="field" onblur="idCheckFunc()" required>
+                        <input type="text" name="name" placeholder="User Name" class="field" required/>
+                        <input type="text" id="userId" name="id" placeholder="USERNAME" class="field"
+                               onblur="idCheckFunc()" required>
                         <div id="userId_chk" class="vali_check"></div>
-                        <input type="email" id="email" name="email" placeholder="EMAIL ADDRESS" class="field" onblur="email_check()" required>
+                        <input type="email" id="email" name="email" placeholder="EMAIL ADDRESS" class="field"
+                               onblur="email_check()" required>
                         <div id="email_chk" class="vali_check"></div>
-                        <input type="password" id="password" name="password" placeholder="PASSWORD" class="field" onblur="password_check()" required>
+                        <input type="password" id="password" name="password" placeholder="PASSWORD" class="field"
+                               onblur="password_check()" required>
                         <div id="password_chk" class="vali_check"></div>
                         <button type="button" name="register-button" class="flat-button signin">Sign Up</button>
                     </form>

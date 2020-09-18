@@ -9,7 +9,5 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class MainController {
 
     @GetMapping("index")
-    public void index() {
-
-    }
+    public void index() {}
 }
