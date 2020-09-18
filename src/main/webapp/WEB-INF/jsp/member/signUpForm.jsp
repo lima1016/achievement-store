@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <title>회원 가입</title>
     <link rel="stylesheet" href="/css/member/signUpLogin.css">
+    <link rel="stylesheet" href="/css/common/index.css">
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="/js/member/signUpLogin.js" type="text/javascript"></script>
@@ -64,6 +65,7 @@
         </div>
     </div>
 </div>
+<jsp:include page="../footer.jsp" />
 </body>
 </html>
 
