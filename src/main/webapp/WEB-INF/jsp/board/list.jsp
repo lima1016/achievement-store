@@ -3,6 +3,10 @@
 
 
 <div class="board_wrap">
+
+    <div class = "board-button-div">
+        <button class = "board-button btn btn-outline-warning" type="button" onclick="location.href='../board/boardForm'"> set my new goal </button>
+    </div>
     <table class="table">
         <thead class="thead-dark">
         <tr>
@@ -13,61 +17,15 @@
         </tr>
         </thead>
         <tbody>
-        <c:forEach items="${boards}" var="board" varStatus='boardList'>
-            <tr>
+        <!-- align="center" -->
+        <c:forEach items="${boards}" var="board">
+            <tr class="board-list-tr" onClick="location.href='http://www.daum.net/'" style="cursor:pointer;">
                 <th scope="row">${board.boardNo}</th>
                 <td>${board.title}</td>
                 <td>${board.goal}</td>
-                <td>${board.memberNo}</td>
+                <td>${board.member.id}</td>
             </tr>
         </c:forEach>
-        <tr>
-            <th scope="row">safgasdg</th>
-            <td>agdfhdfag</td>
-            <td>adfgadfhn</td>
-            <td>ahwaa</td>
-        </tr>
-        <tr>
-            <th scope="row">safgasdg</th>
-            <td>agdfhdfag</td>
-            <td>adfgadfhn</td>
-            <td>ahwaa</td>
-        </tr>
-        <tr>
-            <th scope="row">safgasdg</th>
-            <td>agdfhdfag</td>
-            <td>adfgadfhn</td>
-            <td>ahwaa</td>
-        </tr>
-        <tr>
-            <th scope="row">safgasdg</th>
-            <td>agdfhdfag</td>
-            <td>adfgadfhn</td>
-            <td>ahwaa</td>
-        </tr>
-        <tr>
-            <th scope="row">safgasdg</th>
-            <td>agdfhdfag</td>
-            <td>adfgadfhn</td>
-            <td>ahwaa</td>
-        </tr>
-        <tr>
-            <th scope="row">safgasdg</th>
-            <td>agdfhdfag</td>
-            <td>adfgadfhn</td>
-            <td>ahwaa</td>
-        </tr>        <tr>
-            <th scope="row">safgasdg</th>
-            <td>agdfhdfag</td>
-            <td>adfgadfhn</td>
-            <td>ahwaa</td>
-        </tr>
-        <tr>
-            <th scope="row">safgasdg</th>
-            <td>agdfhdfag</td>
-            <td>adfgadfhn</td>
-            <td>ahwaa</td>
-        </tr>
         </tbody>
     </table>
 </div>

@@ -7,13 +7,11 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
-
     <link rel="stylesheet" href="css/common/bootstrap.min.css">
     <link rel="stylesheet" href="css/common/bootstrap-theme.min.css">
-    <link href="css/common/fontAwesome.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
     <link href="css/common/templatemo-style.css" rel="stylesheet">
 
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
           integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/board/board.css">
@@ -22,11 +20,8 @@
 
 <div class="overlay"></div>
 <section class="cd-hero">
-
     <jsp:include page="header.jsp" />
-
     <ul class="cd-hero-slider">
-
         <li class="selected">
             <div class="heading">
                 <h1>ACHIEVEMENT-STORE</h1>
@@ -64,19 +59,6 @@
                                             <jsp:include page="board/list.jsp"/>
                                     </div>
                                 </div>
-<%--                                <div class="row">--%>
-<%--                                    <div class="col-md-7">--%>
-<%--                                        <div class="left-about-text">--%>
-<%--                                            <h4>What we do?</h4>--%>
-<%--                                            <p>Nam aliquam ultrices interdum. Vivamus metus mi, accumsan a tincidunt a, efficitur id felis. Vivamus non nibh malesuada, vestibulum nulla in, iaculis sem. Aenean tincidunt faucibus ipsum, ac aliquet nunc accumsan sed. Nulla sodales nunc sit amet libero egestas, ut interdum ex congue.</p>--%>
-<%--                                            <div class="primary-button">--%>
-<%--                                                <a href="#">Discover More</a>--%>
-<%--                                            </div>--%>
-<%--                                        </div>--%>
-<%--                                    </div>--%>
-<%--                                    <div class="col-md-5 right-image">--%>
-<%--                                        <img src="img/right-about-image.jpg">--%>
-<%--                                    </div>--%>
                                 </div>
                             </div>
                         </div>
@@ -87,7 +69,7 @@
 
         <li>
             <div class="heading">
-                <h1>Featured</h1>
+                <h1>STUDY GROUP</h1>
                 <span>We produce featured product every week</span>
             </div>
             <div class="cd-half-width third-slide">
@@ -127,7 +109,7 @@
 
         <li>
             <div class="heading">
-                <h1>Our projects</h1>
+                <h1>Store</h1>
                 <span>Here you can check our recent projects</span>
             </div>
             <div class="cd-half-width fourth-slide">
@@ -170,7 +152,7 @@
 
         <li>
             <div class="heading">
-                <h1>Contact us</h1>
+                <h1>My Page</h1>
                 <span>You'll be responded within 48 hrs</span>
             </div>
             <div class="cd-half-width fivth-slide">
@@ -233,8 +215,6 @@
 <jsp:include page="footer.jsp" />
 
 <script src="/js/common/vendor/jquery-1.11.2.min.js"></script>
-<script src="js/common/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
-
 <script src="js/common/vendor/bootstrap.min.js"></script>
 <script src="js/common/plugins.js"></script>
 <script src="js/common/main.js"></script>

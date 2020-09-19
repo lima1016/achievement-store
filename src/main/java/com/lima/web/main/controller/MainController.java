@@ -19,7 +19,7 @@ public class MainController {
 
     @GetMapping("index")
     public void index(Model model) throws  Exception{
-        List<Board> board = boardService.list();
-        model.addAttribute("boards", board);
+        List<Board> boards = boardService.list();
+        model.addAttribute("boards", boards);
     }
 }

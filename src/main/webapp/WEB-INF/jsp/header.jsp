@@ -4,11 +4,11 @@
     <nav>
         <span class="cd-marker item-1"></span>
         <ul>
-            <li class="selected"><a href="#0"><div class="image-icon"><img src="img/home-icon.png"></div><h6>Welcome</h6></a></li>
-            <li><a href="#0"><div class="image-icon"><img src="img/about-icon.png"></div><h6>About Us</h6></a></li>
-            <li><a href="#0"><div class="image-icon"><img src="img/featured-icon.png"></div><h6>Featured</h6></a></li>
-            <li><a href="#0"><div class="image-icon"><img src="img/projects-icon.png"></div><h6>Projects</h6></a></li>
-            <li><a href="#0"><div class="image-icon"><img src="img/contact-icon.png"></div><h6>Contact Us</h6></a></li>
+            <li class="selected"><a href="#0"><div class="image-icon"><i class="index-icon fa fa-home fa-4x" aria-hidden="true"></i></div><h6>Welcome</h6></a></li>
+            <li><a href="#0"><div class="header-div"><i class="index-icon fa fa-trophy fa-4x" aria-hidden="true"></i></div><h6>GOALS</h6></a></li>
+            <li><a href="#0"><div class="header-div"><i class="index-icon fa fa-users fa-4x" aria-hidden="true"></i></div><h6>Group</h6></a></li>
+            <li><a href="#0"><div class="header-div"><i class="index-icon fa fa-shopping-bag fa-4x" aria-hidden="true"></i></div><h6>Store</h6></a></li>
+            <li><a href="#0"><div class="header-div"><i class="index-icon fa fa-user fa-4x" aria-hidden="true"></i></div><h6>My Page</h6></a></li>
         </ul>
     </nav>
 </div>
