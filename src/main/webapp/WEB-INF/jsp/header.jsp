@@ -1,26 +1,15 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-<nav>
-    <div class="container">
-        <a href="#" class="logo">Achievement-Store</a>
+<div class="cd-slider-nav">
+    <nav>
+        <span class="cd-marker item-1"></span>
         <ul>
-            <li><a href="/index" class="active">Home</a></li>
-            <li><a href="/board/list">Board</a></li>
-            <li><a href="#">Store</a></li>
-            <li><a href="#">Mypage</a></li>
+            <li class="selected"><a href="#0"><div class="image-icon"><img src="img/home-icon.png"></div><h6>Welcome</h6></a></li>
+            <li><a href="#0"><div class="image-icon"><img src="img/about-icon.png"></div><h6>About Us</h6></a></li>
+            <li><a href="#0"><div class="image-icon"><img src="img/featured-icon.png"></div><h6>Featured</h6></a></li>
+            <li><a href="#0"><div class="image-icon"><img src="img/projects-icon.png"></div><h6>Projects</h6></a></li>
+            <li><a href="#0"><div class="image-icon"><img src="img/contact-icon.png"></div><h6>Contact Us</h6></a></li>
         </ul>
-    </div>
-</nav>
-
-<script>
-    const nav = document.querySelector('nav');
-    window.addEventListener('scroll', fixNav);
-
-    function fixNav() {
-        if (window.scrollY > nav.offsetHeight + 150) {
-            nav.classList.add('active');
-        } else {
-            nav.classList.remove('active');
-        }
-    }
-</script>
+    </nav>
+</div>
+<!-- .cd-slider-nav -->
