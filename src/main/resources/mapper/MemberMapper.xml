@@ -6,11 +6,12 @@
 <mapper namespace="com.lima.web.member.dao.MemberDao">
 
     <resultMap type="Member" id="MemberMap">
-        <id column="member_id" property="memberId"/>
-        <result column="member_name" property="memberName"/>
-        <result column="user_id" property="userId"/>
-        <result column="password" property="password"/>
+        <id column="member_no" property="memberNo"/>
+        <result column="id" property="id"/>
+        <result column="name" property="name"/>
         <result column="email" property="email"/>
+        <result column="password" property="password"/>
+        <result column="ham" property="ham"/>
     </resultMap>
 
     <select id="findAll" resultMap="MemberMap">
@@ -21,14 +22,14 @@
         insert into member
         (
         member_name
-        , user_id
+        , id
         , password
         , email
         )
         value
         (
         #{memberName}
-        , #{userId}
+        , #{id}
         , password(#{password})
         , #{email}
         )
@@ -38,14 +39,14 @@
         select
         *
         from member
-        where user_id = #{userId} and password = password(#{password})
+        where id = #{id} and password = password(#{password})
     </select>
 
     <select id="checkUserId" parameterType="String" resultType="int">
         select
         count(*)
 		from member
-		where user_id = #{userId}
+		where id = #{id}
     </select>
 
     <select id="checkEmail" parameterType="String" resultType="int">

@@ -1,0 +1,8 @@
+.board_wrap {
+    margin: 5% 20%;
+}
+
+.board-list-tr:hover {
+    font-weight: 600;
+}
+

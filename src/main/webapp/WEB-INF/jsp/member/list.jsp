@@ -15,8 +15,8 @@
 <body>
 <c:forEach items="${members}" var="member">
     <div>
-        <p> 아이디 : ${member.memberId}</p>
-        <p> 이름 : ${member.memberName}</p>
+        <p> 아이디 : ${member.id}</p>
+        <p> 이름 : ${member.name}</p>
     </div>
 
 </c:forEach>

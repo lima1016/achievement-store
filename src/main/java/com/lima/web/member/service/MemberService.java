@@ -49,4 +49,9 @@ public class MemberService {
         }
         return member;
     }
+
+    public Member get(int memberNo) throws Exception {
+        Member member = memberDao.findBy(memberNo);
+        return member;
+    }
 }
