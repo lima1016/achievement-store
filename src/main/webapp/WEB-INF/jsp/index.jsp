@@ -11,10 +11,11 @@
     <link rel="stylesheet" href="css/common/bootstrap-theme.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
     <link href="css/common/templatemo-style.css" rel="stylesheet">
-
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
           integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link rel="stylesheet" href="/css/board/board.css">
+    <link rel="stylesheet" href="../css/board/board.css">
+    <link rel="stylesheet" href="/css/member/signUpLogin.css">
+
 </head>
 <body>
 
@@ -51,14 +52,11 @@
                         <div class="col-md-12">
                             <div class="content second-content">
                                 <div class="row">
-<%--                                    <div class="col-md-7 left-image">--%>
-<%--                                        <img src="img/left-about-image.jpg">--%>
-<%--                                    </div>--%>
                                     <div class="col-md-12">
                                         <div class="right-about-text">
                                             <jsp:include page="board/list.jsp"/>
+                                        </div>
                                     </div>
-                                </div>
                                 </div>
                             </div>
                         </div>
@@ -151,55 +149,129 @@
         </li>
 
         <li>
-            <div class="heading">
-                <h1>My Page</h1>
-                <span>You'll be responded within 48 hrs</span>
-            </div>
-            <div class="cd-half-width fivth-slide">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="content fivth-content">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="left-info">
-                                            <p>Maecenas imperdiet sagittis lacus, ut consequat velit iaculis id. Praesent eu consequat urna. Morbi justo dolor, ornare sed lorem et, auctor iaculis ligula.
-                                                <br><br>
-                                                <em>5566 Donec mollis libero<br>at metus luctus 10660</em>
-                                            </p>
-                                            <ul class="social-icons">
-                                                <i><a href="#"><i class="fa fa-facebook"></i></a></i>
-                                                <i><a href="#"><i class="fa fa-twitter"></i></a></i>
-                                                <i><a href="#"><i class="fa fa-linkedin"></i></a></i>
-                                                <i><a href="#"><i class="fa fa-rss"></i></a></i>
-                                                <i><a href="#"><i class="fa fa-behance"></i></a></i>
-                                            </ul>
-                                        </div>
+            <c:if test="${empty loginUser}">
+                <div class="heading">
+                    <h1>Sign In & Sign Up</h1>
+                    <span>You'll be responded within 48 hrs</span>
+                </div>
+                <div class="cd-half-width fivth-slide">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="content fivth-content">
+                                    <div class="signUp-form">
+                                                <div class="container-signUp" id="container">
+                                                    <div class="form-container sign-up-container">
+                                                        <form action="#">
+                                                            <h1>Create Account</h1>
+                                                            <div class="social-container">
+                                                                <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                                                                <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                                                                <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                                                            </div>
+                                                            <span>or use your email for registration</span>
+                                                            <input type="text" placeholder="Name" />
+                                                            <input type="email" placeholder="Email" />
+                                                            <input type="password" placeholder="Password" />
+                                                            <button class="signInUpBtn">Sign Up</button>
+                                                        </form>
+                                                    </div>
+                                                    <div class="form-container sign-in-container">
+                                                        <form action="#">
+                                                            <h1>Sign in</h1>
+                                                            <div class="social-container">
+                                                                <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                                                                <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                                                                <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                                                            </div>
+                                                            <span>or use your account</span>
+                                                            <input type="email" placeholder="Email" />
+                                                            <input type="password" placeholder="Password" />
+                                                            <a href="#">Forgot your password?</a>
+                                                            <button class="signInUpBtn">Sign In</button>
+                                                        </form>
+                                                    </div>
+                                                    <div class="overlay-container">
+                                                        <div class="overlay-signUp">
+                                                            <div class="overlay-panel overlay-left">
+                                                                <h1>Welcome Back!</h1>
+                                                                <p class="signUp-p">To keep connected with us please login with your personal info</p>
+                                                                <button class="ghost signInUpBtn" id="signIn">Sign In</button>
+                                                            </div>
+                                                            <div class="overlay-panel overlay-right">
+                                                                <h1>Hello, Friend!</h1>
+                                                                <p class="signUp-p">Enter your personal details and start journey with us</p>
+                                                                <button class="ghost signInUpBtn" id="signUp">Sign Up</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                     </div>
-                                    <div class="col-md-8">
-                                        <div class="row">
-                                            <form id="contact" action="" method="post">
-                                                <div class="col-md-6">
-                                                    <fieldset>
-                                                        <input name="name" type="text" class="form-control" id="name" placeholder="Your Name" required="">
-                                                    </fieldset>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <fieldset>
-                                                        <input name="email" type="email" class="form-control" id="email" placeholder="Email" required="">
-                                                    </fieldset>
-                                                </div>
-                                                <div class="col-md-12">
-                                                    <fieldset>
-                                                        <textarea name="message" rows="6" class="form-control" id="message" placeholder="Message" required=""></textarea>
-                                                    </fieldset>
-                                                </div>
-                                                <div class="col-md-12">
-                                                    <fieldset>
-                                                        <button type="submit" id="form-submit" class="btn">Send Message</button>
-                                                    </fieldset>
-                                                </div>
-                                            </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </c:if>
+            <c:if test="${not empty loginUser}">
+                <div class="heading">
+                    <h1>My Page</h1>
+                    <span>You'll be responded within 48 hrs</span>
+                </div>
+                <div class="cd-half-width fivth-slide">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="content fivth-content">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="left-info">
+                                                <p>Maecenas imperdiet sagittis lacus, ut consequat velit iaculis id.
+                                                    Praesent eu consequat urna. Morbi justo dolor, ornare sed lorem et,
+                                                    auctor iaculis ligula.
+                                                    <br><br>
+                                                    <em>5566 Donec mollis libero<br>at metus luctus 10660</em>
+                                                </p>
+                                                <ul class="social-icons">
+                                                    <i><a href="#"><i class="fa fa-facebook"></i></a></i>
+                                                    <i><a href="#"><i class="fa fa-twitter"></i></a></i>
+                                                    <i><a href="#"><i class="fa fa-linkedin"></i></a></i>
+                                                    <i><a href="#"><i class="fa fa-rss"></i></a></i>
+                                                    <i><a href="#"><i class="fa fa-behance"></i></a></i>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="row">
+                                                <form id="contact" action="" method="post">
+                                                    <div class="col-md-6">
+                                                        <fieldset>
+                                                            <input name="name" type="text" class="form-control"
+                                                                   id="name" placeholder="Your Name" required="">
+                                                        </fieldset>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <fieldset>
+                                                            <input name="email" type="email" class="form-control"
+                                                                   id="email" placeholder="Email" required="">
+                                                        </fieldset>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <fieldset>
+                                                            <textarea name="message" rows="6" class="form-control"
+                                                                      id="message" placeholder="Message"
+                                                                      required=""></textarea>
+                                                        </fieldset>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <fieldset>
+                                                            <button type="submit" id="form-submit" class="btn">Send
+                                                                Message
+                                                            </button>
+                                                        </fieldset>
+                                                    </div>
+                                                </form>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -207,17 +279,32 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </c:if>
         </li>
     </ul> <!-- .cd-hero-slider -->
 </section> <!-- .cd-hero -->
 
-<jsp:include page="footer.jsp" />
+<jsp:include page="footer.jsp"/>
 
-<script src="/js/common/vendor/jquery-1.11.2.min.js"></script>
-<script src="js/common/vendor/bootstrap.min.js"></script>
-<script src="js/common/plugins.js"></script>
-<script src="js/common/main.js"></script>
+<script>
+    const signUpButton = document.getElementById('signUp');
+    const signInButton = document.getElementById('signIn');
+    const container = document.getElementById('container');
 
+    signUpButton.addEventListener('click', () => {
+        container.classList.add("right-panel-active");
+    });
+
+    signInButton.addEventListener('click', () => {
+        container.classList.remove("right-panel-active");
+    });
+
+</script>
+<script src="../js/common/vendor/jquery-1.11.2.min.js"></script>
+<script src="../js/common/vendor/bootstrap.min.js"></script>
+<script src="../js/common/plugins.js"></script>
+<script src="../js/common/main.js"></script>
+<script src="../js/member/signUpLogin.js" type="text/javascript"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 </body>
 </html>

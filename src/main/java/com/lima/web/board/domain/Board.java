@@ -2,7 +2,6 @@ package com.lima.web.board.domain;
 
 import com.lima.web.member.domain.Member;
 
-import java.util.List;
 import java.util.Objects;
 
 public class Board {
@@ -14,7 +13,6 @@ public class Board {
     private String goal;
     private String goal_ham;
     private Member member;
-    private List<Member> members;
 
     public int getBoardNo() {
         return boardNo;
@@ -70,14 +68,6 @@ public class Board {
 
     public void setMember(Member member) {
         this.member = member;
-    }
-
-    public List<Member> getMembers() {
-        return members;
-    }
-
-    public void setMembers(List<Member> members) {
-        this.members = members;
     }
 
     @Override
