@@ -1,11 +1,11 @@
 
 
-h1 {
+.signIn-h1 {
     font-weight: bold;
     margin: 0;
 }
 
-h2 {
+.signIn-h2 {
     text-align: center;
 }
 
@@ -14,7 +14,7 @@ h2 {
     font-weight: 100;
     line-height: 20px;
     letter-spacing: 0.5px;
-    margin: 20px 0 30px;
+    margin: 20px 0 30px !important;
     color: black !important;
 }
 
@@ -22,7 +22,7 @@ span {
     font-size: 12px;
 }
 
-a {
+.signIn-a {
     color: #333;
     font-size: 14px;
     text-decoration: none;

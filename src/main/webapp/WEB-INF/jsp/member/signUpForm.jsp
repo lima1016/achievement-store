@@ -1,65 +1,94 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>회원 가입</title>
-    <link rel="stylesheet" href="/css/member/signUpLogin.css">
+    <title>Sign in or Sign Up</title>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="/js/member/signUpLogin.js" type="text/javascript"></script>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/common/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/common/bootstrap-theme.min.css">
+    <link href="../css/common/fontAwesome.css" rel="stylesheet">
+    <link href="../css/common/templatemo-style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/member/signUpLogin.css">
+
 </head>
 <body>
 
-<div class="container-signUp" id="container">
-    <div class="form-container sign-up-container">
-        <form action="#">
-            <h1>Create Account</h1>
-            <div class="social-container">
-                <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-                <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+<div class="overlay"></div>
+<section class="cd-hero">
+    <ul class="cd-hero-slider">
+        <li class="selected">
+            <div class="heading">
+                <h1><a href="/index">Sign In or Sign Up</a></h1>
+                <span>Set your goals and let everyone know your goals.</span>
             </div>
-            <span>or use your email for registration</span>
-            <input type="text" placeholder="Name" />
-            <input type="email" placeholder="Email" />
-            <input type="password" placeholder="Password" />
-            <button>Sign Up</button>
-        </form>
-    </div>
-    <div class="form-container sign-in-container">
-        <form action="#">
-            <h1>Sign in</h1>
-            <div class="social-container">
-                <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-                <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+            <div class="cd-full-width first-slide">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="content first-content">
+                                <div class="signUp-form">
+                                    <div class="container-signUp" id="container">
+                                        <div class="form-container sign-up-container">
+                                            <form action="#">
+                                                <h1 class="signIn-h1">Create Account</h1>
+                                                <div class="social-container">
+                                                    <a href="#" class="social signIn-a"><i class="fab fa-facebook-f"></i></a>
+                                                    <a href="#" class="social signIn-a"><i class="fab fa-google-plus-g"></i></a>
+                                                    <a href="#" class="social signIn-a"><i class="fab fa-linkedin-in"></i></a>
+                                                </div>
+                                                <span>or use your email for registration</span>
+                                                <input type="text" placeholder="Name" />
+                                                <input type="email" placeholder="Email" />
+                                                <input type="password" placeholder="Password" />
+                                                <button class="signInUpBtn">Sign Up</button>
+                                            </form>
+                                        </div>
+                                        <div class="form-container sign-in-container">
+                                            <form action="#">
+                                                <h1 class="signIn-h1">Sign in</h1>
+                                                <div class="social-container">
+                                                    <a href="#" class="social signIn-a"><i class="fab fa-facebook-f"></i></a>
+                                                    <a href="#" class="social signIn-a"><i class="fab fa-google-plus-g"></i></a>
+                                                    <a href="#" class="social signIn-a"><i class="fab fa-linkedin-in"></i></a>
+                                                </div>
+                                                <span>or use your account</span>
+                                                <input type="email" placeholder="Email" />
+                                                <input type="password" placeholder="Password" />
+                                                <a class="signIn-a" href="#">Forgot your password?</a>
+                                                <button class="signInUpBtn">Sign In</button>
+                                            </form>
+                                        </div>
+                                        <div class="overlay-container">
+                                            <div class="overlay-signUp">
+                                                <div class="overlay-panel overlay-left">
+                                                    <h1 class="signIn-h1">Welcome Back!</h1>
+                                                    <p class="signUp-p">To keep connected with us please login with your personal info</p>
+                                                    <button class="ghost signInUpBtn" id="signIn">Sign In</button>
+                                                </div>
+                                                <div class="overlay-panel overlay-right">
+                                                    <h1 class="signIn-h1">Hello, Friend!</h1>
+                                                    <p class="signUp-p">Enter your personal details and start journey with us</p>
+                                                    <button class="ghost signInUpBtn" id="signUp">Sign Up</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <span>or use your account</span>
-            <input type="email" placeholder="Email" />
-            <input type="password" placeholder="Password" />
-            <a href="#">Forgot your password?</a>
-            <button>Sign In</button>
-        </form>
-    </div>
-    <div class="overlay-container">
-        <div class="overlay-signUp">
-            <div class="overlay-panel overlay-left">
-                <h1>Welcome Back!</h1>
-                <p>To keep connected with us please login with your personal info</p>
-                <button class="ghost" id="signIn">Sign In</button>
-            </div>
-            <div class="overlay-panel overlay-right">
-                <h1>Hello, Friend!</h1>
-                <p>Enter your personal details and start journey with us</p>
-                <button class="ghost" id="signUp">Sign Up</button>
-            </div>
-        </div>
-    </div>
-</div>
-<script>
+        </li>
+    </ul> <!-- .cd-hero-slider -->
+</section> <!-- .cd-hero -->
+<jsp:include page="../footer.jsp"/>
 
+<script>
     const signUpButton = document.getElementById('signUp');
     const signInButton = document.getElementById('signIn');
     const container = document.getElementById('container');
@@ -71,9 +100,9 @@
     signInButton.addEventListener('click', () => {
         container.classList.remove("right-panel-active");
     });
+
 </script>
 <script src="../js/member/signUpLogin.js" type="text/javascript"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 </body>
 </html>
-

@@ -943,3 +943,11 @@ body.lb-disable-scrolling {
   text-align: right !important;
   margin-bottom: 2%;
 }
+
+.href-button {
+  background-color: #ffbb05 !important;
+  width: 80px !important;
+  height: 80px!important;
+  border-color: #ffbb05;
+  border-radius: 100px;
+}
