@@ -21,17 +21,19 @@
     <insert id="insert" parameterType="Member">
         insert into member
         (
-        member_name
+        name
         , id
         , password
         , email
+        , ham
         )
         value
         (
-        #{memberName}
+        #{name}
         , #{id}
         , password(#{password})
         , #{email}
+        , 10000
         )
     </insert>
 

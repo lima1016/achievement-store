@@ -5,6 +5,7 @@ import com.lima.web.board.service.BoardService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
@@ -25,6 +26,11 @@ public class BoardController {
 
     @GetMapping("boardForm")
     public void createBoardForm() throws Exception {
+    }
 
+    @PostMapping("add")
+    public String insertBoard(Board board) throws Exception {
+        boardService.insertBoard(board);
+        return "redirect:../index";
     }
 }

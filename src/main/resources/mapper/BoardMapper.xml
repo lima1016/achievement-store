@@ -11,7 +11,9 @@
         <result column="title" property="title"/>
         <result column="contents" property="contents"/>
         <result column="goal" property="goal"/>
-        <result column="goal_ham" property="goal_ham"/>
+        <result column="goal_ham" property="goalHam"/>
+        <result column="goal_date" property="goalDate"/>
+        <result column="is_success" property="isSuccess"/>
     </resultMap>
 
     <resultMap type="Board" id="BoardMemberMap">
@@ -20,13 +22,16 @@
         <result column="title" property="title"/>
         <result column="contents" property="contents"/>
         <result column="goal" property="goal"/>
-        <result column="goal_ham" property="goal_ham"/>
+        <result column="goal_ham" property="goalHam"/>
+        <result column="goal_date" property="goalDate"/>
+        <result column="is_success" property="isSuccess"/>
 
         <collection property="member" ofType="Member">
             <id column="member_no" property="memberNo"/>
             <result column="id" property="id"/>
             <result column="name" property="name"/>
             <result column="ham" property="ham"/>
+            <result column="email" property="email"/>
         </collection>
     </resultMap>
 
@@ -45,4 +50,25 @@
          from board b
          left join member m on b.member_no = m.member_no
     </select>
+
+    <insert id="insert" parameterType="Board">
+        insert into board
+        (
+        title
+        , contents
+        , goal
+        , goal_ham
+        , goal_date
+        , member_no
+        )
+        VALUE
+        (
+        #{title}
+        , #{contents}
+        , #{goal}
+        , #{goalHam}
+        , #{goalDate}
+        , #{memberNo}
+        )
+    </insert>
 </mapper>
