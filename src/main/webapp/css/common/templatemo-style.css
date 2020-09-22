@@ -948,6 +948,10 @@ body.lb-disable-scrolling {
   background-color: #ffbb05 !important;
   width: 80px !important;
   height: 80px!important;
-  border-color: #ffbb05;
   border-radius: 100px;
+  border: 1px solid  #ffbb05;
+  font-size: 15px;
+  float:right;
+  margin-right: 1%;
+  position: sticky;
 }

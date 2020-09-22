@@ -33,7 +33,7 @@
                                 <div class="signUp-form">
                                     <div class="container-signUp" id="container">
                                         <div class="form-container sign-up-container">
-                                            <form action="#">
+                                            <form method="post" action="signUp" name="form" onsubmit="return checkAll();">
                                                 <h1 class="signIn-h1">Create Account</h1>
                                                 <div class="social-container">
                                                     <a href="#" class="social signIn-a"><i class="fab fa-facebook-f"></i></a>
@@ -41,14 +41,18 @@
                                                     <a href="#" class="social signIn-a"><i class="fab fa-linkedin-in"></i></a>
                                                 </div>
                                                 <span>or use your email for registration</span>
-                                                <input type="text" placeholder="Name" />
-                                                <input type="email" placeholder="Email" />
-                                                <input type="password" placeholder="Password" />
+                                                <input type="text" name="name" placeholder="Name" />
+                                                <input type="text" name="id" placeholder="ID" onblur="idCheckFunc()"/>
+                                                <div id="userId_chk" class="vali_check"></div>
+                                                <input type="email" name="email" placeholder="Email" onblur="email_check()"/>
+                                                <div id="email_chk" class="vali_check"></div>
+                                                <input type="password" name="password" placeholder="Password" onblur="password_check()"/>
+                                                <div id="password_chk" class="vali_check"></div>
                                                 <button class="signInUpBtn">Sign Up</button>
                                             </form>
                                         </div>
                                         <div class="form-container sign-in-container">
-                                            <form action="#">
+                                            <form method="POST" action="signIn" name="form">
                                                 <h1 class="signIn-h1">Sign in</h1>
                                                 <div class="social-container">
                                                     <a href="#" class="social signIn-a"><i class="fab fa-facebook-f"></i></a>
@@ -56,8 +60,8 @@
                                                     <a href="#" class="social signIn-a"><i class="fab fa-linkedin-in"></i></a>
                                                 </div>
                                                 <span>or use your account</span>
-                                                <input type="email" placeholder="Email" />
-                                                <input type="password" placeholder="Password" />
+                                                <input type="text" name="id"placeholder="Id" />
+                                                <input type="password" name="password" placeholder="Password" />
                                                 <a class="signIn-a" href="#">Forgot your password?</a>
                                                 <button class="signInUpBtn">Sign In</button>
                                             </form>

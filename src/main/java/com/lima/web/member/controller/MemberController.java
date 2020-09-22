@@ -43,25 +43,28 @@ public class MemberController {
 
     // member sign in
     @PostMapping("signIn")
-    public String signIn(String userId, String password, HttpServletResponse response, HttpSession session) throws Exception {
+    public String signIn(String id, String password, HttpServletResponse httpServletResponse, HttpSession httpSession) throws Exception {
 
         // 응답할 때 클라이언트가 입력한 이메일을 쿠키로 보낸다.
-        Cookie cookie = new Cookie("userId", userId);
+        Cookie cookie = new Cookie("id", id);
         cookie.setMaxAge(60 * 60 * 24 * 15);
-        response.addCookie(cookie);
-        Member member = memberService.findByEmailPassword(userId, password);
+        httpServletResponse.addCookie(cookie);
+
+        Member member = memberService.findByEmailPassword(id, password);
 
         if (member == null) {
+            System.out.println("없니?");
             return "redirect:signUpForm";
         }
-        session.setAttribute("loginUser", member);
-        return "redirect:list";
+
+        httpSession.setAttribute("loginUser", member);
+        return "redirect:../index";
     }
 
     @GetMapping("signOut")
     public String signOut(HttpSession session) throws Exception {
         session.invalidate();
-        return "redirect:index";
+        return "redirect:../index";
     }
 
     // 메소드에 @ResponseBody 로 어노테이션이 되어 있다면 메소드에서 리턴되는 값은 View 를 통해서

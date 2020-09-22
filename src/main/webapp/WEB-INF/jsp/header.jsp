@@ -17,13 +17,22 @@
             <li><a href="#">
                 <div class="header-div"><i class="index-icon fa fa-shopping-bag fa-3x" aria-hidden="true"></i></div>
                 <h6>Store</h6></a></li>
+            <c:if test="${empty loginUser}">
+                <button class="href-button"
+                        onclick="location.href='../member/signUpForm'">Sign In &nbsp;<i
+                        class="icon-cong fas fa-sign-in-alt fa-1x"></i>
+                </button>
+            </c:if>
             <c:if test = "${not empty loginUser}">
                 <li><a href="#">
                     <div class="header-div"><i class="index-icon fa fa-user fa-3x" aria-hidden="true"></i></div>
                     <h6>My Page</h6></a></li>
+                <button class="href-button"
+                        onclick="location.href='member/signOut'">Sign Out<i
+                        class="icon-cong fas fa-sign-out-alt fa-1x"></i>
+                </button>
             </c:if>
         </ul>
     </nav>
-<%--                <button class="href-button" onclick="location.href='../member/signUpForm' ">Sign In</button>--%>
 </div>
 <!-- .cd-slider-nav -->
