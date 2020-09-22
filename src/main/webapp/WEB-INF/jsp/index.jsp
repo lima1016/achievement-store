@@ -149,9 +149,6 @@
         </li>
 
         <li>
-<%--            <c:if test="${empty loginUser}">--%>
-<%--                <jsp:forward page="/member/signUpForm"/>--%>
-<%--            </c:if>--%>
             <c:if test="${not empty loginUser}">
                 <div class="heading">
                     <h1>My Page</h1>
