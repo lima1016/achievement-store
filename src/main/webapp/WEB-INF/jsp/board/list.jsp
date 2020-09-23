@@ -5,7 +5,7 @@
 <div class="board_wrap">
 
     <div class = "board-button-div">
-        <button class = "board-button btn btn-outline-warning" type="button" onclick="location.href='../board/boardForm'"> set my new goal </button>
+        <button class = "board-button btn btn-outline-warning" type="button" onclick="location.href='/board/boardForm?no=${member.memberNo}'"> set my new goal </button>
     </div>
     <table class="table">
         <thead class="thead-dark">

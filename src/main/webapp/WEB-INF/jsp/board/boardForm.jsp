@@ -31,6 +31,8 @@
                             <div class="content first-content">
                                 <form method="post" action="add" name="form">
                                     <div class="form-group">
+                                        <input type="text" id="memberNo" name="memberNo"
+                                               value="${memberNo}" readonly /><br>
                                         <label for="formGroupExampleInput">Title for your goal</label>
                                         <input type="text" class="form-control" id="formGroupExampleInput"
                                                placeholder="Example input">

@@ -28,6 +28,7 @@ public class MemberService {
         map.put("password", password);
 
         Member member = memberDao.findByUserIdPassword(map);
+
         return member;
     }
 
