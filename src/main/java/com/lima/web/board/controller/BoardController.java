@@ -28,6 +28,12 @@ public class BoardController {
     public void createBoardForm() throws Exception {
     }
 
+    /**
+     *
+     * @param board 보드의 값을 받아옴
+     * @return add가 되면 index 주소로 리턴
+     * @throws Exception
+     */
     @PostMapping("add")
     public String insertBoard(Board board) throws Exception {
         boardService.insertBoard(board);
