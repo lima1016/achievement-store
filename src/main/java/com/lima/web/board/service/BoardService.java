@@ -17,7 +17,8 @@ public class BoardService {
         return boardDao.findAll();
     }
 
-    public void insertBoard(Board board) throws Exception{
+    public void insert(Board board) throws Exception{
         boardDao.insert(board);
     }
+
 }

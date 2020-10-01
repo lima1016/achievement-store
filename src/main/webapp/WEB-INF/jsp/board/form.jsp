@@ -31,13 +31,11 @@
                             <div class="content first-content">
                                 <form method="post" action="add" name="form">
                                     <div class="form-group">
-                                        <input type="text" id="memberNo" name="memberNo"
-                                               value="${memberNo}" readonly /><br>
-                                        <label for="formGroupExampleInput">Title for your goal</label>
-                                        <input type="text" class="form-control" id="formGroupExampleInput"
-                                               placeholder="Example input">
-                                    </div>
-                                    <div class="form-group">
+                                        <input type="text" id="member" name="member"
+                                               value="${member.memberNo}" readonly/><br>
+                                        <label for="form-title">Title for your goal</label>
+                                        <input type="text" class="form-control" id="form-title" name="title"
+                                               placeholder="title">
                                         <label for="formGroupExampleInput2">Another label</label>
                                         <input type="text" class="form-control" id="formGroupExampleInput2"
                                                placeholder="Another input">
