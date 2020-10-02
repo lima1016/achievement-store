@@ -21,17 +21,19 @@
     <insert id="insert" parameterType="Member">
         insert into member
         (
-        member_name
+        name
         , id
         , password
         , email
+        , ham
         )
         value
         (
-        #{memberName}
+        #{name}
         , #{id}
         , password(#{password})
         , #{email}
+        , 10000
         )
     </insert>
 
@@ -63,4 +65,11 @@
         where member_no = #{memberNo}
     </select>
 
+    <update id="hamUpdate" parameterType="Member">
+        update member
+        <set>
+            <if test="ham != null">ham=#{ham}</if>
+        </set>
+        where member_no = #{memberNo}
+    </update>
 </mapper>

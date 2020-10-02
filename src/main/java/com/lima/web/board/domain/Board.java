@@ -2,6 +2,7 @@ package com.lima.web.board.domain;
 
 import com.lima.web.member.domain.Member;
 
+import java.util.Date;
 import java.util.Objects;
 
 public class Board {
@@ -11,8 +12,10 @@ public class Board {
     private String title;
     private String contents;
     private String goal;
-    private String goal_ham;
+    private String goalHam;
+    private Date goalDate;
     private Member member;
+    private int isSuccess;
 
     public int getBoardNo() {
         return boardNo;
@@ -54,12 +57,20 @@ public class Board {
         this.goal = goal;
     }
 
-    public String getGoal_ham() {
-        return goal_ham;
+    public String getGoalHam() {
+        return goalHam;
     }
 
-    public void setGoal_ham(String goal_ham) {
-        this.goal_ham = goal_ham;
+    public void setGoalHam(String goalHam) {
+        this.goalHam = goalHam;
+    }
+
+    public Date getGoalDate() {
+        return goalDate;
+    }
+
+    public void setGoalDate(Date goalDate) {
+        this.goalDate = goalDate;
     }
 
     public Member getMember() {
@@ -70,6 +81,14 @@ public class Board {
         this.member = member;
     }
 
+    public int getIsSuccess() {
+        return isSuccess;
+    }
+
+    public void setIsSuccess(int isSuccess) {
+        this.isSuccess = isSuccess;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -77,15 +96,18 @@ public class Board {
         Board board = (Board) o;
         return boardNo == board.boardNo &&
                 memberNo == board.memberNo &&
+                isSuccess == board.isSuccess &&
                 Objects.equals(title, board.title) &&
                 Objects.equals(contents, board.contents) &&
                 Objects.equals(goal, board.goal) &&
-                Objects.equals(goal_ham, board.goal_ham);
+                Objects.equals(goalHam, board.goalHam) &&
+                Objects.equals(goalDate, board.goalDate) &&
+                Objects.equals(member, board.member);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(boardNo, memberNo, title, contents, goal, goal_ham);
+        return Objects.hash(boardNo, memberNo, title, contents, goal, goalHam, goalDate, member, isSuccess);
     }
 
     @Override
@@ -96,7 +118,10 @@ public class Board {
                 ", title='" + title + '\'' +
                 ", contents='" + contents + '\'' +
                 ", goal='" + goal + '\'' +
-                ", goal_ham='" + goal_ham + '\'' +
+                ", goalHam='" + goalHam + '\'' +
+                ", goalDate=" + goalDate +
+                ", member=" + member +
+                ", isSuccess=" + isSuccess +
                 '}';
     }
 }

@@ -41,13 +41,13 @@
                                                     <a href="#" class="social signIn-a"><i class="fab fa-linkedin-in"></i></a>
                                                 </div>
                                                 <span>or use your email for registration</span>
-                                                <input type="text" name="name" placeholder="Name" />
-                                                <input type="text" name="id" placeholder="ID" onblur="idCheckFunc()"/>
-                                                <div id="userId_chk" class="vali_check"></div>
-                                                <input type="email" name="email" placeholder="Email" onblur="email_check()"/>
-                                                <div id="email_chk" class="vali_check"></div>
-                                                <input type="password" name="password" placeholder="Password" onblur="password_check()"/>
-                                                <div id="password_chk" class="vali_check"></div>
+                                                <input type="text" id = "name" name="name" placeholder="Name" required/>
+                                                <input type="text" id= "id" name="id" placeholder="ID" onblur="idCheckFunc()"/>
+                                                <div id="userId_chk"></div>
+                                                <input type="email" id="email" name="email" placeholder="Email" onblur="email_check()"/>
+                                                <div id="email_chk"></div>
+                                                <input type="password" id="password" name="password" placeholder="Password" onblur="password_check()"/>
+                                                <div id="password_chk"></div>
                                                 <button class="signInUpBtn">Sign Up</button>
                                             </form>
                                         </div>

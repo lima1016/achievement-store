@@ -7,4 +7,6 @@ import java.util.List;
 public interface BoardDao {
 
     List<Board> findAll() throws Exception;
+
+    int insert(Board board) throws Exception;
 }

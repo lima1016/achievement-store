@@ -4,9 +4,13 @@
 
 <div class="board_wrap">
 
-    <div class = "board-button-div">
-        <button class = "board-button btn btn-outline-warning" type="button" onclick="location.href='../board/boardForm'"> set my new goal </button>
-    </div>
+    <c:if test="${not empty loginUser}">
+        <div class="board-button-div">
+            <button class="board-button btn btn-outline-warning" type="button"
+                    onclick="location.href='/board/form'"> set my new goal
+            </button>
+        </div>
+    </c:if>
     <table class="table">
         <thead class="thead-dark">
         <tr>
@@ -23,7 +27,7 @@
                 <th scope="row">${board.boardNo}</th>
                 <td>${board.title}</td>
                 <td>${board.goal}</td>
-                <td>${board.member.id}</td>
+                <td>${board.member.name}</td>
             </tr>
         </c:forEach>
         </tbody>
