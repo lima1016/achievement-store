@@ -16,6 +16,7 @@ public class Board {
     private Date goalDate;
     private Member member;
     private int isSuccess;
+    private Date regiDate;
 
     public int getBoardNo() {
         return boardNo;
@@ -89,6 +90,14 @@ public class Board {
         this.isSuccess = isSuccess;
     }
 
+    public Date getRegiDate() {
+        return regiDate;
+    }
+
+    public void setRegiDate(Date regiDate) {
+        this.regiDate = regiDate;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -102,12 +111,13 @@ public class Board {
                 Objects.equals(goal, board.goal) &&
                 Objects.equals(goalHam, board.goalHam) &&
                 Objects.equals(goalDate, board.goalDate) &&
-                Objects.equals(member, board.member);
+                Objects.equals(member, board.member) &&
+                Objects.equals(regiDate, board.regiDate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(boardNo, memberNo, title, contents, goal, goalHam, goalDate, member, isSuccess);
+        return Objects.hash(boardNo, memberNo, title, contents, goal, goalHam, goalDate, member, isSuccess, regiDate);
     }
 
     @Override
@@ -122,6 +132,7 @@ public class Board {
                 ", goalDate=" + goalDate +
                 ", member=" + member +
                 ", isSuccess=" + isSuccess +
+                ", regiDate=" + regiDate +
                 '}';
     }
 }

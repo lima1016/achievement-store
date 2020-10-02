@@ -35,6 +35,12 @@ public class BoardController {
     public void form() throws Exception {
     }
 
+    @GetMapping("detail")
+    public void detail(int boardNo, Model model) throws Exception {
+        Board board = boardService.get(boardNo);
+        model.addAttribute("board", board);
+    }
+
     /**
      *
      * @param httpServletRequest jsp에서 name이 goalHam인 값을 받음

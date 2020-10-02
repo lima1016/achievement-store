@@ -21,4 +21,8 @@ public class BoardService {
         boardDao.insert(board);
     }
 
+    public Board get(int boardNo) throws Exception {
+        return boardDao.findBy(boardNo);
+    }
+
 }

@@ -24,7 +24,7 @@
         <tbody>
         <!-- align="center" -->
         <c:forEach items="${boards}" var="board">
-            <tr class="board-list-tr" onClick="location.href='http://www.daum.net/'" style="cursor:pointer;">
+            <tr class="board-list-tr" onClick="location.href='/board/detail?boardNo=${board.boardNo}'" style="cursor:pointer;">
                 <th scope="row">${board.boardNo}</th>
                 <td>${board.title}</td>
                 <td>${board.goal}</td>
