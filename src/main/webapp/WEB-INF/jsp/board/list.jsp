@@ -17,6 +17,7 @@
             <th scope="col">#</th>
             <th scope="col">제목</th>
             <th scope="col">목표</th>
+            <th scope="col">목표 ham</th>
             <th scope="col">작성자</th>
         </tr>
         </thead>
@@ -27,6 +28,7 @@
                 <th scope="row">${board.boardNo}</th>
                 <td>${board.title}</td>
                 <td>${board.goal}</td>
+                <td>${board.goalHam}</td>
                 <td>${board.member.name}</td>
             </tr>
         </c:forEach>

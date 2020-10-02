@@ -36,26 +36,26 @@
 
                                         <h2 for="form-title">Title for your goal</h2>
                                         <input type="text" class="form-control" id="form-title" name="title"
-                                               placeholder="title"/>
+                                               placeholder="title" required/>
 
                                         <label for="form-goal">Your goal</label>
                                         <input type="text" class="form-control" id="form-goal" name="goal"
-                                               placeholder="goal"/>
+                                               placeholder="goal" required/>
 
                                         <label for="form-contents">contents</label>
                                         <textarea  type="text" class="form-control" id="form-contents" name="contents"
-                                               placeholder="Another input"></textarea>
+                                               placeholder="Another input" required></textarea>
 
                                         <label for="form-myHam">My Ham: </label>
                                         <input type="text" id="form-myHam" value="${loginUser.ham}" readonly>
 
                                         <label for="form-goal-ham">Make a bet:</label>
-                                        <input type="text" id="form-goal-ham" name="goalHam" onblur="ham_CheckFunc()"/>
+                                        <input type="text" id="form-goal-ham" name="goalHam" onblur="ham_CheckFunc()" required/>
                                         <div id="ownHam_chk"></div>
 
                                             <h3>Goal Date</h3>
                                             <div class="input-group date">
-                                                <input type="text" class="form-control" name="goalDate"><span
+                                                <input type="text" class="form-control" name="goalDate" required><span
                                                     class="input-group-addon"><i class="fa fa-calendar" aria-hidden="true"></i></span>
                                             </div>
                                         </div>
