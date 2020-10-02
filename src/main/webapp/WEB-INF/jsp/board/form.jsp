@@ -34,7 +34,7 @@
                                         <input type="hidden" id="member" name="memberNo"
                                                value="${loginUser.memberNo}" readonly/><br>
 
-                                        <label for="form-title">Title for your goal</label>
+                                        <h2 for="form-title">Title for your goal</h2>
                                         <input type="text" class="form-control" id="form-title" name="title"
                                                placeholder="title"/>
 
@@ -43,25 +43,26 @@
                                                placeholder="goal"/>
 
                                         <label for="form-contents">contents</label>
-                                        <input type="text" class="form-control" id="form-contents" name="contents"
-                                               placeholder="Another input"/>
+                                        <textarea  type="text" class="form-control" id="form-contents" name="contents"
+                                               placeholder="Another input"></textarea>
 
-                                        <label for="form-ham">My Ham: </label>
-                                        <input type="text" id="form-ham" value="${loginUser.ham} ham" readonly>
+                                        <label for="form-myHam">My Ham: </label>
+                                        <input type="text" id="form-myHam" value="${loginUser.ham}" readonly>
 
                                         <label for="form-goal-ham">Make a bet:</label>
-                                        <input type="text" id="form-goal-ham" name="goalHam"/>
+                                        <input type="text" id="form-goal-ham" name="goalHam" onblur="ham_CheckFunc()"/>
+                                        <div id="ownHam_chk"></div>
 
-                                        <div class="container">
-                                            <h1>Bootstrap datepicker</h1>
+                                            <h3>Goal Date</h3>
                                             <div class="input-group date">
-                                                <input type="text" class="form-control" name="goalDate"><span class="input-group-addon"><i
-                                                    class="glyphicon glyphicon-calendar"></i></span>
+                                                <input type="text" class="form-control" name="goalDate"><span
+                                                    class="input-group-addon"><i class="fa fa-calendar" aria-hidden="true"></i></span>
                                             </div>
                                         </div>
-                                    </div>
-                                    <button type="submit">Summit</button>
-                                    <button type="button" onclick="history.back()">Back</button>
+                                        <button class="btn btn-primary boardForm-btn" type="submit">Summit</button>
+                                        <button class="btn btn-danger boardForm-btn" type="button"
+                                                onclick="history.back()">Cancel
+                                        </button>
                                 </form>
                             </div>
                         </div>
@@ -72,6 +73,7 @@
     </ul> <!-- .cd-hero-slider -->
 </section> <!-- .cd-hero -->
 
+<script src="../js/board/board.js" type="text/javascript"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
 <script type="text/javascript"
@@ -79,7 +81,7 @@
 <script type='text/javascript' src='//code.jquery.com/jquery-1.8.3.js'></script>
 <script type='text/javascript'
         src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.min.js"></script>
-
+<script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
 <script type='text/javascript'>
     $(function () {
         $('.input-group.date').datepicker({

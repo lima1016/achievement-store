@@ -100,4 +100,5 @@ public class MemberController {
     public @ResponseBody int emailCheck(String email) throws Exception {
         return memberService.emailCheck(email);
     }
+
 }

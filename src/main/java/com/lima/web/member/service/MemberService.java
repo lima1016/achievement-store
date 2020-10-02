@@ -55,4 +55,13 @@ public class MemberService {
         Member member = memberDao.findBy(memberNo);
         return member;
     }
+
+    /**
+     * 보유하고있던 ham의 값이 바뀔때 사용
+     * @param ham 보유하고있던 ham
+     * @throws Exception
+     */
+    public void hamUpdate(int ham) throws Exception {
+        memberDao.hamUpdate(ham);
+    }
 }

@@ -65,4 +65,11 @@
         where member_no = #{memberNo}
     </select>
 
+    <update id="hamUpdate" parameterType="Member">
+        update member
+        <set>
+            <if test="ham != null">ham=#{ham}</if>
+        </set>
+        where member_no = #{memberNo}
+    </update>
 </mapper>
