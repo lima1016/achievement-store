@@ -2,11 +2,13 @@ package com.lima.web.board.controller;
 
 import com.lima.web.board.domain.Board;
 import com.lima.web.board.service.BoardService;
-import com.lima.web.member.domain.Member;
 import com.lima.web.member.service.MemberService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -29,9 +31,7 @@ public class BoardController {
     }
 
     @GetMapping("form")
-    public void form(@ModelAttribute("loginUser") Member loginUser, Model model) throws Exception {
-        Member member = memberService.get(loginUser.getMemberNo());
-        model.addAttribute("member", member);
+    public void form() throws Exception {
     }
 
     /**

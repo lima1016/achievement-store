@@ -27,7 +27,7 @@
                 <th scope="row">${board.boardNo}</th>
                 <td>${board.title}</td>
                 <td>${board.goal}</td>
-                <td>${board.member.id}</td>
+                <td>${board.member.name}</td>
             </tr>
         </c:forEach>
         </tbody>

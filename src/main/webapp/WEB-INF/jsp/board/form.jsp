@@ -31,22 +31,37 @@
                             <div class="content first-content">
                                 <form method="post" action="add" name="form">
                                     <div class="form-group">
-                                        <input type="text" id="member" name="member"
-                                               value="${member.memberNo}" readonly/><br>
+                                        <input type="hidden" id="member" name="memberNo"
+                                               value="${loginUser.memberNo}" readonly/><br>
+
                                         <label for="form-title">Title for your goal</label>
                                         <input type="text" class="form-control" id="form-title" name="title"
-                                               placeholder="title">
-                                        <label for="formGroupExampleInput2">Another label</label>
-                                        <input type="text" class="form-control" id="formGroupExampleInput2"
-                                               placeholder="Another input">
+                                               placeholder="title"/>
+
+                                        <label for="form-goal">Your goal</label>
+                                        <input type="text" class="form-control" id="form-goal" name="goal"
+                                               placeholder="goal"/>
+
+                                        <label for="form-contents">contents</label>
+                                        <input type="text" class="form-control" id="form-contents" name="contents"
+                                               placeholder="Another input"/>
+
+                                        <label for="form-ham">My Ham: </label>
+                                        <input type="text" id="form-ham" value="${loginUser.ham} ham" readonly>
+
+                                        <label for="form-goal-ham">Make a bet:</label>
+                                        <input type="text" id="form-goal-ham" name="goalHam"/>
+
                                         <div class="container">
                                             <h1>Bootstrap datepicker</h1>
                                             <div class="input-group date">
-                                                <input type="text" class="form-control"><span class="input-group-addon"><i
+                                                <input type="text" class="form-control" name="goalDate"><span class="input-group-addon"><i
                                                     class="glyphicon glyphicon-calendar"></i></span>
                                             </div>
                                         </div>
                                     </div>
+                                    <button type="submit">Summit</button>
+                                    <button type="button" onclick="history.back()">Back</button>
                                 </form>
                             </div>
                         </div>
