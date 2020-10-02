@@ -45,6 +45,7 @@
         , b.contents
         , b.goal
         , b.goal_ham
+        , b.regi_date
         , m.member_no
         , m.name
         , m.id

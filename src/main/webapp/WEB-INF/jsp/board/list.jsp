@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 
 <div class="board_wrap">
@@ -17,8 +18,8 @@
             <th scope="col">#</th>
             <th scope="col">제목</th>
             <th scope="col">목표</th>
-            <th scope="col">목표 ham</th>
             <th scope="col">작성자</th>
+            <th scope="col">등록일</th>
         </tr>
         </thead>
         <tbody>
@@ -28,8 +29,10 @@
                 <th scope="row">${board.boardNo}</th>
                 <td>${board.title}</td>
                 <td>${board.goal}</td>
-                <td>${board.goalHam}</td>
                 <td>${board.member.name}</td>
+                <td>
+                    <fmt:formatDate pattern="yyy-MM-dd" value="${board.regiDate}"/>
+                </td>
             </tr>
         </c:forEach>
         </tbody>

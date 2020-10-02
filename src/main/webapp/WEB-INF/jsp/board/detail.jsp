@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
     <title>Achievement Store</title>
@@ -8,7 +9,7 @@
     <link rel="stylesheet" href="../css/common/bootstrap-theme.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
     <link href="../css/common/templatemo-style.css" rel="stylesheet">
-    <link rel="stylesheet" href="../css/board/board.css">
+    <link rel="stylesheet" href="../css/board/detail.css">
 </head>
 <body>
 <div class="overlay"></div>
@@ -24,27 +25,40 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="content first-content">
-                                <form method="post" action="add" name="form">
-                                    <div class="form-group">
-                                        <label for="form-goal">Your goal</label>
-                                        <input class="form-control" id="form-goal" value="${board.goal}" readonly/>
+                                <div class="form-group">
+                                    <h3>Register Date</h3>
+                                    <fmt:formatDate pattern="yyy-MM-dd" value="${board.regiDate}"></fmt:formatDate>
+                                    <br>
+                                    <label for="form-goal">Your goal</label>
+                                    <input class="form-control" id="form-goal" value="${board.goal}" readonly/>
 
-                                        <label for="form-contents">contents</label>
-                                        <textarea  type="text" class="form-control" id="form-contents" readonly>${board.contents}</textarea>
+                                    <label for="form-contents">contents</label>
+                                    <textarea type="text" class="form-control" id="form-contents"
+                                              readonly>${board.contents}</textarea>
 
-                                        <label for="form-goal-ham">Make a bet:</label>
-                                        <input type="text" id="form-goal-ham" value="${board.goalHam}" readonly/>
+                                    <label for="form-goal-ham">Make a bet:</label>
+                                    <input type="text" id="form-goal-ham" value="${board.goalHam}" readonly/>
 
-                                        <h3>Goal Date</h3>
-                                        <div class="input-group date">
-                                            <input type="text" class="form-control" value="${board.goalDate}" readonly>
+                                    <h3>Goal Date</h3>
+                                    <fmt:formatDate pattern="yyy-MM-dd" value="${board.goalDate}"></fmt:formatDate>
+                                </div>
+                                <button class="btn btn-danger boardForm-btn" type="button"
+                                        onclick="history.back()">Back
+                                </button>
+
+                                <div class="detail-comment">
+                                    <div class="container">
+                                        <h2>Posted Comments</h2>
+                                        <div id="comments">
+                                            <p class="dummy"><em>No comments yet!</em></p>
                                         </div>
                                     </div>
-                                    <button class="btn btn-primary boardForm-btn" type="submit">Summit</button>
-                                    <button class="btn btn-danger boardForm-btn" type="button"
-                                            onclick="history.back()">Cancel
-                                    </button>
-                                </form>
+                                    <div class="container">
+                                        <h3>Voice your opinion</h3>
+                                        <textarea class="boardDetail-text" placeholder="Type your opinion here" id="myMessage"></textarea>
+                                        <button id="send">Do it!</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -52,13 +66,11 @@
             </div>
         </li>
     </ul> <!-- .cd-hero-slider -->
+
 </section>
 <jsp:include page="../footer.jsp"/>
+<script src="../js/board/detail.js" type="text/javascript"></script>
 <script src="../js/common/vendor/jquery-1.11.2.min.js"></script>
 <script src="../js/common/vendor/bootstrap.min.js"></script>
-<script src="../js/common/plugins.js"></script>
-<script src="../js/common/main.js"></script>
-<script src="../js/member/signUpLogin.js" type="text/javascript"></script>
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 </body>
 </html>
