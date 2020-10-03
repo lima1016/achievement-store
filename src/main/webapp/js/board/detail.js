@@ -30,10 +30,14 @@ var getPlayerList = function () {
 
     // Devuelve los jugadores etiquetados en el comentario
     getTaggedPlayers = function () {
-        var words = document.getElementById("myMessage").value.replace(/\s/g, " ").split(" "),
+        let words = document.getElementById("myMessage").value.replace(/\s/g, " ").split(" "),
             tagged = new Array();
-        for (var w = 0; w < words.length; w++) {
+
+        let name = document.getElementById("form-loginUserNo").value.replace(/\s/g, " ").split(" "),
+            taggedName = new Array();
+        for (let w = 0; w < words.length; w++) {
             if (words[w].search(/\@/) > -1) {
+                taggedName.push(name[w].replace(/[^\w-]+/g, ''));
                 tagged.push(words[w].replace(/[^\w-]+/g, ''));
             }
         }
@@ -67,10 +71,11 @@ var getPlayerList = function () {
     // Copia el mensaje del textarea al div
     pasteComment = function () {
         var msgBox = document.getElementById("myMessage"),
+            nameBox = document.getElementById("form-loginUserNo"),
             htmlBox = document.getElementById("comments");
         if (htmlBox.querySelectorAll(".dummy").length > 0)
             htmlBox.innerHTML = "";
-        htmlBox.innerHTML = htmlBox.innerHTML + '<div class="comment"><p>' + escapeHTML(msgBox.value) + '</p></div>';
+        htmlBox.innerHTML = htmlBox.innerHTML + '<div class="comment"><p>' + escapeHTML(nameBox.value) + ": " + escapeHTML(msgBox.value) + '</p></div>';
     },
 // Sanea el contenido del comentario
     escapeHTML = function (input) {

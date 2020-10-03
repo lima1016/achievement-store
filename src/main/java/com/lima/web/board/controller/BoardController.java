@@ -1,7 +1,9 @@
 package com.lima.web.board.controller;
 
 import com.lima.web.board.domain.Board;
-import com.lima.web.board.service.BoardService;
+import com.lima.web.board.domain.BoardComments;
+import com.lima.web.board.service.DefaultBoardCommentsService;
+import com.lima.web.board.service.DefaultBoardService;
 import com.lima.web.member.service.MemberService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,14 +22,17 @@ import java.util.List;
 public class BoardController {
 
     @Resource
-    BoardService boardService;
+    DefaultBoardService defaultBoardService;
+
+    @Resource
+    DefaultBoardCommentsService defaultBoardCommentsService;
 
     @Resource
     MemberService memberService;
 
     @GetMapping("list")
     public void list(Model model) throws Exception {
-        List<Board> board = boardService.list();
+        List<Board> board = defaultBoardService.list();
         model.addAttribute("boards", board);
     }
 
@@ -37,7 +42,10 @@ public class BoardController {
 
     @GetMapping("detail")
     public void detail(int boardNo, Model model) throws Exception {
-        Board board = boardService.get(boardNo);
+        Board board = defaultBoardService.get(boardNo);
+        List<BoardComments> boardComments = defaultBoardCommentsService.list(boardNo);
+
+        model.addAttribute("boardComments", boardComments);
         model.addAttribute("board", board);
     }
 
@@ -53,7 +61,7 @@ public class BoardController {
         int ham = Integer.parseInt(httpServletRequest.getParameter("goalHam"));
 
         memberService.hamUpdate(ham, board.getMemberNo());
-        boardService.insert(board);
+        defaultBoardService.insert(board);
         return "redirect:../index";
     }
 }

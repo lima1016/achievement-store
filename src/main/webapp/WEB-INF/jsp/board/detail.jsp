@@ -29,6 +29,9 @@
                                     <h3>Register Date</h3>
                                     <fmt:formatDate pattern="yyy-MM-dd" value="${board.regiDate}"></fmt:formatDate>
                                     <br>
+
+                                    <input type="hidden" class="form-control" id="form-boardNo" value="${board.boardNo}" readonly/>
+
                                     <label for="form-goal">Your goal</label>
                                     <input class="form-control" id="form-goal" value="${board.goal}" readonly/>
 
@@ -55,6 +58,7 @@
                                     </div>
                                     <div class="container">
                                         <h3>Voice your opinion</h3>
+                                        <input id="form-loginUserNo" value="${loginUser.id}"/>
                                         <textarea class="boardDetail-text" placeholder="Type your opinion here" id="myMessage"></textarea>
                                         <button id="send">Do it!</button>
                                     </div>
@@ -72,5 +76,65 @@
 <script src="../js/board/detail.js" type="text/javascript"></script>
 <script src="../js/common/vendor/jquery-1.11.2.min.js"></script>
 <script src="../js/common/vendor/bootstrap.min.js"></script>
+
+
+<%--이거 이용해봐야함--%>
+<script>
+
+<%--    $('#comment-submit').on('click', function (e) {--%>
+<%--        let submitComment = {--%>
+<%--            'boardNo':$('#form-boardNo').val(),--%>
+<%--            'memberNo':$('#form-loginUserNo').val(),--%>
+<%--            'content':$('#myMessage').val()--%>
+<%--        }--%>
+
+<%--        var commentTitle=submitComment.title;--%>
+<%--        var commentContent=submitComment.content;--%>
+<%--        var commentAppend = $('#append-comment');--%>
+
+<%--        $.ajax({--%>
+<%--            url:'/app/comment/add',--%>
+<%--            method:'post',--%>
+<%--            data:JSON.stringify(submitComment),--%>
+<%--            dataType:'json',--%>
+<%--            contentType:'application/json',--%>
+<%--            success: function (result, data) {--%>
+<%--                console.log(result);--%>
+<%--                console.log(data);--%>
+<%--                var commentJson = {--%>
+<%--                    'commentNo': 1,--%>
+<%--                    'nickname': '${loginUser.nickname}',--%>
+<%--                    'title': $('#title').val(),--%>
+<%--                    'createdDate': '2019-11-20',--%>
+<%--                    'content': $('#message').val()--%>
+<%--                };--%>
+<%--                console.log(commentJson);--%>
+<%--                $('#fuck').append(commentTemplate(commentJson));--%>
+<%--                $('#title').val("");--%>
+<%--                $('#message').val("");--%>
+<%--            }--%>
+<%--        })--%>
+<%--    });--%>
+
+
+
+<%--    $(document).on('click', '#answer-submit', function(e) {--%>
+<%--        var answerForm = $(this.parentNode).find('textarea');--%>
+<%--        var commentNo = $(this.parentNode).find('.d-flex').find('.comment-no');--%>
+<%--        var answer = $(this.parentNode).find('#answer-submit');--%>
+
+<%--        $.ajax({--%>
+<%--            url: '/json/boardComments/add',--%>
+<%--            method: 'post',--%>
+<%--            data: {commentNo : $(commentNo).text(), answer: $(answerForm).val()},--%>
+<%--            success: function(result) {--%>
+<%--                $(answerForm).val('');--%>
+<%--                console.log($(answerForm));--%>
+<%--                $(answerForm).attr('style', 'display:none;');--%>
+<%--                $(answer).attr('style', 'display:none');--%>
+<%--            }--%>
+<%--        })--%>
+<%--    })--%>
+</script>
 </body>
 </html>
