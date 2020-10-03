@@ -8,7 +8,7 @@ import java.util.Objects;
 public class BoardComments {
 
     private int commentsNo;
-    private int memberNol;
+    private int memberNo;
     private int boardNo;
     private String comments;
     private Date commentsDate;
@@ -24,12 +24,12 @@ public class BoardComments {
         this.commentsNo = commentsNo;
     }
 
-    public int getMemberNol() {
-        return memberNol;
+    public int getMemberNo() {
+        return memberNo;
     }
 
-    public void setMemberNol(int memberNol) {
-        this.memberNol = memberNol;
+    public void setMemberNo(int memberNol) {
+        this.memberNo = memberNol;
     }
 
     public int getBoardNo() {
@@ -78,7 +78,7 @@ public class BoardComments {
         if (o == null || getClass() != o.getClass()) return false;
         BoardComments that = (BoardComments) o;
         return commentsNo == that.commentsNo &&
-                memberNol == that.memberNol &&
+                memberNo == that.memberNo &&
                 boardNo == that.boardNo &&
                 Objects.equals(comments, that.comments) &&
                 Objects.equals(commentsDate, that.commentsDate) &&
@@ -88,14 +88,14 @@ public class BoardComments {
 
     @Override
     public int hashCode() {
-        return Objects.hash(commentsNo, memberNol, boardNo, comments, commentsDate, member, board);
+        return Objects.hash(commentsNo, memberNo, boardNo, comments, commentsDate, member, board);
     }
 
     @Override
     public String toString() {
         return "BoardComments{" +
                 "commentsNo=" + commentsNo +
-                ", memberNol=" + memberNol +
+                ", memberNol=" + memberNo +
                 ", boardNo=" + boardNo +
                 ", comments='" + comments + '\'' +
                 ", commentsDate=" + commentsDate +

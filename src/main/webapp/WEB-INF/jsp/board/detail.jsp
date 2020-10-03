@@ -50,15 +50,19 @@
                                 </button>
 
                                 <div class="detail-comment">
-                                    <div class="container">
-                                        <h2>Posted Comments</h2>
-                                        <div id="comments">
-                                            <p class="dummy"><em>No comments yet!</em></p>
+                                        <div class="container">
+                                            <h2>Posted Comments</h2>
+                                            <div id="comments">
+                                                <p class="dummy"><em>No comments yet!</em></p>
+                                                <c:forEach items="${boardComments}" var="boardComments">
+                                                    <p>${boardComments.member.name}</p>
+                                                    <p>${boardComments.comments}</p>
+                                                 </c:forEach>
+                                            </div>
                                         </div>
-                                    </div>
                                     <div class="container">
                                         <h3>Voice your opinion</h3>
-                                        <input id="form-loginUserNo" value="${loginUser.id}"/>
+                                        <input id="form-loginUserNo" value="${loginUser.memberNo}"/>
                                         <textarea class="boardDetail-text" placeholder="Type your opinion here" id="myMessage"></textarea>
                                         <button id="send">Do it!</button>
                                     </div>
@@ -81,60 +85,38 @@
 <%--이거 이용해봐야함--%>
 <script>
 
-<%--    $('#comment-submit').on('click', function (e) {--%>
-<%--        let submitComment = {--%>
-<%--            'boardNo':$('#form-boardNo').val(),--%>
-<%--            'memberNo':$('#form-loginUserNo').val(),--%>
-<%--            'content':$('#myMessage').val()--%>
-<%--        }--%>
+    $('#send').on('click', function (e) {
+        let boardNo = $('#form-boardNo').val();
+        let memberNo = $('#form-loginUserNo').val();
+        let comments = $('#myMessage').val();
 
-<%--        var commentTitle=submitComment.title;--%>
-<%--        var commentContent=submitComment.content;--%>
-<%--        var commentAppend = $('#append-comment');--%>
-
-<%--        $.ajax({--%>
-<%--            url:'/app/comment/add',--%>
-<%--            method:'post',--%>
-<%--            data:JSON.stringify(submitComment),--%>
-<%--            dataType:'json',--%>
-<%--            contentType:'application/json',--%>
-<%--            success: function (result, data) {--%>
-<%--                console.log(result);--%>
-<%--                console.log(data);--%>
-<%--                var commentJson = {--%>
-<%--                    'commentNo': 1,--%>
-<%--                    'nickname': '${loginUser.nickname}',--%>
-<%--                    'title': $('#title').val(),--%>
-<%--                    'createdDate': '2019-11-20',--%>
-<%--                    'content': $('#message').val()--%>
-<%--                };--%>
-<%--                console.log(commentJson);--%>
-<%--                $('#fuck').append(commentTemplate(commentJson));--%>
-<%--                $('#title').val("");--%>
-<%--                $('#message').val("");--%>
-<%--            }--%>
-<%--        })--%>
-<%--    });--%>
-
-
-
-<%--    $(document).on('click', '#answer-submit', function(e) {--%>
-<%--        var answerForm = $(this.parentNode).find('textarea');--%>
-<%--        var commentNo = $(this.parentNode).find('.d-flex').find('.comment-no');--%>
-<%--        var answer = $(this.parentNode).find('#answer-submit');--%>
-
-<%--        $.ajax({--%>
-<%--            url: '/json/boardComments/add',--%>
-<%--            method: 'post',--%>
-<%--            data: {commentNo : $(commentNo).text(), answer: $(answerForm).val()},--%>
-<%--            success: function(result) {--%>
-<%--                $(answerForm).val('');--%>
-<%--                console.log($(answerForm));--%>
-<%--                $(answerForm).attr('style', 'display:none;');--%>
-<%--                $(answer).attr('style', 'display:none');--%>
-<%--            }--%>
-<%--        })--%>
-<%--    })--%>
+        $.ajax({
+            url:'/json/boardComments/add',
+            method:'post',
+            data:{boardNo:boardNo, memberNo:memberNo, comments:comments},
+            success: function (result) {
+                console.log("성공함.");
+            }
+        })
+    });
+    //
+    // $(document).on('click', '#answer-submit', function(e) {
+    //     var answerForm = $(this.parentNode).find('textarea');
+    //     var commentNo = $(this.parentNode).find('.d-flex').find('.comment-no');
+    //     var answer = $(this.parentNode).find('#answer-submit');
+    //
+    //     $.ajax({
+    //         url: '/json/boardComments/add',
+    //         method: 'post',
+    //         data: {commentNo : $(commentNo).text(), answer: $(answerForm).val()},
+    //         success: function(result) {
+    //             $(answerForm).val('');
+    //             console.log($(answerForm));
+    //             $(answerForm).attr('style', 'display:none;');
+    //             $(answer).attr('style', 'display:none');
+    //         }
+    //     })
+    // })
 </script>
 </body>
 </html>

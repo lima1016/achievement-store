@@ -19,8 +19,11 @@ public class JsonBoardCommentsController {
     @PostMapping("add")
     public JsonResult add(BoardComments boardComments) throws Exception {
         try {
+            System.out.println(boardComments.getBoardNo());
+            System.out.println(boardComments.getComments());
+            System.out.println(boardComments.getMemberNo());
             defaultBoardCommentsService.insert(boardComments);
-            return new JsonResult().setState(JsonResult.SUCCESS).setResult(boardComments);
+            return new JsonResult().setState(JsonResult.SUCCESS);
         } catch (Exception e) {
             return new JsonResult().setState(JsonResult.FAILURE).setMessage(e.getMessage());
         }
