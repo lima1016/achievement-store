@@ -50,20 +50,39 @@
                                 </button>
 
                                 <div class="detail-comment">
-                                        <div class="container">
-                                            <h2>Posted Comments</h2>
-                                            <div id="comments">
-                                                <p class="dummy"><em>No comments yet!</em></p>
-                                                <c:forEach items="${boardComments}" var="boardComments">
-                                                    <p>${boardComments.member.name}</p>
-                                                    <p>${boardComments.comments}</p>
-                                                 </c:forEach>
-                                            </div>
+                                    <div class="container">
+                                        <h2>Posted Comments</h2>
+                                        <div id="comments">
+                                            <c:forEach items="${boardComments}" var="boardComments">
+                                                <p>${boardComments.member.name}: ${boardComments.comments} ${boardComments.commentsDate}</p>
+                                            </c:forEach>
                                         </div>
+                                        <nav aria-label="Page navigation example">
+                                            <ul class="pagination">
+                                                <li class="page-item" data-page="prev">
+                                                    <a class="page-link" href="#">
+                                                        <span aria-hidden="true">&laquo;</span>
+                                                    </a>
+                                                </li>
+                                                <c:forEach begin="${beginPage}" end="${endPage}" var="page">
+                                                    <li class="page-item" data-page="${page}">
+                                                        <a class="page-link" ${page != pageNo ? "href=#" : ""}>${page}</a>
+                                                    </li>
+                                                </c:forEach>
+                                                <li class="page-item" data-page="next">
+                                                    <a class="page-link" href="#">
+                                                        <span aria-hidden="true">&raquo;</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </nav>
+                                    </div>
                                     <div class="container">
                                         <h3>Voice your opinion</h3>
-                                        <input id="form-loginUserNo" value="${loginUser.memberNo}"/>
-                                        <textarea class="boardDetail-text" placeholder="Type your opinion here" id="myMessage"></textarea>
+                                        <input type="hidden" id="form-loginUserNo" value="${loginUser.memberNo}"/>
+                                        <input id="form-loginUserName" value="${loginUser.name}"/>
+                                        <textarea class="boardDetail-text" placeholder="Type your opinion here"
+                                                  id="myMessage"></textarea>
                                         <button id="send">Do it!</button>
                                     </div>
                                 </div>
@@ -91,32 +110,43 @@
         let comments = $('#myMessage').val();
 
         $.ajax({
-            url:'/json/boardComments/add',
-            method:'post',
-            data:{boardNo:boardNo, memberNo:memberNo, comments:comments},
+            url: '/json/boardComments/add',
+            method: 'post',
+            data: {boardNo: boardNo, memberNo: memberNo, comments: comments},
             success: function (result) {
                 console.log("성공함.");
             }
         })
     });
-    //
-    // $(document).on('click', '#answer-submit', function(e) {
-    //     var answerForm = $(this.parentNode).find('textarea');
-    //     var commentNo = $(this.parentNode).find('.d-flex').find('.comment-no');
-    //     var answer = $(this.parentNode).find('#answer-submit');
-    //
-    //     $.ajax({
-    //         url: '/json/boardComments/add',
-    //         method: 'post',
-    //         data: {commentNo : $(commentNo).text(), answer: $(answerForm).val()},
-    //         success: function(result) {
-    //             $(answerForm).val('');
-    //             console.log($(answerForm));
-    //             $(answerForm).attr('style', 'display:none;');
-    //             $(answer).attr('style', 'display:none');
-    //         }
-    //     })
-    // })
+</script>
+<script>
+    (function () {
+        $('#pageSize').val('${pageSize}')
+    })();
+    $('#pageSize').change((e) => {
+        location.href = "member_list?pageSize=" + $(e.target).val();
+    });
+    var currentPage = ${pageNo};
+    $('.page-item').click((e) => {
+        e.preventDefault();
+        // e.currentTarget? 리스너가 호출될 때, 그 리스너가 등록된 태그를 가르킨다.
+        // e.target? 이벤트가 발생된 원천 태그이다.
+        //var page = e.currentTarget.getAttribute('data-page');
+        var page = $(e.currentTarget).attr('data-page');
+        if (page == "prev") {
+            if (currentPage == 1)
+                return;
+            location.href = "member_list?pageNo=" + (currentPage - 1) + "&pageSize=" + ${pageSize};
+
+        } else if (page == "next") {
+            if (currentPage >= ${totalPage})
+                return;
+            location.href = "member_list?pageNo=" + (currentPage + 1) + "&pageSize=" + ${pageSize};
+
+        } else {
+            location.href = "member_list?pageNo=" + page + "&pageSize=" + ${pageSize};
+        }
+    });
 </script>
 </body>
 </html>

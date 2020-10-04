@@ -41,7 +41,7 @@
         </collection>
     </resultMap>
 
-    <select id="findAll" parameterType="int" resultMap="findAllBoardComments">
+    <select id="findAll" parameterType="map" resultMap="findAllBoardComments">
         select
         c.comments_no
         , c.member_no
@@ -58,6 +58,7 @@
         left join member m on c.member_no = m.member_no
         where c.board_no=#{boardNo}
         order by c.comments_date desc
+        limit #{offset}, #{pageSize}
     </select>
 
     <insert id="insert" parameterType="BoardComments">
@@ -67,7 +68,6 @@
         , member_no
         , board_no
         , comments
-        , comments_date
         )
         value
         (
@@ -75,7 +75,13 @@
         , #{memberNo}
         , #{boardNo}
         , #{comments}
-        , now()
         )
     </insert>
+
+    <select id="countComments" resultType="int">
+        select
+        count(*)
+        from comments
+        where board_no=#{boardNo}
+    </select>
 </mapper>
