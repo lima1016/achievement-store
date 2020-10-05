@@ -43,7 +43,7 @@
                                     <input type="text" id="form-goal-ham" value="${board.goalHam}" readonly/>
 
                                     <h3>Goal Date</h3>
-                                    <fmt:formatDate pattern="yyy-MM-dd" value="${board.goalDate}"></fmt:formatDate>
+                                    <fmt:formatDate pattern="yyyy-MM-dd" value="${board.goalDate}"></fmt:formatDate>
                                 </div>
                                 <button class="btn btn-danger boardForm-btn" type="button"
                                         onclick="history.back()">Back
@@ -53,11 +53,14 @@
                                     <div class="container">
                                         <h2>Posted Comments</h2>
                                         <div id="comments">
+                                            <p id="comments-a"></p>
                                             <c:forEach items="${boardComments}" var="boardComments">
-                                                <p>${boardComments.member.name}: ${boardComments.comments} ${boardComments.commentsDate}</p>
+                                                <p>${boardComments.member.name}: ${boardComments.comments}
+                                                    <fmt:formatDate pattern="yyyy-MM-dd HH:mm"
+                                                                    value="${boardComments.commentsDate}"></fmt:formatDate></p>
                                             </c:forEach>
                                         </div>
-                                        <nav aria-label="Page navigation example">
+                                        <nav aria-label="...">
                                             <ul class="pagination">
                                                 <li class="page-item" data-page="prev">
                                                     <a class="page-link" href="#">
@@ -93,17 +96,12 @@
             </div>
         </li>
     </ul> <!-- .cd-hero-slider -->
-
 </section>
 <jsp:include page="../footer.jsp"/>
 <script src="../js/board/detail.js" type="text/javascript"></script>
 <script src="../js/common/vendor/jquery-1.11.2.min.js"></script>
 <script src="../js/common/vendor/bootstrap.min.js"></script>
-
-
-<%--이거 이용해봐야함--%>
 <script>
-
     $('#send').on('click', function (e) {
         let boardNo = $('#form-boardNo').val();
         let memberNo = $('#form-loginUserNo').val();
@@ -124,7 +122,7 @@
         $('#pageSize').val('${pageSize}')
     })();
     $('#pageSize').change((e) => {
-        location.href = "member_list?pageSize=" + $(e.target).val();
+        location.href = "detail?boardNo=${board.boardNo}&pageSize=" + $(e.target).val();
     });
     var currentPage = ${pageNo};
     $('.page-item').click((e) => {
@@ -136,15 +134,15 @@
         if (page == "prev") {
             if (currentPage == 1)
                 return;
-            location.href = "member_list?pageNo=" + (currentPage - 1) + "&pageSize=" + ${pageSize};
+            location.href = "detail?boardNo=${board.boardNo}&pageNo=" + (currentPage - 1) + "&pageSize=" + ${pageSize};
 
         } else if (page == "next") {
             if (currentPage >= ${totalPage})
                 return;
-            location.href = "member_list?pageNo=" + (currentPage + 1) + "&pageSize=" + ${pageSize};
+            location.href = "detail?boardNo=${board.boardNo}&pageNo=" + (currentPage + 1) + "&pageSize=" + ${pageSize};
 
         } else {
-            location.href = "member_list?pageNo=" + page + "&pageSize=" + ${pageSize};
+            location.href = "detail?boardNo=${board.boardNo}&pageNo=" + page + "&pageSize=" + ${pageSize};
         }
     });
 </script>

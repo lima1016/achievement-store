@@ -32,5 +32,7 @@
 .comment {
     border-top: 1px solid #ddd;
     padding: 1em;
-
+}
+.pagination>li {
+    display: contents !important;
 }
