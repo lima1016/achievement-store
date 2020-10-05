@@ -13,4 +13,6 @@ public interface BoardService {
     void insert(Board board) throws Exception;
 
     Board get(int boardNo) throws Exception;
+
+    List<Board> findAllByMember(int memberNo) throws Exception;
 }

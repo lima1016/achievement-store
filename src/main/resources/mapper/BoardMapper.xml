@@ -37,6 +37,24 @@
         </collection>
     </resultMap>
 
+    <select id="findAllByMember" parameterType="int" resultMap="BoardMemberMap">
+        select
+        b.board_no
+        , b.member_no
+        , b.title
+        , b.contents
+        , b.goal
+        , b.goal_ham
+        , b.regi_date
+        , m.member_no
+        , m.name
+        , m.id
+        , m.ham
+         from board b
+         left join member m on b.member_no = m.member_no
+         where b.member_no = #{memberNo}
+    </select>
+
     <select id="findAll" resultMap="BoardMemberMap">
         select
         b.board_no

@@ -1,13 +1,12 @@
 package com.lima.web.member.controller;
 
+import com.lima.service.BoardService;
+import com.lima.web.board.domain.Board;
 import com.lima.web.member.domain.Member;
 import com.lima.web.member.service.MemberService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.servlet.http.Cookie;
@@ -18,10 +17,20 @@ import java.util.concurrent.ExecutionException;
 
 @Controller
 @RequestMapping("/member")
+@SessionAttributes("loginUser")
 public class MemberController {
 
     @Resource
     private MemberService memberService;
+
+    @Resource
+    private BoardService boardService;
+
+    @GetMapping("mypage")
+    public void doMypage(Model model, @ModelAttribute("loginUser")Member loginUser) throws Exception {
+        List<Board> boards = boardService.findAllByMember(loginUser.getMemberNo());
+        model.addAttribute("boards", boards);
+    }
 
     // member list
     @GetMapping("list")

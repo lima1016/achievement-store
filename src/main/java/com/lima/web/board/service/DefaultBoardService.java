@@ -27,4 +27,9 @@ public class DefaultBoardService implements  BoardService {
         return boardDao.findBy(boardNo);
     }
 
+    @Override
+    public List<Board> findAllByMember(int memberNo) throws Exception {
+        return boardDao.findAllByMember(memberNo);
+    }
+
 }
