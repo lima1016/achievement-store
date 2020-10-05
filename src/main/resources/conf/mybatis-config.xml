@@ -34,5 +34,6 @@
     <mappers>
         <mapper resource="mapper/MemberMapper.xml"/>
         <mapper resource="mapper/BoardMapper.xml"/>
+        <mapper resource="mapper/BoardCommentsMapper.xml"/>
     </mappers>
 </configuration>

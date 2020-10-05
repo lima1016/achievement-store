@@ -61,7 +61,11 @@ public class MemberService {
      * @param ham 보유하고있던 ham
      * @throws Exception
      */
-    public void hamUpdate(int ham) throws Exception {
-        memberDao.hamUpdate(ham);
+    public void hamUpdate(int ham, int memberNo) throws Exception {
+        Member member = memberDao.findBy(memberNo);
+        int newHam = member.getHam() - ham;
+        member.setHam(newHam);
+
+        memberDao.hamUpdate(member);
     }
 }

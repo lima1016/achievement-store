@@ -1,0 +1,38 @@
+.board_wrap {
+    width: 90%;
+    margin: 5% 5%;
+}
+
+.form-group {
+    width: 80%;
+    margin: 2% 10%;
+}
+
+#myMessage,
+#comments {
+    box-sizing: border-box;
+    color: #666;
+    display: block;
+    overflow: hidden;
+    width: 80%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 1% auto;
+    padding: 1em;
+}
+#myMessage {
+    height: 5rem;
+}
+#comments {
+    min-height: 5rem;
+}
+.comment:first-of-type {
+    border: 0;
+}
+.comment {
+    border-top: 1px solid #ddd;
+    padding: 1em;
+}
+.pagination>li {
+    display: contents !important;
+}

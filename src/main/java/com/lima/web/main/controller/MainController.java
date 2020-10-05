@@ -1,7 +1,7 @@
 package com.lima.web.main.controller;
 
 import com.lima.web.board.domain.Board;
-import com.lima.web.board.service.BoardService;
+import com.lima.web.board.service.DefaultBoardService;
 import com.lima.web.member.domain.Member;
 import com.lima.web.member.service.MemberService;
 import org.springframework.stereotype.Controller;
@@ -20,7 +20,7 @@ import java.util.List;
 public class MainController {
 
     @Resource
-    BoardService boardService;
+    DefaultBoardService defaultBoardService;
 
     @Resource
     MemberService memberService;
@@ -32,7 +32,7 @@ public class MainController {
             Member member = memberService.get(((Member)session.getAttribute("loginUser")).getMemberNo());
             model.addAttribute("loginUser", member);
         }
-        List<Board> boards = boardService.list();
+        List<Board> boards = defaultBoardService.list();
         model.addAttribute("boards", boards);
     }
 }

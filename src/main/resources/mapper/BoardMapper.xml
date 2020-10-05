@@ -14,6 +14,7 @@
         <result column="goal_ham" property="goalHam"/>
         <result column="goal_date" property="goalDate"/>
         <result column="is_success" property="isSuccess"/>
+        <result column="regi_date" property="regiDate"/>
     </resultMap>
 
     <resultMap type="Board" id="BoardMemberMap">
@@ -25,6 +26,7 @@
         <result column="goal_ham" property="goalHam"/>
         <result column="goal_date" property="goalDate"/>
         <result column="is_success" property="isSuccess"/>
+        <result column="regi_date" property="regiDate"/>
 
         <collection property="member" ofType="Member">
             <id column="member_no" property="memberNo"/>
@@ -43,6 +45,7 @@
         , b.contents
         , b.goal
         , b.goal_ham
+        , b.regi_date
         , m.member_no
         , m.name
         , m.id
@@ -60,6 +63,7 @@
         , goal_ham
         , goal_date
         , member_no
+        , regi_date
         )
         VALUE
         (
@@ -69,6 +73,14 @@
         , #{goalHam}
         , #{goalDate}
         , #{memberNo}
+        , now()
         )
     </insert>
+
+    <select id="findBy" parameterType="int" resultMap="BoardMap">
+        select
+        *
+        from board
+        where board_no = ${boardNo}
+    </select>
 </mapper>
