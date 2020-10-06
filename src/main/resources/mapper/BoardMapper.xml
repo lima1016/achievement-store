@@ -101,4 +101,10 @@
         from board
         where board_no = ${boardNo}
     </select>
+
+    <delete id="deleteByBoardNo" parameterType="int">
+        delete from board
+        where
+        board_no = #{boardNo};
+    </delete>
 </mapper>

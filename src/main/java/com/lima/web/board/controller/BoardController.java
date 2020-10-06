@@ -1,9 +1,9 @@
 package com.lima.web.board.controller;
 
+import com.lima.service.BoardCommentsService;
+import com.lima.service.BoardService;
 import com.lima.web.board.domain.Board;
 import com.lima.web.board.domain.BoardComments;
-import com.lima.web.board.service.DefaultBoardCommentsService;
-import com.lima.web.board.service.DefaultBoardService;
 import com.lima.web.member.service.MemberService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,17 +19,17 @@ import java.util.List;
 public class BoardController {
 
     @Resource
-    DefaultBoardService defaultBoardService;
+    BoardService boardService;
 
     @Resource
-    DefaultBoardCommentsService defaultBoardCommentsService;
+    BoardCommentsService boardCommentsService;
 
     @Resource
     MemberService memberService;
 
     @GetMapping("list")
     public void list(Model model) throws Exception {
-        List<Board> board = defaultBoardService.list();
+        List<Board> board = boardService.list();
         model.addAttribute("boards", board);
     }
 
@@ -40,7 +40,7 @@ public class BoardController {
     @GetMapping("detail")
     public void detail(int boardNo, Model model, @RequestParam(defaultValue = "1") int pageNo, @RequestParam(defaultValue = "5") int pageSize) throws Exception {
         // 해당 보드에 있는 모든 코멘트들 갯수
-        int size = defaultBoardCommentsService.commentsSize(boardNo);
+        int size = boardCommentsService.commentsSize(boardNo);
 
         // 페이징처리에서 보여주는 숫자
         int totalPage = size / pageSize; // size가 18일때 18 / 3 = 6
@@ -48,8 +48,8 @@ public class BoardController {
             totalPage++;
         }
 
-        Board board = defaultBoardService.get(boardNo);
-        List<BoardComments> boardComments = defaultBoardCommentsService.list(boardNo, pageNo, pageSize);
+        Board board = boardService.get(boardNo);
+        List<BoardComments> boardComments = boardCommentsService.list(boardNo, pageNo, pageSize);
         model.addAttribute("boardComments", boardComments);
         model.addAttribute("board", board);
 
@@ -73,7 +73,19 @@ public class BoardController {
         int ham = Integer.parseInt(httpServletRequest.getParameter("goalHam"));
 
         memberService.hamUpdate(ham, board.getMemberNo());
-        defaultBoardService.insert(board);
+        boardService.insert(board);
+        return "redirect:../index";
+    }
+
+    @GetMapping("delete")
+    public String delete(int boardNo) throws Exception {
+        boardService.deleteByBoardNo(boardNo);
+        return "redirect:../index";
+    }
+
+    @PutMapping("done")
+    public String doneTask(int boardNo) throws Exception {
+        // TODO: 1) 성공 - 내기 건 hamx2 해줘야함. 2) isSuccess 1로 바꿔야함.
         return "redirect:../index";
     }
 }

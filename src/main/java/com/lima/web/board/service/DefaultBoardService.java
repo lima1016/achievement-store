@@ -32,4 +32,9 @@ public class DefaultBoardService implements  BoardService {
         return boardDao.findAllByMember(memberNo);
     }
 
+    @Override
+    public void deleteByBoardNo(int boardNo) throws Exception {
+        boardDao.deleteByBoardNo(boardNo);
+    }
+
 }

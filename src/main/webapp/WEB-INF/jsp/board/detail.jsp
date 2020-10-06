@@ -45,10 +45,17 @@
                                     <h3>Goal Date</h3>
                                     <fmt:formatDate pattern="yyyy-MM-dd" value="${board.goalDate}"></fmt:formatDate>
                                 </div>
-                                <button class="btn btn-danger boardForm-btn" type="button"
+                                <button class="btn btn-secondary" type="button"
                                         onclick="history.back()">Back
                                 </button>
-
+                                <c:if test="${board.memberNo eq loginUser.memberNo}">
+                                    <button class="btn btn-danger boardForm-btn" type="button"
+                                            onClick="location.href='/board/delete?boardNo=${board.boardNo}'">Delete
+                                    </button>
+                                    <button class="btn btn-success boardForm-btn" type="button"
+                                            onClick="location.href='/board/done?boardNo=${board.boardNo}'">Done!
+                                    </button>
+                                </c:if>
                                 <div class="detail-comment">
                                     <div class="container">
                                         <h2>Posted Comments</h2>

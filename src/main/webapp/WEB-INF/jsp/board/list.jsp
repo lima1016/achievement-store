@@ -25,15 +25,18 @@
         <tbody>
         <!-- align="center" -->
         <c:forEach items="${boards}" var="board">
-            <tr class="board-list-tr" onClick="location.href='/board/detail?boardNo=${board.boardNo}'" style="cursor:pointer;">
-                <th scope="row">${board.boardNo}</th>
-                <td>${board.title}</td>
-                <td>${board.goal}</td>
-                <td>${board.member.name}</td>
-                <td>
-                    <fmt:formatDate pattern="yyy-MM-dd" value="${board.regiDate}"/>
-                </td>
-            </tr>
+            <c:if test="${board.isSuccess eq 0}">
+                <tr class="board-list-tr" onClick="location.href='/board/detail?boardNo=${board.boardNo}'"
+                    style="cursor:pointer;">
+                    <th scope="row">${board.boardNo}</th>
+                    <td>${board.title}</td>
+                    <td>${board.goal}</td>
+                    <td>${board.member.name}</td>
+                    <td>
+                        <fmt:formatDate pattern="yyy-MM-dd" value="${board.regiDate}"/>
+                    </td>
+                </tr>
+            </c:if>
         </c:forEach>
         </tbody>
     </table>
