@@ -102,7 +102,7 @@ public class BoardController {
         return "redirect:../index";
     }
 
-    @GetMapping("update")
+    @PostMapping("update")
     public String update(Board board) throws Exception {
         boardService.update(board);
         return "redirect:../index";

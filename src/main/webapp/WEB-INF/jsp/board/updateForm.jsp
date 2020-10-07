@@ -29,7 +29,7 @@
                                     <fmt:formatDate pattern="yyy-MM-dd" value="${board.regiDate}"></fmt:formatDate>
                                     <br>
 
-                                    <form method="get" action="update" name="form">
+                                    <form method="post" action="update" name="form">
                                         <div class="form-group">
                                             <input type="hidden" class="form-control" id="form-boardNo" name="boardNo"
                                                    value="${board.boardNo}"/>
@@ -53,10 +53,10 @@
 
                                             <h3>Goal Date</h3>
                                             <div class="input-group date">
+                                                <fmt:formatDate var="fmtDate" pattern="yyy/MM/dd" value="${board.goalDate}"></fmt:formatDate>
                                                 <input type="text" class="form-control" name="goalDate"
-                                                       value="${board.goalDate}" required><span
-                                                    class="input-group-addon"><i class="fa fa-calendar"
-                                                                                 aria-hidden="true"></i></span>
+                                                       value="${fmtDate}" required>
+                                                <span class="input-group-addon"><i class="fa fa-calendar"aria-hidden="true"></i></span>
                                             </div>
                                         </div>
                                         <button class="btn btn-primary boardForm-btn" type="submit">Summit</button>
@@ -89,6 +89,9 @@
             language: "kr"
         });
     });
+</script>
+<script>
+    history.replaceState({}, null, location.pathname);
 </script>
 </body>
 </html>

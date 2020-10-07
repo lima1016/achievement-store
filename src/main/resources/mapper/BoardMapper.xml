@@ -46,6 +46,7 @@
         , b.goal
         , b.goal_ham
         , b.regi_date
+        , b.is_success
         , m.member_no
         , m.name
         , m.id
@@ -64,6 +65,7 @@
         , b.goal
         , b.goal_ham
         , b.regi_date
+        , b.is_success
         , m.member_no
         , m.name
         , m.id
@@ -102,11 +104,14 @@
         where board_no = ${boardNo}
     </select>
 
-    <delete id="deleteByBoardNo" parameterType="Board">
-        delete from board
+    <update id="deleteByBoardNo" parameterType="Board">
+        update board
+        <set>
+            is_success = 9
+        </set>
         where
         board_no = #{boardNo};
-    </delete>
+    </update>
 
     <update id="update" parameterType="int">
         update board
