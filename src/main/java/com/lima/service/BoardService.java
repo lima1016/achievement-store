@@ -14,7 +14,9 @@ public interface BoardService {
 
     Board get(int boardNo) throws Exception;
 
-    List<Board> findAllByMember(int memberNo) throws Exception;
+    List<Board> showMyBoardList(int memberNo) throws Exception;
 
     void deleteByBoardNo(int boardNo) throws Exception;
+
+    void update(Board board) throws Exception;
 }

@@ -37,7 +37,7 @@
         </collection>
     </resultMap>
 
-    <select id="findAllByMember" parameterType="int" resultMap="BoardMemberMap">
+    <select id="findAllByMemberNo" parameterType="int" resultMap="BoardMemberMap">
         select
         b.board_no
         , b.member_no
@@ -102,9 +102,20 @@
         where board_no = ${boardNo}
     </select>
 
-    <delete id="deleteByBoardNo" parameterType="int">
+    <delete id="deleteByBoardNo" parameterType="Board">
         delete from board
         where
         board_no = #{boardNo};
     </delete>
+
+    <update id="update" parameterType="int">
+        update board
+        <set>
+            <if test="title != null"> title = #{title} </if>
+            , <if test="contents != null"> contents = #{contents} </if>
+            , <if test="goal != null"> goal = #{goal} </if>
+            , <if test="goalDate != null"> goal_date = #{goalDate} </if>
+        </set>
+        where board_no = #{boardNo}
+    </update>
 </mapper>

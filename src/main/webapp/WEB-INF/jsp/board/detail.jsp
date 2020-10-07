@@ -49,12 +49,22 @@
                                         onclick="history.back()">Back
                                 </button>
                                 <c:if test="${board.memberNo eq loginUser.memberNo}">
-                                    <button class="btn btn-danger boardForm-btn" type="button"
-                                            onClick="location.href='/board/delete?boardNo=${board.boardNo}'">Delete
-                                    </button>
-                                    <button class="btn btn-success boardForm-btn" type="button"
-                                            onClick="location.href='/board/done?boardNo=${board.boardNo}'">Done!
-                                    </button>
+                                    <div id="boardBtn_1">
+                                        <button class="btn btn-success" type="button"
+                                                onClick="location.href='/board/done?boardNo=${board.boardNo}'">Done!
+                                        </button>
+                                        <button class="btn btn-warning" type="button"
+                                                onClick="location.href='/board/fail?boardNo=${board.boardNo}'">Fail!
+                                        </button>
+                                    </div>
+                                    <div id="boardBtn_2">
+                                        <button class="btn btn-danger board-deleteBtn" type="button"
+                                                onClick="location.href='/board/delete?boardNo=${board.boardNo}'">Delete
+                                        </button>
+                                        <button class="btn btn-info board-deleteBtn" type="button"
+                                                onClick="location.href='/board/updateForm?boardNo=${board.boardNo}'">Update
+                                        </button>
+                                    </div>
                                 </c:if>
                                 <div class="detail-comment">
                                     <div class="container">

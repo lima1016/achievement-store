@@ -1,7 +1,6 @@
 package com.lima.web.member.controller;
 
 import com.lima.service.BoardService;
-import com.lima.web.board.domain.Board;
 import com.lima.web.member.domain.Member;
 import com.lima.web.member.service.MemberService;
 import org.springframework.stereotype.Controller;
@@ -27,9 +26,8 @@ public class MemberController {
     private BoardService boardService;
 
     @GetMapping("mypage")
-    public void doMypage(Model model, @ModelAttribute("loginUser")Member loginUser) throws Exception {
-        List<Board> boards = boardService.findAllByMember(loginUser.getMemberNo());
-        model.addAttribute("boards", boards);
+    public void doMypage() throws Exception {
+
     }
 
     // member list

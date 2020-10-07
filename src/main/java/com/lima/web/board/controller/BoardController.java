@@ -37,6 +37,19 @@ public class BoardController {
     public void form() throws Exception {
     }
 
+    @GetMapping("updateForm")
+    public void updateForm(int boardNo, Model model) throws Exception {
+        Board board = boardService.get(boardNo);
+        model.addAttribute("board", board);
+    }
+    /**
+     *
+     * @param boardNo 넘어온 보드 넘버
+     * @param model 객체를 담아 view에 뿌려주기위한 model 준비
+     * @param pageNo
+     * @param pageSize
+     * @throws Exception
+     */
     @GetMapping("detail")
     public void detail(int boardNo, Model model, @RequestParam(defaultValue = "1") int pageNo, @RequestParam(defaultValue = "5") int pageSize) throws Exception {
         // 해당 보드에 있는 모든 코멘트들 갯수
@@ -77,15 +90,44 @@ public class BoardController {
         return "redirect:../index";
     }
 
+    /**
+     * 해당 유저의 게시판 지우기
+     * @param boardNo 보드 번호 받기
+     * @return 삭제가 완료 되면 index로 redirect
+     * @throws Exception
+     */
     @GetMapping("delete")
     public String delete(int boardNo) throws Exception {
         boardService.deleteByBoardNo(boardNo);
         return "redirect:../index";
     }
 
+    @GetMapping("update")
+    public String update(Board board) throws Exception {
+        boardService.update(board);
+        return "redirect:../index";
+    }
+    /**
+     * 약속을 성공 했을시
+     * @param boardNo
+     * @return
+     * @throws Exception
+     */
     @PutMapping("done")
     public String doneTask(int boardNo) throws Exception {
         // TODO: 1) 성공 - 내기 건 hamx2 해줘야함. 2) isSuccess 1로 바꿔야함.
+        return "redirect:../index";
+    }
+
+    /**
+     * 약속을 실패 했을시
+     * @param boardNo
+     * @return
+     * @throws Exception
+     */
+    @PutMapping("fail")
+    public String failTask(int boardNo) throws Exception {
+        // TODO: 1) 실패 - isSuccess 2로 바꿔야함.
         return "redirect:../index";
     }
 }

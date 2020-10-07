@@ -1,7 +1,7 @@
 package com.lima.web.main.controller;
 
+import com.lima.service.BoardService;
 import com.lima.web.board.domain.Board;
-import com.lima.web.board.service.DefaultBoardService;
 import com.lima.web.member.domain.Member;
 import com.lima.web.member.service.MemberService;
 import org.springframework.stereotype.Controller;
@@ -20,19 +20,25 @@ import java.util.List;
 public class MainController {
 
     @Resource
-    DefaultBoardService defaultBoardService;
+    BoardService boardService;
 
     @Resource
     MemberService memberService;
 
     // SessionAttributes 로 로그인 유저를 저장하고 jsp 에서 no?= 파라미터 값 노출을 막음.
     @GetMapping("index")
-    public void index(Model model, HttpSession session) throws  Exception{
-        if(session.getAttribute("loginUser") != null){
-            Member member = memberService.get(((Member)session.getAttribute("loginUser")).getMemberNo());
+    public void index(Model model, HttpSession session) throws  Exception {
+        Member loginUser = ((Member) session.getAttribute("loginUser"));
+        if (loginUser != null) {
+            Member member = memberService.get(loginUser.getMemberNo());
             model.addAttribute("loginUser", member);
+            // 로그인한 유저만의 Board불러오기
+            List<Board> myBoards = boardService.showMyBoardList(loginUser.getMemberNo());
+            model.addAttribute("myBoards", myBoards);
         }
-        List<Board> boards = defaultBoardService.list();
+
+        // 모든 모드 들고 오기
+        List<Board> boards = boardService.list();
         model.addAttribute("boards", boards);
     }
 }

@@ -9,6 +9,7 @@ public interface BoardDao {
     List<Board> findAll() throws Exception;
     int insert(Board board) throws Exception;
     Board findBy(int boardNo) throws Exception;
-    List<Board> findAllByMember(int memberNo) throws Exception;
+    List<Board> findAllByMemberNo(int memberNo) throws Exception;
     void deleteByBoardNo(int boardNo) throws Exception;
+    void update(Board board) throws Exception;
 }

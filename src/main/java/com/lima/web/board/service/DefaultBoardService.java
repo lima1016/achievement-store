@@ -28,13 +28,18 @@ public class DefaultBoardService implements  BoardService {
     }
 
     @Override
-    public List<Board> findAllByMember(int memberNo) throws Exception {
-        return boardDao.findAllByMember(memberNo);
+    public List<Board> showMyBoardList(int memberNo) throws Exception {
+        return boardDao.findAllByMemberNo(memberNo);
     }
 
     @Override
     public void deleteByBoardNo(int boardNo) throws Exception {
         boardDao.deleteByBoardNo(boardNo);
+    }
+
+    @Override
+    public void update(Board board) throws Exception {
+        boardDao.update(board);
     }
 
 }
