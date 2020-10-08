@@ -74,17 +74,6 @@ public class MemberController {
         return "redirect:../index";
     }
 
-    /**
-     * @param session session에 남아있는 로그인한 유저의 값을 지우기 위하여 사용.
-     * @return 정상적으로 signOut이 되면 index로 돌아감.
-     * @throws Exception
-     */
-    @GetMapping("signOut")
-    public String signOut(HttpSession session) throws Exception {
-        session.invalidate();
-        return "redirect:../index";
-    }
-
     // 메소드에 @ResponseBody 로 어노테이션이 되어 있다면 메소드에서 리턴되는 값은 View 를 통해서
     // 출력되지 않고 HTTP Response Body 에 직접 쓰여지게 됩니다.
 
@@ -109,8 +98,8 @@ public class MemberController {
     }
 
     @PostMapping("updateMyInfo")
-    public String updateInfo(@ModelAttribute("loginUser") Member loginUser) throws Exception {
-        System.out.println("뭐나오냐: " + loginUser);
+    public String updateInfo(HttpSession session) throws Exception {
+        Member loginUser = ((Member) session.getAttribute("loginUser"));
         memberService.updateMyInfo(loginUser);
         return "redirect: ../index";
     }

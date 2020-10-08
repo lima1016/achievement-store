@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -110,7 +111,8 @@ public class BoardController {
     }
 
     @PostMapping("done")
-    public String doneTask(Board board, @ModelAttribute("loginUser") Member loginUser) throws Exception {
+    public String doneTask(Board board, HttpSession session) throws Exception {
+        Member loginUser = ((Member) session.getAttribute("loginUser"));
         boardService.successMission(board, loginUser);
         return "redirect:../index";
     }

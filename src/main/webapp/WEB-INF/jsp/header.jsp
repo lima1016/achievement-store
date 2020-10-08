@@ -28,7 +28,7 @@
                     <div class="header-div"><i class="index-icon fa fa-user fa-3x" aria-hidden="true"></i></div>
                     <h6>My Page</h6></a></li>
                 <button class="href-button"
-                        onclick="location.href='member/signOut'">Sign Out<i
+                        onclick="location.href='auth/signOut'">Sign Out<i
                         class="icon-cong fas fa-sign-out-alt fa-1x"></i>
                 </button>
             </c:if>
