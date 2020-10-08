@@ -52,8 +52,7 @@ public class MemberService {
     }
 
     public Member get(int memberNo) throws Exception {
-        Member member = memberDao.findBy(memberNo);
-        return member;
+        return memberDao.findBy(memberNo);
     }
 
     /**
@@ -67,5 +66,9 @@ public class MemberService {
         member.setHam(newHam);
 
         memberDao.hamUpdate(member);
+    }
+
+    public void updateMyInfo(Member member) throws Exception {
+        memberDao.updateMyInfo(member);
     }
 }

@@ -1,6 +1,7 @@
 package com.lima.service;
 
 import com.lima.web.board.domain.Board;
+import com.lima.web.member.domain.Member;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,4 +20,9 @@ public interface BoardService {
     void deleteByBoardNo(int boardNo) throws Exception;
 
     void update(Board board) throws Exception;
+
+    void failMission(int boardNo) throws Exception;
+
+    void successMission(Board board, Member member) throws Exception;
+
 }

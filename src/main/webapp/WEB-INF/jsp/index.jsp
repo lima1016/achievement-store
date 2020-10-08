@@ -16,12 +16,18 @@
           integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/board/board.css">
     <link rel="stylesheet" href="../css/member/signUpLogin.css">
+
+    <%--    mypage--%>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="../css/member/mypage.css">
+
 </head>
 <body>
 
 <div class="overlay"></div>
 <section class="cd-hero">
-    <jsp:include page="header.jsp" />
+    <jsp:include page="header.jsp"/>
     <ul class="cd-hero-slider">
         <li class="selected">
             <div class="heading">

@@ -113,14 +113,39 @@
         board_no = #{boardNo};
     </update>
 
-    <update id="update" parameterType="int">
+    <update id="update" parameterType="Board">
         update board
         <set>
-            <if test="title != null"> title = #{title} </if>
-            , <if test="contents != null"> contents = #{contents} </if>
-            , <if test="goal != null"> goal = #{goal} </if>
-            , <if test="goalDate != null"> goal_date = #{goalDate} </if>
+            <if test="title != null">title = #{title}</if>
+            ,
+            <if test="contents != null">contents = #{contents}</if>
+            ,
+            <if test="goal != null">goal = #{goal}</if>
+            ,
+            <if test="goalDate != null">goal_date = #{goalDate}</if>
         </set>
         where board_no = #{boardNo}
+    </update>
+
+    <update id="failMission" parameterType="int">
+        update board
+        <set>
+            is_success = 2
+        </set>
+        where
+        board_no = #{boardNo};
+    </update>
+
+    <update id="successMission" parameterType="map">
+        update
+        board b left join member m
+		  ON b.member_no = m.member_no
+        <set>
+            b.is_success = 1
+            , m.ham = #{ham}
+        </set>
+        where
+            b.board_no = #{boardNo}
+        and b.member_no = #{memberNo}
     </update>
 </mapper>

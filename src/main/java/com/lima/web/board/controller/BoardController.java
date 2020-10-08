@@ -4,6 +4,7 @@ import com.lima.service.BoardCommentsService;
 import com.lima.service.BoardService;
 import com.lima.web.board.domain.Board;
 import com.lima.web.board.domain.BoardComments;
+import com.lima.web.member.domain.Member;
 import com.lima.web.member.service.MemberService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -107,15 +108,10 @@ public class BoardController {
         boardService.update(board);
         return "redirect:../index";
     }
-    /**
-     * 약속을 성공 했을시
-     * @param boardNo
-     * @return
-     * @throws Exception
-     */
-    @PutMapping("done")
-    public String doneTask(int boardNo) throws Exception {
-        // TODO: 1) 성공 - 내기 건 hamx2 해줘야함. 2) isSuccess 1로 바꿔야함.
+
+    @PostMapping("done")
+    public String doneTask(Board board, @ModelAttribute("loginUser") Member loginUser) throws Exception {
+        boardService.successMission(board, loginUser);
         return "redirect:../index";
     }
 
@@ -125,9 +121,9 @@ public class BoardController {
      * @return
      * @throws Exception
      */
-    @PutMapping("fail")
+    @GetMapping("fail")
     public String failTask(int boardNo) throws Exception {
-        // TODO: 1) 실패 - isSuccess 2로 바꿔야함.
+        boardService.failMission(boardNo);
         return "redirect:../index";
     }
 }

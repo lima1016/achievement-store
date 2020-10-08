@@ -108,4 +108,10 @@ public class MemberController {
         return memberService.emailCheck(email);
     }
 
+    @PostMapping("updateMyInfo")
+    public String updateInfo(@ModelAttribute("loginUser") Member loginUser) throws Exception {
+        System.out.println("뭐나오냐: " + loginUser);
+        memberService.updateMyInfo(loginUser);
+        return "redirect: ../index";
+    }
 }

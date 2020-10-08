@@ -14,4 +14,5 @@ public interface MemberDao {
     int checkEmail(String email) throws Exception;
     Member findBy(int memberNo) throws Exception;
     void hamUpdate(Member member) throws Exception;
+    void updateMyInfo(Member member) throws Exception;
 }

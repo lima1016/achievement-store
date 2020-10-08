@@ -33,7 +33,7 @@
                                 <div class="signUp-form">
                                     <div class="container-signUp" id="container">
                                         <div class="form-container sign-up-container">
-                                            <form method="post" action="signUp" name="form" onsubmit="return checkAll();">
+                                            <form class= "form-signUp" method="post" action="signUp" name="form" onsubmit="return checkAll();">
                                                 <h1 class="signIn-h1">Create Account</h1>
                                                 <div class="social-container">
                                                     <a href="#" class="social signIn-a"><i class="fab fa-facebook-f"></i></a>
@@ -52,7 +52,7 @@
                                             </form>
                                         </div>
                                         <div class="form-container sign-in-container">
-                                            <form method="POST" action="signIn" name="form">
+                                            <form class= "form-signUp" method="POST" action="signIn" name="form">
                                                 <h1 class="signIn-h1">Sign in</h1>
                                                 <div class="social-container">
                                                     <a href="#" class="social signIn-a"><i class="fab fa-facebook-f"></i></a>

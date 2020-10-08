@@ -72,4 +72,14 @@
         </set>
         where member_no = #{memberNo}
     </update>
+
+    <update id="updateMyInfo" parameterType="Member">
+        update member
+        <set>
+            <if test="name != null">name=#{name}</if>
+            , <if test="email != null">email=#{email}</if>
+            , <if test="password != ''">password=password(#{password})</if>
+        </set>
+        where member_no = #{memberNo}
+    </update>
 </mapper>
