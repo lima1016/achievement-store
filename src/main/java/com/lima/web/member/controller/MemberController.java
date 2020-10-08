@@ -98,8 +98,7 @@ public class MemberController {
     }
 
     @PostMapping("updateMyInfo")
-    public String updateInfo(HttpSession session) throws Exception {
-        Member loginUser = ((Member) session.getAttribute("loginUser"));
+    public String updateInfo(@ModelAttribute("loginUser") Member loginUser) throws Exception {
         memberService.updateMyInfo(loginUser);
         return "redirect: ../index";
     }
