@@ -14,6 +14,72 @@
         <result column="ham" property="ham"/>
     </resultMap>
 
+    <resultMap type="Member" id="MemberHamMap">
+        <id column="member_no" property="memberNo"/>
+        <result column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="email" property="email"/>
+        <result column="password" property="password"/>
+
+        <collection property="deposit" ofType="Deposit">
+            <id column="member_no" property="memberNo"/>
+            <result column="ham" property="ham"/>
+            <result column="deposit_date" property="depositDate"/>
+        </collection>
+
+        <collection property="withdraw" ofType="Withdraw">
+            <id column="member_no" property="memberNo"/>
+            <result column="ham" property="ham"/>
+            <result column="withdraw_date" property="withdrawDate"/>
+        </collection>
+    </resultMap>
+
+    <insert id="insertDeposit" parameterType="Deposit">
+        insert into deposit
+        (
+        member_no
+        , ham
+        , deposit_date
+        )
+        value
+        (
+        #{memberNo}
+        , #{ham}
+        , now()
+        )
+    </insert>
+
+    <insert id="insertWithdraw" parameterType="Withdraw">
+        insert into withdraw
+        (
+        member_no
+        , ham
+        , withdraw_date
+        )
+        value
+        (
+        #{memberNo}
+        , #{ham}
+        , now()
+        )
+    </insert>
+
+    <select id="findAllHamHistory" parameterType="int" resultMap="MemberHamMap">
+        select
+        m.member_no
+        , m.ham
+        , d.member_no
+        , d.ham
+        , d.deposit_date
+        , w.member_no
+        , w.ham
+        , w.withdraw_date
+        from member m
+        left join deposit d on m.member_no = d.member_no
+        left join withdraw w on m.member_no = w.member_no
+        where m.member_no = #{memberNo}
+        order by d.deposit_date DESC, w.withdraw_date DESC
+    </select>
     <select id="findAll" resultMap="MemberMap">
         select * from member
     </select>

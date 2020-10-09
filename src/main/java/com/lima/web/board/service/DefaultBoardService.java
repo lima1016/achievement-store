@@ -3,6 +3,8 @@ package com.lima.web.board.service;
 import com.lima.service.BoardService;
 import com.lima.web.board.dao.BoardDao;
 import com.lima.web.board.domain.Board;
+import com.lima.web.member.dao.MemberDao;
+import com.lima.web.member.domain.Deposit;
 import com.lima.web.member.domain.Member;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +17,9 @@ public class DefaultBoardService implements  BoardService {
 
     @Resource
     BoardDao boardDao;
+
+    @Resource
+    MemberDao memberDao;
 
     @Override
     public List<Board> list() throws Exception{
@@ -52,13 +57,20 @@ public class DefaultBoardService implements  BoardService {
     @Override
     public void successMission(Board board, Member member) throws Exception {
         HashMap<String, Object> map = new HashMap<>();
+        Deposit deposit = new Deposit();
+
         int getReward = Integer.parseInt(board.getGoalHam()) * 2;
         int totalHam = member.getHam() + getReward;
+
         member.setHam(totalHam);
+        deposit.setHam(getReward);
+        deposit.setMemberNo(member.getMemberNo());
 
         map.put("ham", member.getHam());
         map.put("boardNo", board.getBoardNo());
         map.put("memberNo", member.getMemberNo());
+
+        memberDao.insertDeposit(deposit);
         boardDao.successMission(map);
     }
 
