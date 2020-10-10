@@ -14,6 +14,18 @@
         <result column="ham" property="ham"/>
     </resultMap>
 
+    <resultMap type="Deposit" id="DepositMap">
+        <id column="member_no" property="memberNo"/>
+        <result column="ham" property="ham"/>
+        <result column="deposit_date" property="depositDate"/>
+    </resultMap>
+
+    <resultMap type="Withdraw" id="WithdrawMap">
+        <id column="member_no" property="memberNo"/>
+        <result column="ham" property="ham"/>
+        <result column="withdraw_date" property="withdrawDate"/>
+    </resultMap>
+
     <resultMap type="Member" id="MemberHamMap">
         <id column="member_no" property="memberNo"/>
         <result column="id" property="id"/>
