@@ -1,7 +1,10 @@
 package com.lima.web.member.service;
 
 import com.lima.web.member.dao.MemberDao;
+import com.lima.web.member.domain.Deposit;
 import com.lima.web.member.domain.Member;
+import com.lima.web.member.domain.Withdraw;
+import lombok.With;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -52,20 +55,38 @@ public class MemberService {
     }
 
     public Member get(int memberNo) throws Exception {
-        Member member = memberDao.findBy(memberNo);
-        return member;
+        return memberDao.findBy(memberNo);
     }
 
     /**
-     * 보유하고있던 ham의 값이 바뀔때 사용
-     * @param ham 보유하고있던 ham
+     *
+     * @param ham
+     * @param memberNo
      * @throws Exception
      */
     public void hamUpdate(int ham, int memberNo) throws Exception {
         Member member = memberDao.findBy(memberNo);
+        Withdraw withdraw = new Withdraw();
         int newHam = member.getHam() - ham;
+
+        withdraw.setMemberNo(memberNo);
+        withdraw.setHam(ham);
         member.setHam(newHam);
 
+        memberDao.insertWithdraw(withdraw);
         memberDao.hamUpdate(member);
+    }
+
+    public void updateMyInfo(Member member) throws Exception {
+        memberDao.updateMyInfo(member);
+    }
+    public void findAllHamHistory(int memberNo) throws Exception{
+        memberDao.findAllHamHistory(memberNo);
+    }
+    public void insertDeposit(Deposit deposit) throws Exception{
+        memberDao.insertDeposit(deposit);
+    }
+    public void insertWithdraw(Withdraw withdraw) throws Exception{
+        memberDao.insertWithdraw(withdraw);
     }
 }

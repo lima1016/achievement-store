@@ -37,6 +37,25 @@
         </collection>
     </resultMap>
 
+    <select id="findAllByMemberNo" parameterType="int" resultMap="BoardMemberMap">
+        select
+        b.board_no
+        , b.member_no
+        , b.title
+        , b.contents
+        , b.goal
+        , b.goal_ham
+        , b.regi_date
+        , b.is_success
+        , m.member_no
+        , m.name
+        , m.id
+        , m.ham
+         from board b
+         left join member m on b.member_no = m.member_no
+         where b.member_no = #{memberNo}
+    </select>
+
     <select id="findAll" resultMap="BoardMemberMap">
         select
         b.board_no
@@ -46,6 +65,7 @@
         , b.goal
         , b.goal_ham
         , b.regi_date
+        , b.is_success
         , m.member_no
         , m.name
         , m.id
@@ -83,4 +103,49 @@
         from board
         where board_no = ${boardNo}
     </select>
+
+    <update id="deleteByBoardNo" parameterType="Board">
+        update board
+        <set>
+            is_success = 9
+        </set>
+        where
+        board_no = #{boardNo};
+    </update>
+
+    <update id="update" parameterType="Board">
+        update board
+        <set>
+            <if test="title != null">title = #{title}</if>
+            ,
+            <if test="contents != null">contents = #{contents}</if>
+            ,
+            <if test="goal != null">goal = #{goal}</if>
+            ,
+            <if test="goalDate != null">goal_date = #{goalDate}</if>
+        </set>
+        where board_no = #{boardNo}
+    </update>
+
+    <update id="failMission" parameterType="int">
+        update board
+        <set>
+            is_success = 2
+        </set>
+        where
+        board_no = #{boardNo};
+    </update>
+
+    <update id="successMission" parameterType="map">
+        update
+        board b left join member m
+		  ON b.member_no = m.member_no
+        <set>
+            b.is_success = 1
+            , m.ham = #{ham}
+        </set>
+        where
+            b.board_no = #{boardNo}
+        and b.member_no = #{memberNo}
+    </update>
 </mapper>

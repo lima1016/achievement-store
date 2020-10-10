@@ -25,46 +25,66 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="content first-content">
-                                <div class="form-group">
-                                    <h3>Register Date</h3>
-                                    <fmt:formatDate pattern="yyy-MM-dd" value="${board.regiDate}"></fmt:formatDate>
-                                    <br>
+                                <form action="done" method="post">
+                                    <div class="form-group">
+                                        <h3>Register Date</h3>
+                                        <fmt:formatDate pattern="yyy-MM-dd" value="${board.regiDate}"></fmt:formatDate>
+                                        <br>
 
-                                    <input type="hidden" class="form-control" id="form-boardNo" value="${board.boardNo}" readonly/>
+                                        <input name="boardNo" type="hidden" class="form-control" id="form-boardNo"
+                                               value="${board.boardNo}" readonly/>
 
-                                    <label for="form-goal">Your goal</label>
-                                    <input class="form-control" id="form-goal" value="${board.goal}" readonly/>
+                                        <label for="form-goal">Your goal</label>
+                                        <input class="form-control" id="form-goal" value="${board.goal}" readonly/>
 
-                                    <label for="form-contents">contents</label>
-                                    <textarea type="text" class="form-control" id="form-contents"
-                                              readonly>${board.contents}</textarea>
+                                        <label for="form-contents">contents</label>
+                                        <textarea type="text" class="form-control" id="form-contents"
+                                                  readonly>${board.contents}</textarea>
+                                        <label for="form-goal-ham">Make a bet:</label>
+                                        <input name="goalHam" type="text" id="form-goal-ham" value="${board.goalHam}"
+                                               readonly/>
+                                        <h3>Goal Date</h3>
+                                        <fmt:formatDate pattern="yyyy-MM-dd" value="${board.goalDate}"></fmt:formatDate>
 
-                                    <label for="form-goal-ham">Make a bet:</label>
-                                    <input type="text" id="form-goal-ham" value="${board.goalHam}" readonly/>
-
-                                    <h3>Goal Date</h3>
-                                    <fmt:formatDate pattern="yyyy-MM-dd" value="${board.goalDate}"></fmt:formatDate>
-                                </div>
-                                <button class="btn btn-danger boardForm-btn" type="button"
+                                        <c:if test="${board.memberNo eq loginUser.memberNo}">
+                                        <div id="boardBtn_1">
+                                            <button class="btn btn-success" type="submit">Done!</button>
+                                            <button class="btn btn-warning" type="button"
+                                                    onClick="location.href='/board/fail?boardNo=${board.boardNo}'">Fail!
+                                            </button>
+                                        </div>
+                                        <div id="boardBtn_2">
+                                            <button class="btn btn-danger board-deleteBtn" type="button"
+                                                    onClick="location.href='/board/delete?boardNo=${board.boardNo}'">
+                                                Delete
+                                            </button>
+                                            <button class="btn btn-info board-deleteBtn" type="button"
+                                                    onClick="location.href='/board/updateForm?boardNo=${board.boardNo}'">
+                                                Update
+                                            </button>
+                                        </div>
+                                        </c:if>
+                                </form>
+                                <button class="btn btn-secondary" type="button"
                                         onclick="history.back()">Back
                                 </button>
-
-                                <div class="detail-comment">
-                                    <div class="container">
-                                        <h2>Posted Comments</h2>
-                                        <div id="comments">
-                                            <p id="comments-a"></p>
-                                            <c:forEach items="${boardComments}" var="boardComments">
-                                                <p>${boardComments.member.name}: ${boardComments.comments}
-                                                    <fmt:formatDate pattern="yyyy-MM-dd HH:mm"
-                                                                    value="${boardComments.commentsDate}"></fmt:formatDate></p>
-                                            </c:forEach>
-                                        </div>
-                                        <nav aria-label="...">
-                                            <ul class="pagination">
-                                                <li class="page-item" data-page="prev">
-                                                    <a class="page-link" href="#">
-                                                        <span aria-hidden="true">&laquo;</span>
+                            </div>
+                            <div class="detail-comment">
+                                <div class="container">
+                                    <h2>Posted Comments</h2>
+                                    <div id="comments">
+                                        <p id="comments-a"></p>
+                                        <c:forEach items="${boardComments}" var="boardComments">
+                                            <p>${boardComments.member.name}: ${boardComments.comments}
+                                                <fmt:formatDate pattern="yyyy-MM-dd HH:mm"
+                                                                value="${boardComments.commentsDate}"></fmt:formatDate></p>
+                                        </c:forEach>
+                                    </div>
+                                    <nav aria-label="...">
+                                        <ul class="pagination">
+                                            <li class="page-item" data-page="prev">
+                                                <a class="page-link" href="#">
+                                                    <span aria-hidden="true">&laquo;</span>
                                                     </a>
                                                 </li>
                                                 <c:forEach begin="${beginPage}" end="${endPage}" var="page">

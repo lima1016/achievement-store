@@ -1,13 +1,11 @@
 package com.lima.web.member.controller;
 
+import com.lima.service.BoardService;
 import com.lima.web.member.domain.Member;
 import com.lima.web.member.service.MemberService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.servlet.http.Cookie;
@@ -18,10 +16,19 @@ import java.util.concurrent.ExecutionException;
 
 @Controller
 @RequestMapping("/member")
+@SessionAttributes("loginUser")
 public class MemberController {
 
     @Resource
     private MemberService memberService;
+
+    @Resource
+    private BoardService boardService;
+
+    @GetMapping("mypage")
+    public void doMypage() throws Exception {
+
+    }
 
     // member list
     @GetMapping("list")
@@ -67,17 +74,6 @@ public class MemberController {
         return "redirect:../index";
     }
 
-    /**
-     * @param session session에 남아있는 로그인한 유저의 값을 지우기 위하여 사용.
-     * @return 정상적으로 signOut이 되면 index로 돌아감.
-     * @throws Exception
-     */
-    @GetMapping("signOut")
-    public String signOut(HttpSession session) throws Exception {
-        session.invalidate();
-        return "redirect:../index";
-    }
-
     // 메소드에 @ResponseBody 로 어노테이션이 되어 있다면 메소드에서 리턴되는 값은 View 를 통해서
     // 출력되지 않고 HTTP Response Body 에 직접 쓰여지게 됩니다.
 
@@ -101,4 +97,9 @@ public class MemberController {
         return memberService.emailCheck(email);
     }
 
+    @PostMapping("updateMyInfo")
+    public String updateInfo(@ModelAttribute("loginUser") Member loginUser) throws Exception {
+        memberService.updateMyInfo(loginUser);
+        return "redirect: ../index";
+    }
 }

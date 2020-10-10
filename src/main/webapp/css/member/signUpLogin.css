@@ -56,7 +56,7 @@ span {
 }
 
 
-form {
+.form-signUp {
     background-color: #FFFFFF;
     display: flex;
     align-items: center;
@@ -67,7 +67,7 @@ form {
     text-align: center;
 }
 
-input {
+.form-signUp > input {
     background-color: #eee;
     border: none;
     padding: 12px 15px;

@@ -16,12 +16,18 @@
           integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/board/board.css">
     <link rel="stylesheet" href="../css/member/signUpLogin.css">
+
+    <%--    mypage--%>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="../css/member/mypage.css">
+
 </head>
 <body>
 
 <div class="overlay"></div>
 <section class="cd-hero">
-    <jsp:include page="header.jsp" />
+    <jsp:include page="header.jsp"/>
     <ul class="cd-hero-slider">
         <li class="selected">
             <div class="heading">
@@ -160,54 +166,8 @@
                             <div class="col-md-12">
                                 <div class="content fivth-content">
                                     <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="left-info">
-                                                <p>Maecenas imperdiet sagittis lacus, ut consequat velit iaculis id.
-                                                    Praesent eu consequat urna. Morbi justo dolor, ornare sed lorem et,
-                                                    auctor iaculis ligula.
-                                                    <br><br>
-                                                    <em>5566 Donec mollis libero<br>at metus luctus 10660</em>
-                                                </p>
-                                                <ul class="social-icons">
-                                                    <i><a href="#"><i class="fa fa-facebook"></i></a></i>
-                                                    <i><a href="#"><i class="fa fa-twitter"></i></a></i>
-                                                    <i><a href="#"><i class="fa fa-linkedin"></i></a></i>
-                                                    <i><a href="#"><i class="fa fa-rss"></i></a></i>
-                                                    <i><a href="#"><i class="fa fa-behance"></i></a></i>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-8">
-                                            <div class="row">
-                                                <form id="contact" action="" method="post">
-                                                    <div class="col-md-6">
-                                                        <fieldset>
-                                                            <input name="name" type="text" class="form-control"
-                                                                   id="name" placeholder="Your Name" required="">
-                                                        </fieldset>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <fieldset>
-                                                            <input name="email" type="email" class="form-control"
-                                                                   id="email" placeholder="Email" required="">
-                                                        </fieldset>
-                                                    </div>
-                                                    <div class="col-md-12">
-                                                        <fieldset>
-                                                            <textarea name="message" rows="6" class="form-control"
-                                                                      id="message" placeholder="Message"
-                                                                      required=""></textarea>
-                                                        </fieldset>
-                                                    </div>
-                                                    <div class="col-md-12">
-                                                        <fieldset>
-                                                            <button type="submit" id="form-submit" class="btn">Send
-                                                                Message
-                                                            </button>
-                                                        </fieldset>
-                                                    </div>
-                                                </form>
-                                            </div>
+                                        <div class="col-md-12">
+                                            <jsp:include page="member/mypage.jsp"/>
                                         </div>
                                     </div>
                                 </div>

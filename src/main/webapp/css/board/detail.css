@@ -36,3 +36,8 @@
 .pagination>li {
     display: contents !important;
 }
+
+#boardBtn_1{
+    margin-top: 1% !important;
+    margin-bottom: 1% !important;
+}

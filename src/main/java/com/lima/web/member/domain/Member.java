@@ -1,7 +1,5 @@
 package com.lima.web.member.domain;
 
-import java.util.Objects;
-
 public class Member {
 
     private int memberNo;
@@ -11,6 +9,9 @@ public class Member {
     private String password;
     // 웹싸이트에서 사용하는 돈 (원)
     private int ham;
+
+    private Deposit deposit;
+    private Withdraw withdraw;
 
     public int getMemberNo() {
         return memberNo;
@@ -60,22 +61,20 @@ public class Member {
         this.ham = ham;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Member member = (Member) o;
-        return memberNo == member.memberNo &&
-                ham == member.ham &&
-                Objects.equals(id, member.id) &&
-                Objects.equals(name, member.name) &&
-                Objects.equals(email, member.email) &&
-                Objects.equals(password, member.password);
+    public Deposit getDeposit() {
+        return deposit;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(memberNo, id, name, email, password, ham);
+    public void setDeposit(Deposit deposit) {
+        this.deposit = deposit;
+    }
+
+    public Withdraw getWithdraw() {
+        return withdraw;
+    }
+
+    public void setWithdraw(Withdraw withdraw) {
+        this.withdraw = withdraw;
     }
 
     @Override
@@ -87,6 +86,8 @@ public class Member {
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", ham=" + ham +
+                ", deposit=" + deposit +
+                ", withdraw=" + withdraw +
                 '}';
     }
 }
