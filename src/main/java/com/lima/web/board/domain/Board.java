@@ -14,6 +14,7 @@ public class Board {
     private String goal;
     private String goalHam;
     private Date goalDate;
+    private String goalImg;
     private Member member;
     private int isSuccess;
     private Date regiDate;
@@ -66,6 +67,14 @@ public class Board {
         this.goalHam = goalHam;
     }
 
+    public String getGoalImg() {
+        return goalImg;
+    }
+
+    public void setGoalImg(String goalImg) {
+        this.goalImg = goalImg;
+    }
+
     public Date getGoalDate() {
         return goalDate;
     }
@@ -111,13 +120,14 @@ public class Board {
                 Objects.equals(goal, board.goal) &&
                 Objects.equals(goalHam, board.goalHam) &&
                 Objects.equals(goalDate, board.goalDate) &&
+                Objects.equals(goalImg, board.goalImg) &&
                 Objects.equals(member, board.member) &&
                 Objects.equals(regiDate, board.regiDate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(boardNo, memberNo, title, contents, goal, goalHam, goalDate, member, isSuccess, regiDate);
+        return Objects.hash(boardNo, memberNo, title, contents, goal, goalHam, goalDate, goalImg, member, isSuccess, regiDate);
     }
 
     @Override
@@ -130,6 +140,7 @@ public class Board {
                 ", goal='" + goal + '\'' +
                 ", goalHam='" + goalHam + '\'' +
                 ", goalDate=" + goalDate +
+                ", goalImg='" + goalImg + '\'' +
                 ", member=" + member +
                 ", isSuccess=" + isSuccess +
                 ", regiDate=" + regiDate +

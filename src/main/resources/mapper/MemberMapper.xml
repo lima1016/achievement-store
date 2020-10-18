@@ -12,6 +12,7 @@
         <result column="email" property="email"/>
         <result column="password" property="password"/>
         <result column="ham" property="ham"/>
+        <result column="profile_img" property="profileImg"/>
     </resultMap>
 
     <resultMap type="Deposit" id="DepositMap">
@@ -32,6 +33,7 @@
         <result column="name" property="name"/>
         <result column="email" property="email"/>
         <result column="password" property="password"/>
+        <result column="profile_img" property="profileImg"/>
 
         <collection property="deposit" ofType="Deposit">
             <id column="member_no" property="memberNo"/>
@@ -157,6 +159,7 @@
             <if test="name != null">name=#{name}</if>
             , <if test="email != null">email=#{email}</if>
             , <if test="password != ''">password=password(#{password})</if>
+            , <if test="profileImg != ''">profile_img=#{profileImg}</if>
         </set>
         where member_no = #{memberNo}
     </update>
