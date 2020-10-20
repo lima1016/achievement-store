@@ -37,7 +37,11 @@ public class MemberController {
         model.addAttribute("members", member);
     }
 
-    // sign in & sign up page
+    // sign in page
+    @GetMapping("signInForm")
+    public void signIn() throws ExecutionException {}
+
+    // sign Up page
     @GetMapping("signUpForm")
     public void signUp() throws ExecutionException {}
 
@@ -45,7 +49,7 @@ public class MemberController {
     @PostMapping("signUp")
     public String add(Member member) throws Exception {
         memberService.insert(member);
-        return "redirect:signUpForm";
+        return "redirect:signInForm";
     }
 
     /**

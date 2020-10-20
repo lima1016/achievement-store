@@ -36,7 +36,7 @@
     <!-- ======= Breadcrumbs ======= -->
     <div class="breadcrumbs" data-aos="fade-in">
         <div class="container">
-            <h2>Create New Account</h2>
+            <h2>Sign In</h2>
         </div>
     </div><!-- End Breadcrumbs -->
 
@@ -45,41 +45,23 @@
         <div class="container" data-aos="fade-up">
             <div class="row mt-5">
                 <div class="col-lg-8 mt-5 mt-lg-0">
-                    <form action="signUp" method="post" role="form" class="php-email-form">
+                    <form action="signIn" method="post" role="form" class="php-email-form">
                         <div class="form-row">
-                            <div class="col-md-7 form-group">
-                                <i class="icofont-ui-user"></i>
-                                <label for="name">Name:</label>
-                                <input type="text" name="name" class="form-control" id="name" placeholder="Your User Name"
-                                       data-rule="minlen:4" data-msg="Please enter a valid user name"/>
-                                <div class="validate"></div>
-                            </div>
                             <div class="col-md-7 form-group">
                                 <i class="icofont-id"></i>
                                 <label for="id">ID:</label>
-                                <input type="text" name="id" class="form-control" id="id" placeholder="Your User ID"
-                                       data-rule="minlen:4" onblur="idCheckFunc()"/>
-                                <div id="userId_chk"></div>
-                            </div>
-                            <div class="col-md-7 form-group">
-                                <i class="icofont-email"></i>
-                                <label for="email">Email:</label>
-                                <input type="email" name="email" class="form-control" id="email" placeholder="Your User email"
-                                       data-rule="minlen:4" onblur="email_check()"/>
-                                <div id="email_chk"></div>
+                                <input type="text" name="id" class="form-control" id="id" placeholder="Your User ID"/>
                             </div>
                             <div class="col-md-7 form-group">
                                 <i class="icofont-ui-password"></i>
                                 <label for="password">Password:</label>
                                 <input type="password" class="form-control" name="password" id="password"
-                                       placeholder="Your Password" data-rule="password"
-                                       onblur="password_check()"/>
-                                <div id="password_chk"></div>
+                                       placeholder="Your Password"/>
                             </div>
                         </div>
                         <div class="signUpForm-btn">
-                            <button type="submit">Create Account</button>
-                            <button type="Button" class="create-accountBtn" onclick="window.history.back()">Back</button>
+                            <button type="submit">Login</button>
+                            <button type="button" onclick="location.href='signUpForm'" class="create-accountBtn">Create New Account</button>
                         </div>
                     </form>
                 </div>
@@ -107,6 +89,5 @@
 
 <!-- Template Main JS File -->
 <script src="../js/common/main.js"></script>
-<script src="../js/member/signUpLogin.js" type="text/javascript"></script>
 </body>
 </html>

@@ -58,7 +58,7 @@
             </ul>
         </nav><!-- .nav-menu -->
         <c:if test="${empty loginUser}">
-            <a href="../member/signUpForm" class="get-started-btn">Join Us</a>
+            <a href="../member/signInForm" class="get-started-btn">Join Us</a>
         </c:if>
         <c:if test="${not empty loginUser}">
             <a href="../auth/signOut" class="get-started-btn">Sign Out</a>
