@@ -107,7 +107,7 @@ h1, h2, h3, h4, h5, h6 {
 --------------------------------------------------------------*/
 @media screen and (max-width: 768px) {
   [data-aos-delay] {
-    transition-delay: 0 !important;
+    transition-delay: 0s !important;
   }
 }
 
@@ -283,7 +283,6 @@ h1, h2, h3, h4, h5, h6 {
     padding: 6px 18px;
   }
 }
-
 /* Mobile Navigation */
 .mobile-nav-toggle {
   position: fixed;
@@ -847,6 +846,19 @@ section {
 .trainers .member .social i {
   font-size: 18px;
   margin: 0 2px;
+}
+
+.create-accountBtn {
+  background: #5fcf80 !important;
+  border: 0 !important;;
+  padding: 10px 35px !important;;
+  color: #fff !important;;
+  transition: 0.4s !important;;
+  border-radius: 50px !important;;
+}
+
+.create-accountBtn :hover {
+  background: #3ac162 !important;;
 }
 
 /*--------------------------------------------------------------

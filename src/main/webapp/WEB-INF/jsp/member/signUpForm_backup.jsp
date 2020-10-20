@@ -1,69 +1,112 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>회원 가입</title>
-    <link rel="stylesheet" href="/css/member/signUpLogin.css">
+    <title>Sign in or Sign Up</title>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="/js/member/signUpLogin.js" type="text/javascript"></script>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/common/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/common/bootstrap-theme.min.css">
+    <link href="../css/common/fontAwesome.css" rel="stylesheet">
+    <link href="../css/common/templatemo-style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/member/signUpLogin.css">
+
 </head>
 <body>
+
 <div class="overlay"></div>
-<div class="modal position">
-    <img src="https://www.dropbox.com/s/poqtu9ihb4xsmq3/mn-logo.png?raw=1" class="logo">
-    <div class="brand login-text">
-        Sign in with your email or username<br><br>
-        <strong>OR</strong><br><br> Use Facebook secure login for quick access to your account.
-    </div>
-    <button class="brand login flat-button facebook">Continue with Facebook</button>
-    <div class="form position">
-        <a href="#"><button class="close">x</button></a>
-        <div class="form-inner">
-            <!-- Tabs-->
-            <div class="tabs">
-                <ul class="tabs">
-                    <li class="current" data-tab="member">
-                        <a href="#member">I am a member</a>
-                    </li>
-                    <li data-tab="new">
-                        <a href="#new">I am new here</a>
-                    </li>
-                </ul>
-                <!--Login Form -->
-                <div class="form-content current" id="member">
-                    <form id="sign-in" method="POST" action="signIn" name="form">
-                        <input type="userId" name="id" placeholder="USERID" class="field" required>
-                        <input type="password" name="password" placeholder="PASSWORD" class="field" required>
-                        <div class="clear"></div>
-                        <input type="checkbox" name="rmbrme" id="custom-check" class="check"><label for="custom-check"
-                                                                                                    class="check-label secondary-text">Remember
-                        me</label><a href=""><span class="forgot secondary-text">Forgot password?</span></a>
-                        <button type="submit" name="sign-in-button" class="flat-button signin">Log In</button>
-                    </form>
-                </div>
-                <!--Registration form-->
-                <div class="form-content" id="new">
-                    <form id="reg" method="post" action="signUp" name="form" onsubmit="return checkAll();">
-                        <input type="text" name="name" placeholder="User Name" class="field" required/>
-                        <input type="text" id="userId" name="id" placeholder="USERNAME" class="field"
-                               onblur="idCheckFunc()" required>
-                        <div id="userId_chk" class="vali_check"></div>
-                        <input type="email" id="email" name="email" placeholder="EMAIL ADDRESS" class="field"
-                               onblur="email_check()" required>
-                        <div id="email_chk" class="vali_check"></div>
-                        <input type="password" id="password" name="password" placeholder="PASSWORD" class="field"
-                               onblur="password_check()" required>
-                        <div id="password_chk" class="vali_check"></div>
-                        <button type="button" name="register-button" class="flat-button signin">Sign Up</button>
-                    </form>
+<section class="cd-hero">
+    <ul class="cd-hero-slider">
+        <li class="selected">
+            <div class="heading">
+                <h1><a href="/index">Sign In or Sign Up</a></h1>
+                <span>Set your goals and let everyone know your goals.</span>
+            </div>
+            <div class="cd-full-width first-slide">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="content first-content">
+                                <div class="signUp-form">
+                                    <div class="container-signUp" id="container">
+                                        <div class="form-container sign-up-container">
+                                            <form class= "form-signUp" method="post" action="signUp" name="form" onsubmit="return checkAll();">
+                                                <h1 class="signIn-h1">Create Account</h1>
+                                                <div class="social-container">
+                                                    <a href="#" class="social signIn-a"><i class="fab fa-facebook-f"></i></a>
+                                                    <a href="#" class="social signIn-a"><i class="fab fa-google-plus-g"></i></a>
+                                                    <a href="#" class="social signIn-a"><i class="fab fa-linkedin-in"></i></a>
+                                                </div>
+                                                <span>or use your email for registration</span>
+                                                <input type="text" id = "name" name="name" placeholder="Name" required/>
+                                                <input type="text" id= "id" name="id" placeholder="ID" onblur="idCheckFunc()"/>
+                                                <div id="userId_chk"></div>
+                                                <input type="email" id="email" name="email" placeholder="Email" onblur="email_check()"/>
+                                                <div id="email_chk"></div>
+                                                <input type="password" id="password" name="password" placeholder="Password" onblur="password_check()"/>
+                                                <div id="password_chk"></div>
+                                                <button class="signInUpBtn">Sign Up</button>
+                                            </form>
+                                        </div>
+                                        <div class="form-container sign-in-container">
+                                            <form class= "form-signUp" method="POST" action="signIn" name="form">
+                                                <h1 class="signIn-h1">Sign in</h1>
+                                                <div class="social-container">
+                                                    <a href="#" class="social signIn-a"><i class="fab fa-facebook-f"></i></a>
+                                                    <a href="#" class="social signIn-a"><i class="fab fa-google-plus-g"></i></a>
+                                                    <a href="#" class="social signIn-a"><i class="fab fa-linkedin-in"></i></a>
+                                                </div>
+                                                <span>or use your account</span>
+                                                <input type="text" name="id"placeholder="Id" />
+                                                <input type="password" name="password" placeholder="Password" />
+                                                <a class="signIn-a" href="#">Forgot your password?</a>
+                                                <button class="signInUpBtn">Sign In</button>
+                                            </form>
+                                        </div>
+                                        <div class="overlay-container">
+                                            <div class="overlay-signUp">
+                                                <div class="overlay-panel overlay-left">
+                                                    <h1 class="signIn-h1">Welcome Back!</h1>
+                                                    <p class="signUp-p">To keep connected with us please login with your personal info</p>
+                                                    <button class="ghost signInUpBtn" id="signIn">Sign In</button>
+                                                </div>
+                                                <div class="overlay-panel overlay-right">
+                                                    <h1 class="signIn-h1">Hello, Friend!</h1>
+                                                    <p class="signUp-p">Enter your personal details and start journey with us</p>
+                                                    <button class="ghost signInUpBtn" id="signUp">Sign Up</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
+        </li>
+    </ul> <!-- .cd-hero-slider -->
+</section> <!-- .cd-hero -->
+<jsp:include page="../footer.jsp"/>
+
+<script>
+    const signUpButton = document.getElementById('signUp');
+    const signInButton = document.getElementById('signIn');
+    const container = document.getElementById('container');
+
+    signUpButton.addEventListener('click', () => {
+        container.classList.add("right-panel-active");
+    });
+
+    signInButton.addEventListener('click', () => {
+        container.classList.remove("right-panel-active");
+    });
+
+</script>
+<script src="../js/member/signUpLogin.js" type="text/javascript"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 </body>
 </html>
-

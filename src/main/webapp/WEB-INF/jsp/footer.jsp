@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <footer id="footer">
 
     <div class="footer-top">
@@ -5,13 +6,13 @@
             <div class="row">
 
                 <div class="col-lg-3 col-md-6 footer-contact">
-                    <h3>Mentor</h3>
+                    <h3>Just Do It</h3>
                     <p>
-                        A108 Adam Street <br>
-                        New York, NY 535022<br>
+                        15538 Hollyleaf Pl <br>
+                        Tustin, CA<br>
                         United States <br><br>
-                        <strong>Phone:</strong> +1 5589 55488 55<br>
-                        <strong>Email:</strong> info@example.com<br>
+                        <strong>Phone:</strong> +1 949 302 2651<br>
+                        <strong>Email:</strong> kimyoulim1016@gmail.com<br>
                     </p>
                 </div>
 
@@ -39,7 +40,7 @@
 
                 <div class="col-lg-4 col-md-6 footer-newsletter">
                     <h4>Join Our Newsletter</h4>
-                    <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+                    <p>구독 그리고 좋아요 눌러주세요^^</p>
                     <form action="" method="post">
                         <input type="email" name="email"><input type="submit" value="Subscribe">
                     </form>
