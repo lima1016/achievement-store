@@ -37,7 +37,8 @@
     <!-- ======= Cource Details Section ======= -->
     <section id="course-details" class="course-details">
         <div class="container" data-aos="fade-up">
-
+            <input name="boardNo" type="hidden" class="form-control" id="form-boardNo"
+                   value="${board.boardNo}" readonly/>
             <div class="row">
                 <div class="col-lg-8">
                     <c:if test="${board.goalImg eq null}">
@@ -96,7 +97,10 @@
                                 <c:forEach items="${boardComments}" var="boardComments">
                                     <p>${boardComments.member.name}: ${boardComments.comments}
                                         <fmt:formatDate pattern="yyyy-MM-dd HH:mm"
-                                                        value="${boardComments.commentsDate}"></fmt:formatDate></p>
+                                                        value="${boardComments.commentsDate}"></fmt:formatDate>
+                                        <c:if test="${boardComments.member.id  eq loginUser.id}">
+                                        <i class="icofont-close-squared-alt"></i></p>
+                                        </c:if>
                                 </c:forEach>
                             </c:if>
                         </div>
@@ -144,6 +148,52 @@
 
 <a href="#" class="back-to-top"><i class="bx bx-up-arrow-alt"></i></a>
 <div id="preloader"></div>
+<script src="../js/board/detail.js" type="text/javascript"></script>
+<script>
+    $('#send').on('click', function (e) {
+        let boardNo = $('#form-boardNo').val();
+        let memberNo = $('#form-loginUserNo').val();
+        let comments = $('#myMessage').val();
+
+        $.ajax({
+            url: '/json/boardComments/add',
+            method: 'post',
+            data: {boardNo: boardNo, memberNo: memberNo, comments: comments},
+            success: function (result) {
+                console.log("성공함.");
+            }
+        })
+    });
+</script>
+<script>
+    (function () {
+        $('#pageSize').val('${pageSize}')
+    })();
+    $('#pageSize').change((e) => {
+        location.href = "detail?boardNo=${board.boardNo}&pageSize=" + $(e.target).val();
+    });
+    var currentPage = ${pageNo};
+    $('.page-item').click((e) => {
+        e.preventDefault();
+        // e.currentTarget? 리스너가 호출될 때, 그 리스너가 등록된 태그를 가르킨다.
+        // e.target? 이벤트가 발생된 원천 태그이다.
+        //var page = e.currentTarget.getAttribute('data-page');
+        var page = $(e.currentTarget).attr('data-page');
+        if (page == "prev") {
+            if (currentPage == 1)
+                return;
+            location.href = "detail?boardNo=${board.boardNo}&pageNo=" + (currentPage - 1) + "&pageSize=" + ${pageSize};
+
+        } else if (page == "next") {
+            if (currentPage >= ${totalPage})
+                return;
+            location.href = "detail?boardNo=${board.boardNo}&pageNo=" + (currentPage + 1) + "&pageSize=" + ${pageSize};
+
+        } else {
+            location.href = "detail?boardNo=${board.boardNo}&pageNo=" + page + "&pageSize=" + ${pageSize};
+        }
+    });
+</script>
 </body>
 
 </html>
