@@ -159,7 +159,7 @@
             <if test="name != null">name=#{name}</if>
             , <if test="email != null">email=#{email}</if>
             , <if test="password != ''">password=password(#{password})</if>
-            , <if test="profileImg != ''">profile_img=#{profileImg}</if>
+            , <if test="profileImg != ''">profile_img='../upload/member/'#{profileImg}</if>
         </set>
         where member_no = #{memberNo}
     </update>

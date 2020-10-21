@@ -6,7 +6,7 @@ import com.lima.web.member.service.MemberService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
+import org.springframework.web.multipart.MultipartFile;
 import javax.annotation.Resource;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
@@ -26,26 +26,28 @@ public class MemberController {
     private BoardService boardService;
 
     @GetMapping("mypage")
-    public void doMypage() throws Exception {
-
+    public void doMypage(@ModelAttribute("loginUser") Member loginUser, Model model) throws Exception {
+        model.addAttribute("loginUser", loginUser);
     }
 
-    // member list
+    @PostMapping("updateMyInfo")
+    public String updateInfo(@ModelAttribute("loginUser") Member loginUser, MultipartFile mutipartFile) throws Exception {
+        memberService.updateMyInfo(loginUser);
+        return "redirect: ../index";
+    }
+
     @GetMapping("list")
     public void selectList(Model model) throws Exception {
         List<Member> member = memberService.findAll();
         model.addAttribute("members", member);
     }
 
-    // sign in page
     @GetMapping("signInForm")
     public void signIn() throws ExecutionException {}
 
-    // sign Up page
     @GetMapping("signUpForm")
     public void signUp() throws ExecutionException {}
 
-    // member sign up
     @PostMapping("signUp")
     public String add(Member member) throws Exception {
         memberService.insert(member);
@@ -80,7 +82,6 @@ public class MemberController {
 
     // 메소드에 @ResponseBody 로 어노테이션이 되어 있다면 메소드에서 리턴되는 값은 View 를 통해서
     // 출력되지 않고 HTTP Response Body 에 직접 쓰여지게 됩니다.
-
     /**
      * @param id 유저가 입력한 아이디 값.
      * @return 입력받은 id로 DB에 해당 아이디가 있는지 체크.
@@ -99,11 +100,5 @@ public class MemberController {
     @GetMapping("emailCheck")
     public @ResponseBody int emailCheck(String email) throws Exception {
         return memberService.emailCheck(email);
-    }
-
-    @PostMapping("updateMyInfo")
-    public String updateInfo(@ModelAttribute("loginUser") Member loginUser) throws Exception {
-        memberService.updateMyInfo(loginUser);
-        return "redirect: ../index";
     }
 }

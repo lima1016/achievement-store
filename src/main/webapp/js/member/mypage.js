@@ -1,22 +1,33 @@
-nhn.husky.EZCreator.createInIFrame({
-    oAppRef: oEditors,
-    elPlaceHolder: "ir1",
-    //SmartEditor2Skin.html 파일이 존재하는 경로
-    sSkinURI: "../js/smarteditor2/SmartEditor2Skin.html",
-    htParams: {
-        // 툴바 사용 여부 (true:사용/ false:사용하지 않음)
-        bUseToolbar: true,
-        // 입력창 크기 조절바 사용 여부 (true:사용/ false:사용하지 않음)
-        bUseVerticalResizer: true,
-        // 모드 탭(Editor | HTML | TEXT) 사용 여부 (true:사용/ false:사용하지 않음)
-        bUseModeChanger: true,
-        fOnBeforeUnload: function () {
+/* upload img script */
+var img = document.getElementById('img');
+var noimage = img.src;
 
-        }
-    },
-    fOnAppLoad: function () {
-        //textarea 내용을 에디터상에 바로 뿌려주고자 할때 사용
-        oEditors.getById["ir1"].exec("PASTE_HTML", ["ㅎㅇ 시작하자마자 이문구 작성됨."]);
-    },
-    fCreator: "createSEditor2"
-});      
+function handleFileSelect(evt) {
+    var file = evt.target.files[0]; // FileList object, files[0] is your file
+    console.log(file);
+    img.src = window.URL.createObjectURL(file);
+}
+
+document.getElementById('file').addEventListener('change',
+    handleFileSelect, false);
+
+document.querySelector('#removephoto').addEventListener('click',
+    function(e) {
+        document.getElementById('file').value = "";
+        img.src = noimage;
+        e.preventDefault();
+    });
+document.querySelector('#img').addEventListener('click', function(e) {
+    performClick(document.getElementById('file'));
+    e.preventDefault();
+});
+document.querySelector('#addphoto').addEventListener('click', function(e) {
+    performClick(document.getElementById('file'));
+    e.preventDefault();
+});
+
+function performClick(node) {
+    var evt = document.createEvent("MouseEvents");
+    evt.initEvent("click", true, false);
+    node.dispatchEvent(evt);
+}
