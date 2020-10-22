@@ -33,59 +33,80 @@
             <div class="row mt-6">
                 <br>
                 <section class="photobtn">
-                    <div class="thumbnail">
-                    <c:if test="${loginUser.profileImg eq null}">
-                        <img src="../upload/member/default_img.jpg" id="img">
-                    </c:if>
-                    <c:if test="${loginUser.profileImg ne null}">
-                        <img src="${loginUser.profileImg}" id="img">
-                    </c:if>
+                    <div class="userName-div">
+                        <h3 id="userName">Hello! ${loginUser.name}</h3>
                     </div>
-                    <a id="addphoto" href="" class="btn"><i class="icofont-plus-circle"></i></a>
-                    <a id="removephoto" href="" class="btn"><i class="icofont-minus-circle"></i></a>
+                    <div class="thumbnail">
+                        <c:if test="${loginUser.profileImg eq null}">
+                            <img src="../upload/member/default_img.jpg" id="img">
+                        </c:if>
+                        <c:if test="${loginUser.profileImg ne null}">
+                            <img src="${loginUser.profileImg}" id="img">
+                        </c:if>
+                    </div>
+                    <div class="grow-up">
+                        <h4>나의 성장률</h4>
+                        <progress id="grow-up" max="100" value="30"></progress>
+                    </div>
                 </section>
-                <input type="file" name="file" id="file"
-                       accept="image/*;capture=camera"/>
-                <div id="photo_chk" class="vali_check"></div>
-
-                <%--                <div class="col-lg-8 mt-5 mt-lg-0">--%>
-                <%--                    <form action="forms/contact.php" method="post" role="form" class="php-email-form">--%>
-                <%--                        <div class="form-row">--%>
-                <%--                            <div class="col-md-6 form-group">--%>
-                <%--                                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name"--%>
-                <%--                                       data-rule="minlen:4" data-msg="Please enter at least 4 chars"/>--%>
-                <%--                                <div class="validate"></div>--%>
-                <%--                            </div>--%>
-                <%--                            <div class="col-md-6 form-group">--%>
-                <%--                                <input type="email" class="form-control" name="email" id="email"--%>
-                <%--                                       placeholder="Your Email" data-rule="email"--%>
-                <%--                                       data-msg="Please enter a valid email"/>--%>
-                <%--                                <div class="validate"></div>--%>
-                <%--                            </div>--%>
-                <%--                        </div>--%>
-                <%--                        <div class="form-group">--%>
-                <%--                            <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject"--%>
-                <%--                                   data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject"/>--%>
-                <%--                            <div class="validate"></div>--%>
-                <%--                        </div>--%>
-                <%--                        <div class="form-group">--%>
-                <%--                            <textarea class="form-control" name="message" rows="5" data-rule="required"--%>
-                <%--                                      data-msg="Please write something for us" placeholder="Message"></textarea>--%>
-                <%--                            <div class="validate"></div>--%>
-                <%--                        </div>--%>
-                <%--                        <div class="mb-3">--%>
-                <%--                            <div class="loading">Loading</div>--%>
-                <%--                            <div class="error-message"></div>--%>
-                <%--                            <div class="sent-message">Your message has been sent. Thank you!</div>--%>
-                <%--                        </div>--%>
-                <%--                        <div class="text-center">--%>
-                <%--                            <button type="submit">Send Message</button>--%>
-                <%--                        </div>--%>
-                <%--                    </form>--%>
-                <%--                </div>--%>
             </div>
         </div>
     </section><!-- End Contact Section -->
+
+    <div class="myboard">
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                모든 게시물
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                <button class="dropdown-item" type="button">모든 게시물</button>
+                <button class="dropdown-item" type="button">진행중인 게시물</button>
+                <button class="dropdown-item" type="button">완료된 게시물</button>
+            </div>
+        </div>
+
+        <div id="mypage-boardList" class="row" data-aos="zoom-in" data-aos-delay="100">
+            <c:forEach items="${myBoards}" var="myBoards">
+                <c:if test="${myBoards.isSuccess eq 0}">
+                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                        <div class="course-item"
+                             onClick="location.href='../board/detail?boardNo=${myBoards.boardNo}'">
+                            <c:if test="${myBoards.goalImg eq null}">
+                                <img src="../img/study-notebooks.jpg" class="img-fluid" alt="...">
+                            </c:if>
+                            <c:if test="${myBoards.goalImg ne null}">
+                                <img src="${board.goalImg}" class="img-fluid" alt="...">
+                            </c:if>
+
+                            <div class="course-content">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <h4>${myBoards.goalHam}&nbsp;ham</h4>
+                                    <p class="price"><fmt:formatDate pattern="yyy-MM-dd"
+                                                                     value="${myBoards.regiDate}"/></p>
+                                </div>
+                                <h3><a href="">${myBoards.title}</a></h3>
+                                <p>${myBoards.goal}</p>
+                                <div class="trainer d-flex justify-content-between align-items-center">
+                                    <div class="trainer-profile d-flex align-items-center">
+                                        <img src="../img/trainers/trainer-1.jpg" class="img-fluid"
+                                             alt="">
+                                        <span>${myBoards.member.name}</span>
+                                    </div>
+                                    <div class="trainer-rank d-flex align-items-center">
+                                        <i class="bx bx-user"></i>&nbsp;50
+                                        &nbsp;&nbsp;
+                                        <i class="bx bx-heart"></i>&nbsp;65
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Course Item-->
+                </c:if>
+            </c:forEach>
+        </div>
+    </div>
 </main><!-- End #main -->
 
 <!-- ======= Footer ======= -->

@@ -1,17 +1,21 @@
 package com.lima.web.member.controller;
 
 import com.lima.service.BoardService;
+import com.lima.web.board.domain.Board;
 import com.lima.web.member.domain.Member;
 import com.lima.web.member.service.MemberService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+
 import javax.annotation.Resource;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.File;
 import java.util.List;
+import java.util.UUID;
 import java.util.concurrent.ExecutionException;
 
 @Controller
@@ -25,13 +29,27 @@ public class MemberController {
     @Resource
     private BoardService boardService;
 
+    String uploadDir;
+    private String writeFile (MultipartFile file) throws Exception {
+        if (file.isEmpty())
+            return null;
+        String filename = UUID.randomUUID().toString();
+        file.transferTo(new File(uploadDir + "/" + filename));
+        return filename;
+    }
+
     @GetMapping("mypage")
     public void doMypage(@ModelAttribute("loginUser") Member loginUser, Model model) throws Exception {
+
+        // 로그인한 유저만의 Board불러오기
+        List<Board> myBoards = boardService.showMyBoardList(loginUser.getMemberNo());
         model.addAttribute("loginUser", loginUser);
+        model.addAttribute("myBoards", myBoards);
     }
 
     @PostMapping("updateMyInfo")
     public String updateInfo(@ModelAttribute("loginUser") Member loginUser, MultipartFile mutipartFile) throws Exception {
+        loginUser.setProfileImg(writeFile(mutipartFile));
         memberService.updateMyInfo(loginUser);
         return "redirect: ../index";
     }
