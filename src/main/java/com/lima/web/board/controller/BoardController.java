@@ -9,11 +9,15 @@ import com.lima.web.member.service.MemberService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.io.File;
 import java.util.List;
+import java.util.UUID;
 
 @Controller
 @RequestMapping("/board")
@@ -28,6 +32,20 @@ public class BoardController {
 
     @Resource
     MemberService memberService;
+
+    String uploadDir;
+
+    public BoardController(ServletContext sc) {
+        uploadDir = sc.getRealPath("/upload/board");
+    }
+
+    private String writeFile (MultipartFile file) throws Exception {
+        if (file.isEmpty())
+            return null;
+        String filename = UUID.randomUUID().toString();
+        file.transferTo(new File(uploadDir + "/" + filename));
+        return filename;
+    }
 
     @GetMapping("list")
     public void list(Model model) throws Exception {
@@ -84,10 +102,13 @@ public class BoardController {
      * @throws Exception
      */
     @PostMapping("add")
-    public String insert(HttpServletRequest httpServletRequest, Board board) throws Exception {
-        int ham = Integer.parseInt(httpServletRequest.getParameter("goalHam"));
-
-        memberService.hamUpdate(ham, board.getMemberNo());
+    public String insert(HttpServletRequest httpServletRequest, @ModelAttribute("loginUser") Member loginUser,
+                         Board board, MultipartFile file) throws Exception {
+//        int ham = Integer.parseInt(httpServletRequest.getParameter("goalHam"));
+        board.setMemberNo(loginUser.getMemberNo());
+        System.out.println("goalImg= " + file);
+        board.setGoalImg(writeFile(file));
+//        memberService.hamUpdate(ham, board.getMemberNo());
         boardService.insert(board);
         return "redirect:../index";
     }
@@ -105,7 +126,9 @@ public class BoardController {
     }
 
     @PostMapping("update")
-    public String update(Board board) throws Exception {
+    public String update(@ModelAttribute("loginUser") Member loginUser, Board board, MultipartFile file) throws Exception {
+        board.setMemberNo(loginUser.getMemberNo());
+        board.setGoalImg(writeFile(file));
         boardService.update(board);
         return "redirect:../index";
     }
