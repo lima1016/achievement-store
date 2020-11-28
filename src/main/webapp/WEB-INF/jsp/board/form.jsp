@@ -37,12 +37,7 @@
                 <form action="add" method="post" role="form" class="php-email-form" enctype='multipart/form-data'>
                     <section class="photobtn">
                         <div class="thumbnail">
-                            <c:if test="../upload/board/${board.goalImg eq null}">
-                                <img id="img" src="../img/study-notebooks.jpg" class="img-fluid" alt="...">
-                            </c:if>
-                            <c:if test="${board.goalImg ne null}">
-                                <img id="img" src="../upload/board/${board.goalImg}" class="img-fluid" alt="...">
-                            </c:if>
+                            <img id="img" src="../upload/board/study-notebooks.jpg" class="img-fluid" alt="...">
                         </div>
                         <a id="addphoto" href="" class="btn"><i class="icofont-plus-circle"></i></a>
                         <a id="removephoto" href="" class="btn"><i class="icofont-minus-circle"></i></a>

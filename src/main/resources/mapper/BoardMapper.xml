@@ -79,25 +79,15 @@
     </select>
 
     <insert id="insert" parameterType="Board">
-        insert into board
+        INSERT INTO board
         (
-        title
-        , contents
-        , goal
-        , goal_ham
-        , goal_date
-        , goal_img
+        goal_img
         , member_no
         , regi_date
         )
-        VALUE
+        VALUES
         (
-        #{title}
-        , #{contents}
-        , #{goal}
-        , #{goalHam}
-        , #{goalDate}
-        , #{goalImg}
+        #{goalImg}
         , #{memberNo}
         , now()
         )

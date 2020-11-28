@@ -38,10 +38,10 @@
                     </div>
                     <div class="thumbnail">
                         <c:if test="${loginUser.profileImg eq null}">
-                            <img src="../upload/member/default_img.jpg" id="img">
+                            <img src="../upload/member/default_img.jpg" id="img" alt="">
                         </c:if>
                         <c:if test="${loginUser.profileImg ne null}">
-                            <img src="${loginUser.profileImg}" id="img">
+                            <img src="${loginUser.profileImg}" id="img" alt="">
                         </c:if>
                     </div>
                     <div class="grow-up">
@@ -73,10 +73,10 @@
                         <div class="course-item"
                              onClick="location.href='../board/detail?boardNo=${myBoards.boardNo}'">
                             <c:if test="${myBoards.goalImg eq null}">
-                                <img src="../img/study-notebooks.jpg" class="img-fluid" alt="...">
+                                <img src="/upload/board/study-notebooks.jpg" class="img-fluid" alt="...">
                             </c:if>
                             <c:if test="${myBoards.goalImg ne null}">
-                                <img src="${board.goalImg}" class="img-fluid" alt="...">
+                                <img src="/upload/board/${myBoards.goalImg}" class="img-fluid" alt="...">
                             </c:if>
 
                             <div class="course-content">

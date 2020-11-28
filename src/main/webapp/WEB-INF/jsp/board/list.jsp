@@ -53,10 +53,10 @@
                     <c:if test="${board.isSuccess eq 0}">
                         <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
                             <div class="course-item" onClick="location.href='/board/detail?boardNo=${board.boardNo}'">
-                                <c:if test="/upload/board/${board.goalImg eq null}">
-                                    <img src="../img/study-notebooks.jpg" class="img-fluid" alt="...">
+                                <c:if test="${board.goalImg eq null}">
+                                    <img src="../upload/board/study-notebooks.jpg" class="img-fluid" alt="...">
                                 </c:if>
-                                <c:if test="/upload/board/${board.goalImg ne null}">
+                                <c:if test="${board.goalImg ne null}">
                                     <img src="../upload/board/${board.goalImg}" class="img-fluid" alt="...">
                                 </c:if>
 

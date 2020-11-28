@@ -8,7 +8,7 @@ import java.util.List;
 public interface BoardDao {
 
     List<Board> findAll() throws Exception;
-    int insert(Board board) throws Exception;
+    int insert(Board board);
     Board findBy(int boardNo) throws Exception;
     List<Board> findAllByMemberNo(int memberNo) throws Exception;
     void deleteByBoardNo(int boardNo) throws Exception;

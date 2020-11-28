@@ -84,7 +84,7 @@
         <servlet-name>default</servlet-name>
         <url-pattern>*.ico</url-pattern>
     </servlet-mapping>
-
+<!--https://bin-repository.tistory.com/116 -->
 </web-app>
 
 

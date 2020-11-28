@@ -44,6 +44,7 @@ public class BoardController {
             return null;
         String filename = UUID.randomUUID().toString();
         file.transferTo(new File(uploadDir + "/" + filename));
+        System.out.println("uploadDir@@@@@@@@@@@@@@@@@@@ = " + uploadDir);
         return filename;
     }
 
@@ -106,8 +107,8 @@ public class BoardController {
                          Board board, MultipartFile file) throws Exception {
 //        int ham = Integer.parseInt(httpServletRequest.getParameter("goalHam"));
         board.setMemberNo(loginUser.getMemberNo());
-        System.out.println("goalImg= " + file);
         board.setGoalImg(writeFile(file));
+        System.out.println("board.getGoalImg() = " + board.getGoalImg());
 //        memberService.hamUpdate(ham, board.getMemberNo());
         boardService.insert(board);
         return "redirect:../index";
