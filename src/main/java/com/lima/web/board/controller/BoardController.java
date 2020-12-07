@@ -42,7 +42,7 @@ public class BoardController {
     private String writeFile (MultipartFile file) throws Exception {
         if (file.isEmpty())
             return null;
-        String filename = UUID.randomUUID().toString();
+        String filename = UUID.randomUUID().toString() + ".jpg";
         file.transferTo(new File(uploadDir + "/" + filename));
         System.out.println("uploadDir@@@@@@@@@@@@@@@@@@@ = " + uploadDir);
         return filename;
