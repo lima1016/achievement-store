@@ -29,30 +29,25 @@
         <nav class="nav-menu d-none d-lg-block">
             <ul>
                 <li class="active"><a href="../index">Home</a></li>
-                <li><a href="about.html">About</a></li>
+<%--                <li><a href="about.html">About</a></li>--%>
                 <li><a href="../board/list">Share Goal</a></li>
-                <li><a href="courses.html">Study Group</a></li>
-                <li><a href="pricing.html">Pricing</a></li>
+<%--                <li><a href="courses.html">Study Group</a></li>--%>
+<%--                <li><a href="pricing.html">Pricing</a></li>--%>
                 <li class="drop-down"><a href="">Store</a>
                     <ul>
                         <li><a href="#">Drop Down 1</a></li>
                         <li class="drop-down"><a href="#">Deep Drop Down</a>
                             <ul>
                                 <li><a href="#">Deep Drop Down 1</a></li>
-                                <li><a href="#">Deep Drop Down 2</a></li>
-                                <li><a href="#">Deep Drop Down 3</a></li>
-                                <li><a href="#">Deep Drop Down 4</a></li>
-                                <li><a href="#">Deep Drop Down 5</a></li>
                             </ul>
                         </li>
                         <li><a href="#">Drop Down 2</a></li>
-                        <li><a href="#">Drop Down 3</a></li>
-                        <li><a href="#">Drop Down 4</a></li>
                     </ul>
                 </li>
-                <li><a href="contact.html">Contact</a></li>
+<%--                <li><a href="contact.html">Contact</a></li>--%>
                 <c:if test="${not empty loginUser}">
                     <li><a href="../member/mypage">My Page</a></li>
+                    <li><a>Hello! ${loginUser.name}</a></li>
                 </c:if>
 
             </ul>
