@@ -44,6 +44,35 @@
                     </section>
 
                     <input type="file" name="file" id="file"/>
+                    <div class="form-row">
+                        <div class="col-md-6 form-group">
+                            <label for="title">Title:</label>
+                            <input type="text" name="title" class="form-control" id="title" placeholder="Your Name"
+                                   data-rule="minlen:4" data-msg="Please enter at least 4 chars"/>
+                            <div class="validate"></div>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="goal">Goal:</label>
+                            <input type="text" class="form-control" name="goal" id="goal" placeholder="Your Email"
+                                   data-rule="minlen:4" data-msg="Please enter at least 4 chars"/>
+                            <div class="validate"></div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="myHam">My ham:</label>
+                        <input type="text" class="form-control" id="myHam"
+                               value="${loginUser.ham}" readonly/>
+                        <label for="goalHam">Bet ham:</label>
+                        <input type="text" class="form-control" name="goalHam" id="goalHam" onblur="ham_CheckFunc()"/>
+                        <div id="ownHam_chk"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="contents">Contents:</label>
+                        <textarea class="form-control" name="contents" rows="5" data-rule="required" id="contents"
+                                  data-msg="Please write something for us" placeholder="Message"></textarea>
+                        <div class="validate"></div>
+                    </div>
+
                     <button class="btn btn-primary boardForm-btn" type="submit">Summit</button>
                     <button class="btn btn-danger boardForm-btn" type="button"
                             onclick="history.back()">Cancel
