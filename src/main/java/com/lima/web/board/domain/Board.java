@@ -1,6 +1,7 @@
 package com.lima.web.board.domain;
 
 import com.lima.web.member.domain.Member;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 import java.util.Objects;
@@ -13,7 +14,7 @@ public class Board {
     private String contents;
     private String goal;
     private String goalHam;
-    private Date goalDate;
+    private String goalDate;
     private String goalImg;
     private Member member;
     private int isSuccess;
@@ -75,11 +76,11 @@ public class Board {
         this.goalImg = goalImg;
     }
 
-    public Date getGoalDate() {
+    public String getGoalDate() {
         return goalDate;
     }
 
-    public void setGoalDate(Date goalDate) {
+    public void setGoalDate(String goalDate) {
         this.goalDate = goalDate;
     }
 

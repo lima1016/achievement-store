@@ -6,6 +6,7 @@ import com.lima.web.board.domain.Board;
 import com.lima.web.board.domain.BoardComments;
 import com.lima.web.member.domain.Member;
 import com.lima.web.member.service.MemberService;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -16,8 +17,12 @@ import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.File;
-import java.util.List;
-import java.util.UUID;
+import java.text.DateFormat;
+import java.text.FieldPosition;
+import java.text.ParsePosition;
+import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
 
 @Controller
 @RequestMapping("/board")
@@ -83,9 +88,13 @@ public class BoardController {
         }
 
         Board board = boardService.get(boardNo);
+        DateFormat dateFormat = new SimpleDateFormat("yyy-MM-dd");
+        Date date = dateFormat.parse(board.getGoalDate());
+
         List<BoardComments> boardComments = boardCommentsService.list(boardNo, pageNo, pageSize);
         model.addAttribute("boardComments", boardComments);
         model.addAttribute("board", board);
+        model.addAttribute("goalDate", date);
 
         model.addAttribute("pageNo", pageNo);
         model.addAttribute("pageSize", pageSize);
@@ -105,13 +114,18 @@ public class BoardController {
     @PostMapping("add")
     public String insert(HttpServletRequest httpServletRequest, @ModelAttribute("loginUser") Member loginUser,
                          Board board, MultipartFile file) throws Exception {
-//        int ham = Integer.parseInt(httpServletRequest.getParameter("goalHam"));
+        int betHam = Integer.parseInt(httpServletRequest.getParameter("goalHam"));
+
         board.setMemberNo(loginUser.getMemberNo());
         board.setGoalImg(writeFile(file));
-        System.out.println("board.getGoalImg() = " + board.getGoalImg());
-//        memberService.hamUpdate(ham, board.getMemberNo());
+        board.setTitle(httpServletRequest.getParameter("title"));
+        board.setGoal(httpServletRequest.getParameter("goal"));
+        board.setContents(httpServletRequest.getParameter("contents"));
+        board.setGoalDate(httpServletRequest.getParameter("goalDate"));
+
+        memberService.hamUpdate(betHam, board.getMemberNo());
         boardService.insert(board);
-        return "redirect:../index";
+        return "redirect:list";
     }
 
     /**
@@ -123,7 +137,7 @@ public class BoardController {
     @GetMapping("delete")
     public String delete(int boardNo) throws Exception {
         boardService.deleteByBoardNo(boardNo);
-        return "redirect:../index";
+        return "redirect:../member/mypage";
     }
 
     @PostMapping("update")

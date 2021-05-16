@@ -42,10 +42,10 @@
             <div class="row">
                 <div class="col-lg-8">
                     <c:if test="${board.goalImg eq null}">
-                        <img src="../img/study-notebooks.jpg" class="img-fluid" alt="...">
+                        <img src="../upload/board/study-notebooks.jpg" class="img-fluid" alt="...">
                     </c:if>
                     <c:if test="${board.goalImg ne null}">
-                        <img src="${board.goalImg}" class="img-fluid" alt="...">
+                        <img src="../upload/board/${board.goalImg}" class="img-fluid" alt="...">
                     </c:if>
                     <h3>${board.goal}</h3>
                     <p>${board.contents}</p>
@@ -71,10 +71,15 @@
                         <h5>Goal Date</h5>
                         <p>
                             <fmt:formatDate pattern="yyy-MM-dd" value="${board.regiDate}"/>
-                            ~ <fmt:formatDate pattern="yyy-MM-dd" value="${board.goalDate}"/>
+                            ~ <fmt:formatDate pattern="yyy-MM-dd" value="${goalDate}"/>
                         </p>
                     </div>
 
+                    <c:if test="${board.memberNo eq loginUser.memberNo}">
+                        <a href="../board/update" class="get-started-btn">Edit</a>
+                        <a href="../board/delete?boardNo=${board.boardNo}" class="get-started-btn"
+                           style="background-color: darkred">Delete</a>
+                    </c:if>
                 </div>
             </div>
 
@@ -96,11 +101,11 @@
                                 <p id="comments-a"></p>
                                 <c:forEach items="${boardComments}" var="boardComments">
                                     <p>${boardComments.member.name}: ${boardComments.comments}
-                                        <fmt:formatDate pattern="yyyy-MM-dd HH:mm"
-                                                        value="${boardComments.commentsDate}"></fmt:formatDate>
-                                        <c:if test="${boardComments.member.id  eq loginUser.id}">
+                                    <fmt:formatDate pattern="yyyy-MM-dd HH:mm"
+                                                    value="${boardComments.commentsDate}"></fmt:formatDate>
+                                    <c:if test="${boardComments.member.id  eq loginUser.id}">
                                         <i class="icofont-close-squared-alt"></i></p>
-                                        </c:if>
+                                    </c:if>
                                 </c:forEach>
                             </c:if>
                         </div>

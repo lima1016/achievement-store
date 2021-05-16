@@ -12,10 +12,9 @@
     <!-- Favicons -->
     <link href="../img/favicon.png" rel="icon">
     <link href="../img/apple-touch-icon.png" rel="apple-touch-icon">
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker3.min.css">
-
     <link href="../css/board/board.css" rel="stylesheet">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css"/>
 </head>
 <body>
 <!-- ======= Header ======= -->
@@ -47,15 +46,26 @@
                     <div class="form-row">
                         <div class="col-md-6 form-group">
                             <label for="title">Title:</label>
-                            <input type="text" name="title" class="form-control" id="title" placeholder="Your Name"
+                            <input type="text" name="title" class="form-control" id="title" placeholder="Title"
                                    data-rule="minlen:4" data-msg="Please enter at least 4 chars"/>
                             <div class="validate"></div>
                         </div>
                         <div class="col-md-6 form-group">
                             <label for="goal">Goal:</label>
-                            <input type="text" class="form-control" name="goal" id="goal" placeholder="Your Email"
+                            <input type="text" class="form-control" name="goal" id="goal" placeholder="Your Goal"
                                    data-rule="minlen:4" data-msg="Please enter at least 4 chars"/>
                             <div class="validate"></div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="datetimepicker">Goal Date</label>
+                        <div class="input-group date" id="datetimepicker" data-target-input="nearest">
+                            <input type="text" class="form-control datetimepicker-input"
+                                   data-target="#datetimepicker" name="goalDate">
+                            <div class="input-group-append" data-target="#datetimepicker"
+                                 data-toggle="datetimepicker">
+                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                            </div>
                         </div>
                     </div>
                     <div class="form-group">
@@ -87,20 +97,19 @@
     </section><!-- End Cource Details Section -->
 </main><!-- End #main -->
 <jsp:include page="../footer.jsp"/>
-<script type='text/javascript'>
-    $(function () {
-        $('.input-group.date').datepicker({
-            calendarWeeks: false,
-            todayHighlight: true,
-            autoclose: true,
-            format: "yyyy/mm/dd",
-            language: "kr"
-        });
-    });
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js"></script>
+
+<script type="text/javascript">
+$('#datetimepicker').datetimepicker({
+    defaultDate: new Date(),
+    format:'YYYY-MM-DD HH:mm'
+});
 </script>
 <script src="../js/board/form.js" type="text/javascript"></script>
-<script type='text/javascript'
-        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.min.js"></script>
 <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
 </body>

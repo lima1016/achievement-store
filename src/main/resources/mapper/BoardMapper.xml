@@ -82,14 +82,24 @@
         INSERT INTO board
         (
         goal_img
+        , title
+        , goal
+        , contents
+        , goal_ham
         , member_no
         , regi_date
+        , goal_date
         )
         VALUES
         (
         #{goalImg}
+        , #{title}
+        , #{goal}
+        , #{contents}
+        , #{goalHam}
         , #{memberNo}
         , now()
+        , #{goalDate}
         )
     </insert>
 
@@ -117,7 +127,7 @@
     <update id="deleteByBoardNo" parameterType="Board">
         update board
         <set>
-            is_success = 9
+            is_success = 3
         </set>
         where
         board_no = #{boardNo};
