@@ -242,28 +242,28 @@
             </div>
 
             <div class="row" data-aos="zoom-in" data-aos-delay="100">
-                <c:forEach items="${boards}" var="board" begin="0" end="2" step="1">
-                    <c:if test="${board.isSuccess eq 0}">
+                <c:forEach items="${boards}" var="studyGroup" begin="0" end="2" step="1">
+                    <c:if test="${studyGroup.isSuccess eq 0}">
                         <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-                            <div class="course-item" onClick="location.href='/board/detail?boardNo=${board.boardNo}'">
-                                <c:if test="${board.goalImg eq null}">
+                            <div class="course-item" onClick="location.href='/board/detail?boardNo=${studyGroup.boardNo}'">
+                                <c:if test="${studyGroup.goalImg eq null}">
                                     <img src="../upload/board/study-notebooks.jpg" class="img-fluid" alt="...">
                                 </c:if>
-                                <c:if test="${board.goalImg ne null}">
-                                    <img src="/upload/board/${board.goalImg}" class="img-fluid" alt="...">
+                                <c:if test="${studyGroup.goalImg ne null}">
+                                    <img src="/upload/board/${studyGroup.goalImg}" class="img-fluid" alt="...">
                                 </c:if>
                                 <div class="course-content">
                                     <div class="d-flex justify-content-between align-items-center mb-3">
-                                        <h4>${board.goalHam}&nbsp;ham</h4>
+                                        <h4>${studyGroup.goalHam}&nbsp;ham</h4>
                                         <p class="price"><fmt:formatDate pattern="yyy-MM-dd"
-                                                                         value="${board.regiDate}"/></p>
+                                                                         value="${studyGroup.regiDate}"/></p>
                                     </div>
-                                    <h3><a href="">${board.title}</a></h3>
-                                    <p>${board.goal}</p>
+                                    <h3><a href="">${studyGroup.title}</a></h3>
+                                    <p>${studyGroup.goal}</p>
                                     <div class="trainer d-flex justify-content-between align-items-center">
                                         <div class="trainer-profile d-flex align-items-center">
                                             <img src="../img/trainers/trainer-1.jpg" class="img-fluid" alt="">
-                                            <span>${board.member.name}</span>
+                                            <span>${studyGroup.member.name}</span>
                                         </div>
                                         <div class="trainer-rank d-flex align-items-center">
                                             <i class="bx bx-user"></i>&nbsp;50

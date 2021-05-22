@@ -44,45 +44,44 @@
             <c:if test="${not empty loginUser}">
                 <div class="board-button-div">
                     <button class="set-new-goal" type="button"
-                            onclick="location.href='/board/form'"> set my new goal
+                            onclick="location.href='/studyGroup/form'"> set my new goal
                     </button>
                 </div>
             </c:if>
             <div class="row" data-aos="zoom-in" data-aos-delay="100">
-                <c:forEach items="${boards}" var="board">
-                    <c:if test="${board.isSuccess eq 0}">
-                        <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-                            <div class="course-item" onClick="location.href='/board/detail?boardNo=${board.boardNo}'">
-                                <c:if test="${board.goalImg eq null}">
-                                    <img src="../upload/board/study-notebooks.jpg" class="img-fluid" alt="...">
-                                </c:if>
-                                <c:if test="${board.goalImg ne null}">
-                                    <img src="../upload/board/${board.goalImg}" class="img-fluid" alt="...">
-                                </c:if>
+                <c:forEach items="${studyGroups}" var="studyGroup">
+<%--                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch">--%>
+<%--                        <div class="course-item" onClick="location.href='/board/detail?boardNo=${studyGroup.studyNo}'">--%>
+<%--                            <c:if test="${studyGroup.goalImg eq null}">--%>
+<%--                                <img src="../upload/board/study-notebooks.jpg" class="img-fluid" alt="...">--%>
+<%--                            </c:if>--%>
+<%--                            <c:if test="${studyGroup.goalImg ne null}">--%>
+<%--                                <img src="../upload/board/${studyGroup.goalImg}" class="img-fluid" alt="...">--%>
+<%--                            </c:if>--%>
 
-                                <div class="course-content">
-                                    <div class="d-flex justify-content-between align-items-center mb-3">
-                                        <h4>${board.goalHam}&nbsp;ham</h4>
-                                        <p class="price"><fmt:formatDate pattern="yyy-MM-dd" value="${board.regiDate}"/></p>
-                                    </div>
-                                    <h3><a href="">${board.title}</a></h3>
-                                    <p>${board.goal}</p>
-                                    <div class="trainer d-flex justify-content-between align-items-center">
-                                        <div class="trainer-profile d-flex align-items-center">
-                                            <img src="../img/trainers/trainer-1.jpg" class="img-fluid" alt="">
-                                            <span>${board.member.name}</span>
-                                        </div>
-                                        <div class="trainer-rank d-flex align-items-center">
-                                            <i class="bx bx-user"></i>&nbsp;50
-                                            &nbsp;&nbsp;
-                                            <i class="bx bx-heart"></i>&nbsp;65
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Course Item-->
-                    </c:if>
+<%--                            <div class="course-content">--%>
+<%--                                <div class="d-flex justify-content-between align-items-center mb-3">--%>
+<%--                                    <h4>${studyGroup.goalHam}&nbsp;ham</h4>--%>
+<%--                                    <p class="price"><fmt:formatDate pattern="yyy-MM-dd"--%>
+<%--                                                                     value="${studyGroup.regiDate}"/></p>--%>
+<%--                                </div>--%>
+<%--                                <h3>${studyGroup.title}</h3>--%>
+<%--                                <p>${studyGroup.goal}</p>--%>
+<%--                                <div class="trainer d-flex justify-content-between align-items-center">--%>
+<%--                                    <div class="trainer-profile d-flex align-items-center">--%>
+<%--                                        <img src="../img/trainers/trainer-1.jpg" class="img-fluid" alt="">--%>
+<%--                                        <span>${studyGroup.member.name}</span>--%>
+<%--                                    </div>--%>
+<%--                                    <div class="trainer-rank d-flex align-items-center">--%>
+<%--                                        <i class="bx bx-user"></i>&nbsp;${studyGroup.people}--%>
+<%--                                        &nbsp;&nbsp;<!-- 해당 게시판의 댓글 갯수 -->--%>
+<%--                                        <i class="bx bx-heart"></i>&nbsp;${comments}--%>
+<%--                                    </div>--%>
+<%--                                </div>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
+<%--                    <!-- End Course Item-->--%>
                 </c:forEach>
             </div>
         </div>

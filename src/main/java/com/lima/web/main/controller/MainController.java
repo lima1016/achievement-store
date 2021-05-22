@@ -1,6 +1,6 @@
 package com.lima.web.main.controller;
 
-import com.lima.service.BoardService;
+import com.lima.web.board.service.BoardService;
 import com.lima.web.board.domain.Board;
 import com.lima.web.member.domain.Member;
 import com.lima.web.member.service.MemberService;

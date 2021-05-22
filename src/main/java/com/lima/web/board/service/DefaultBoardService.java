@@ -1,6 +1,5 @@
 package com.lima.web.board.service;
 
-import com.lima.service.BoardService;
 import com.lima.web.board.dao.BoardDao;
 import com.lima.web.board.domain.Board;
 import com.lima.web.member.dao.MemberDao;

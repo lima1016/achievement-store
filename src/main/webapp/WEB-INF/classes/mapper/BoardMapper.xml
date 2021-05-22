@@ -170,6 +170,7 @@
             b.board_no = #{boardNo}
         and b.member_no = #{memberNo}
     </update>
+
     <select id="countBoard" resultType="int">
         SELECT COUNT(*) FROM board
     </select>

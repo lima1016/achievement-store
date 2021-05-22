@@ -1,6 +1,5 @@
 package com.lima.web.board.service;
 
-import com.lima.service.BoardCommentsService;
 import com.lima.web.board.dao.BoardCommentsDao;
 import com.lima.web.board.domain.BoardComments;
 import org.springframework.stereotype.Service;

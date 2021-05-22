@@ -1,4 +1,4 @@
-package com.lima.service;
+package com.lima.web.board.service;
 
 import com.lima.web.board.domain.Board;
 import com.lima.web.member.domain.Member;
