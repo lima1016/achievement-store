@@ -33,8 +33,15 @@ public class MainController {
             Member member = memberService.get(loginUser.getMemberNo());
             model.addAttribute("loginUser", member);
         }
+        // 회원 숫자
+        int memberCount = memberService.countMember();
+        // 게시판 갯수
+        int boardCount = boardService.countBoard();
+
         // 모든 보드 들고 오기
         List<Board> boards = boardService.list();
         model.addAttribute("boards", boards);
+        model.addAttribute("memberCount", memberCount);
+        model.addAttribute("boardCount", boardCount);
     }
 }

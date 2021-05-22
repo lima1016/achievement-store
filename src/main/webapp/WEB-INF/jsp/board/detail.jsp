@@ -63,8 +63,8 @@
                     </div>
 
                     <div class="course-info d-flex justify-content-between align-items-center">
-                        <h5>Available Seats</h5>
-                        <p>30</p>
+                        <h5>Comments</h5>
+                        <p>${size}</p>
                     </div>
 
                     <div class="course-info d-flex justify-content-between align-items-center">
@@ -76,7 +76,7 @@
                     </div>
 
                     <c:if test="${board.memberNo eq loginUser.memberNo}">
-                        <a href="../board/update" class="get-started-btn">Edit</a>
+                        <a href="../board/updateForm" class="get-started-btn">Edit</a>
                         <a href="../board/delete?boardNo=${board.boardNo}" class="get-started-btn"
                            style="background-color: darkred">Delete</a>
                     </c:if>

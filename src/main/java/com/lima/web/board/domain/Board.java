@@ -4,6 +4,7 @@ import com.lima.web.member.domain.Member;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 
 public class Board {

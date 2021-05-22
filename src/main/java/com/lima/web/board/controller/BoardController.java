@@ -106,24 +106,14 @@ public class BoardController {
 
     /**
      *
-     * @param httpServletRequest jsp에서 name이 goalHam인 값을 받음
      * @param board 보드의 값을 받아옴
      * @return add가 되면 index 주소로 리턴
      * @throws Exception
      */
     @PostMapping("add")
-    public String insert(HttpServletRequest httpServletRequest, @ModelAttribute("loginUser") Member loginUser,
-                         Board board, MultipartFile file) throws Exception {
-        int betHam = Integer.parseInt(httpServletRequest.getParameter("goalHam"));
-
+    public String insert(@ModelAttribute("loginUser") Member loginUser, Board board, MultipartFile file) throws Exception {
         board.setMemberNo(loginUser.getMemberNo());
         board.setGoalImg(writeFile(file));
-        board.setTitle(httpServletRequest.getParameter("title"));
-        board.setGoal(httpServletRequest.getParameter("goal"));
-        board.setContents(httpServletRequest.getParameter("contents"));
-        board.setGoalDate(httpServletRequest.getParameter("goalDate"));
-
-        memberService.hamUpdate(betHam, board.getMemberNo());
         boardService.insert(board);
         return "redirect:list";
     }
@@ -131,7 +121,7 @@ public class BoardController {
     /**
      * 해당 유저의 게시판 지우기
      * @param boardNo 보드 번호 받기
-     * @return 삭제가 완료 되면 index로 redirect
+     * @return 삭제가 완료 되면 mypage redirect
      * @throws Exception
      */
     @GetMapping("delete")

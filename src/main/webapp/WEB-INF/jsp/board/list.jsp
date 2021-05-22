@@ -65,7 +65,7 @@
                                         <h4>${board.goalHam}&nbsp;ham</h4>
                                         <p class="price"><fmt:formatDate pattern="yyy-MM-dd" value="${board.regiDate}"/></p>
                                     </div>
-                                    <h3><a href="">${board.title}</a></h3>
+                                    <h3>${board.title}</h3>
                                     <p>${board.goal}</p>
                                     <div class="trainer d-flex justify-content-between align-items-center">
                                         <div class="trainer-profile d-flex align-items-center">
@@ -73,9 +73,9 @@
                                             <span>${board.member.name}</span>
                                         </div>
                                         <div class="trainer-rank d-flex align-items-center">
-                                            <i class="bx bx-user"></i>&nbsp;50
-                                            &nbsp;&nbsp;
-                                            <i class="bx bx-heart"></i>&nbsp;65
+                                            <i class="bx bx-user"></i>&nbsp;${board.boardNo}
+                                            &nbsp;&nbsp;<!-- 해당 게시판의 댓글 갯수 -->
+                                            <i class="bx bx-heart"></i>&nbsp;${comments}
                                         </div>
                                     </div>
                                 </div>

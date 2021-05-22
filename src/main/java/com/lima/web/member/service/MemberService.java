@@ -83,4 +83,8 @@ public class MemberService {
     public void insertWithdraw(Withdraw withdraw) throws Exception{
         memberDao.insertWithdraw(withdraw);
     }
+
+    public int countMember() throws Exception {
+        return memberDao.countMember();
+    }
 }

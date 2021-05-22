@@ -20,9 +20,9 @@
 <!-- ======= Hero Section ======= -->
 <section id="hero" class="d-flex justify-content-center align-items-center">
     <div class="container position-relative" data-aos="zoom-in" data-aos-delay="100">
-        <h1>Plan your Goal Today,<br>Achieve Your Dream Tomorrow</h1>
-        <h2>We are team of talanted designers making websites with Bootstrap</h2>
-        <a href="courses.html" class="btn-get-started">Join Us</a>
+        <h1>혼자 공부하지마세요!<br>함께 공부할 스터디 메이트를 찾아보세요!</h1>
+        <h2>스스로 약속하고 지키는 것을 모두에게 공유해보세요!</h2>
+        <a href="../board/list" class="btn-get-started">스터디 메이트 찾기</a>
     </div>
 </section><!-- End Hero -->
 
@@ -42,25 +42,24 @@
                     <img src="../img/about.jpg" class="img-fluid" alt="">
                 </div>
                 <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
-                    <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h3>
+                    <h3>혼자 공부하지 마세요! 이제는 함께 공부하세요!</h3>
                     <p class="font-italic">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore
-                        magna aliqua.
+                        집에있는 시간이 길어지면서 집에서 공부하는 시간이 많아졌습니다.
+                        혼자서 공부하기 힘들고 지치신다면 함게 이겨낼 스터디 그룹을 한번 찾아보세요!
                     </p>
                     <ul>
-                        <li><i class="icofont-check-circled"></i> Plan Your Goal
+                        <li><i class="icofont-check-circled"></i> 자신과의 약속
                         </li>
-                        <li><i class="icofont-check-circled"></i> Set Date
+                        <li><i class="icofont-check-circled"></i> 스터디 그룹 찾기
                         </li>
-                        <li><i class="icofont-check-circled"></i> Just Do It!
+                        <li><i class="icofont-check-circled"></i> 소통하는 공간
                         </li>
                     </ul>
                     <p>
                         Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
                         in voluptate
                     </p>
-                    <a href="about.html" class="learn-more-btn">Learn More</a>
+                    <a href="about.html" class="learn-more-btn">스터디 찾기</a>
                 </div>
             </div>
 
@@ -74,18 +73,18 @@
             <div class="row counters">
 
                 <div class="col-lg-3 col-6 text-center">
-                    <span data-toggle="counter-up">1232</span>
-                    <p>Share Your Goals</p>
+                    <span data-toggle="counter-up">${boardCount}</span>
+                    <p>Goal Lists</p>
                 </div>
 
                 <div class="col-lg-3 col-6 text-center">
                     <span data-toggle="counter-up">64</span>
-                    <p>Study Group</p>
+                    <p>Study Groups</p>
                 </div>
 
                 <div class="col-lg-3 col-6 text-center">
-                    <span data-toggle="counter-up">42</span>
-                    <p>Achievement Store</p>
+                    <span data-toggle="counter-up">${memberCount}</span>
+                    <p>Achievement Store Members</p>
                 </div>
 
                 <div class="col-lg-3 col-6 text-center">
