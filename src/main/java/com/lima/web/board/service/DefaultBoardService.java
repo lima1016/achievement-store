@@ -11,7 +11,6 @@ import javax.annotation.Resource;
 import java.util.HashMap;
 import java.util.List;
 
-@Service
 public class DefaultBoardService implements  BoardService {
 
     @Resource

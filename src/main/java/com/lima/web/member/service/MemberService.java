@@ -1,90 +1,38 @@
 package com.lima.web.member.service;
 
-import com.lima.web.member.dao.MemberDao;
 import com.lima.web.member.domain.Deposit;
 import com.lima.web.member.domain.Member;
 import com.lima.web.member.domain.Withdraw;
-import lombok.With;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
-import java.util.HashMap;
 import java.util.List;
 
 @Service
-public class MemberService {
+public interface MemberService {
 
-    @Resource
-    MemberDao memberDao;
+  List<Member> findAll() throws Exception;
 
-    public List<Member> findAll() throws Exception {
-        return memberDao.findAll();
-    }
+  void insert(Member member) throws Exception;
 
-    public void insert(Member member) throws Exception {
-        memberDao.insert(member);
-    }
+  Member findByEmailPassword(String id, String password) throws Exception;
 
-    public Member findByEmailPassword(String id, String password) throws Exception {
-        HashMap<String, Object> map = new HashMap<>();
-        map.put("id", id);
-        map.put("password", password);
+  int userIdCheck(String userId) throws Exception;
 
-        Member member = memberDao.findByUserIdPassword(map);
+  int emailCheck(String email) throws Exception;
 
-        return member;
-    }
+  Member get(String userId, String password) throws Exception;
 
-    public int userIdCheck(String userId) throws Exception {
-        return memberDao.checkUserId(userId);
-    }
+  Member get(int memberNo) throws Exception;
 
-    public int emailCheck(String email) throws Exception {
-        return memberDao.checkEmail(email);
-    }
+  void hamUpdate(int ham, int memberNo) throws Exception;
 
-    public Member get(String userId, String password) throws Exception {
-        HashMap<String, Object> map = new HashMap<>();
-        map.put("userId", userId);
-        map.put("password", password);
-        Member member = memberDao.findByUserIdPassword(map);
-        if (member == null) {
-            throw new Exception("맴버 없음.");
-        }
-        return member;
-    }
+  void updateMyInfo(Member member) throws Exception;
 
-    public Member get(int memberNo) throws Exception {
-        return memberDao.findBy(memberNo);
-    }
+  void findAllHamHistory(int memberNo) throws Exception;
 
-    /**
-     *
-     * @param ham
-     * @param memberNo
-     * @throws Exception
-     */
-    public void hamUpdate(int ham, int memberNo) throws Exception {
-        Member member = memberDao.findBy(memberNo);
-        int newHam = member.getHam() - ham;
-        member.setHam(newHam);
-        memberDao.hamUpdate(member);
-    }
+  void insertDeposit(Deposit deposit) throws Exception;
 
-    public void updateMyInfo(Member member) throws Exception {
-        memberDao.updateMyInfo(member);
-    }
-    public void findAllHamHistory(int memberNo) throws Exception{
-        memberDao.findAllHamHistory(memberNo);
-    }
-    public void insertDeposit(Deposit deposit) throws Exception{
-        memberDao.insertDeposit(deposit);
-    }
-    public void insertWithdraw(Withdraw withdraw) throws Exception{
-        memberDao.insertWithdraw(withdraw);
-    }
+  void insertWithdraw(Withdraw withdraw) throws Exception;
 
-    public int countMember() throws Exception {
-        return memberDao.countMember();
-    }
+  int countMember() throws Exception;
 }

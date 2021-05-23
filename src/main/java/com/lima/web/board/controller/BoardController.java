@@ -1,9 +1,9 @@
 package com.lima.web.board.controller;
 
-import com.lima.web.board.service.BoardCommentsService;
-import com.lima.web.board.service.BoardService;
 import com.lima.web.board.domain.Board;
 import com.lima.web.board.domain.BoardComments;
+import com.lima.web.board.service.BoardCommentsService;
+import com.lima.web.board.service.BoardService;
 import com.lima.web.member.domain.Member;
 import com.lima.web.member.service.MemberService;
 import org.springframework.stereotype.Controller;
@@ -17,7 +17,9 @@ import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.Date;
+import java.util.List;
+import java.util.UUID;
 
 @Controller
 @RequestMapping("/board")
