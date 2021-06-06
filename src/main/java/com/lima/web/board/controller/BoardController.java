@@ -32,8 +32,6 @@ public class BoardController {
     @Resource
     BoardCommentsService boardCommentsService;
 
-    @Resource
-    MemberService memberService;
 
     String uploadDir;
 

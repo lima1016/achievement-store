@@ -11,7 +11,7 @@ import javax.annotation.Resource;
 import java.util.HashMap;
 import java.util.List;
 
-
+@Service
 public class MemberServiceImpl implements MemberService{
 
     @Resource

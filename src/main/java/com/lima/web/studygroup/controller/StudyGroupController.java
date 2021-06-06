@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,11 +18,13 @@ import java.util.List;
 @SessionAttributes("loginUser")
 public class StudyGroupController {
 
+  @Resource
   StudyGroupService studyGroupService;
 
   @GetMapping("list")
   public void findAll(Model model) throws Exception {
     List<StudyGroup> studyGroups = studyGroupService.findAll();
+    System.out.println("studyGroups = " + studyGroups);
     model.addAttribute("studyGroups", studyGroups);
   }
 

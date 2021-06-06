@@ -13,6 +13,8 @@
         <result column="end_date" property="endDate"/>
         <result column="reg_date" property="regDate"/>
         <result column="people" property="people"/>
+        <result column="max_people" property="maxPeople"/>
+        <result column="img" property="img"/>
     </resultMap>
 
     <select id="findAll" resultMap="StudyGroupMap">
