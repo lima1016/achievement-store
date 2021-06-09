@@ -43,7 +43,8 @@
                     </section>
 
                     <input type="file" name="file" id="file"/>
-                    <div class="form-row">
+
+                    <div class="form-row form-group">
                         <div class="col-md-6 form-group">
                             <label for="title">Title:</label>
                             <input type="text" name="title" class="form-control" id="title" placeholder="Title"
@@ -56,8 +57,6 @@
                                    data-rule="minlen:4" data-msg="Please enter at least 4 chars"/>
                             <div class="validate"></div>
                         </div>
-                    </div>
-                    <div class="form-group">
                         <label for="datetimepicker">Goal Date</label>
                         <div class="input-group date" id="datetimepicker" data-target-input="nearest">
                             <input type="text" class="form-control datetimepicker-input"

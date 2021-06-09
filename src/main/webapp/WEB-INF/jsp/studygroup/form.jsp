@@ -25,7 +25,7 @@
     <!-- ======= Breadcrumbs ======= -->
     <div class="breadcrumbs" data-aos="fade-in">
         <div class="container">
-            <h2>Set Your Goal</h2>
+            <h2>Create Study Group</h2>
         </div>
     </div><!-- End Breadcrumbs -->
 
@@ -43,23 +43,16 @@
                     </section>
 
                     <input type="file" name="file" id="file"/>
-                    <div class="form-row">
-                        <div class="col-md-6 form-group">
-                            <label for="title">Title:</label>
-                            <input type="text" name="title" class="form-control" id="title" placeholder="Title"
-                                   data-rule="minlen:4" data-msg="Please enter at least 4 chars"/>
-                        </div>
-                        <div class="col-md-6 form-group">
-                            <label for="goal">Study Goal:</label>
-                            <input type="text" class="form-control" name="goal" id="goal" placeholder="Your Goal"
-                                   data-rule="minlen:4" data-msg="Please enter at least 4 chars"/>
-                        </div>
-                    </div>
-                    <div class="form-group">
+
+                    <div class="form-group form-row">
+                        <label for="title">Title:</label>
+                        <input type="text" name="title" class="form-control" id="title" placeholder="Title"
+                               data-rule="minlen:4" data-msg="Please enter at least 4 chars"/>
+
                         <label for="datetimepicker">Recruitment Period</label>
                         <div class="input-group date" id="datetimepicker" data-target-input="nearest">
                             <input type="text" class="form-control datetimepicker-input"
-                                   data-target="#datetimepicker" name="goalDate">
+                                   data-target="#datetimepicker" name="endDate">
                             <div class="input-group-append" data-target="#datetimepicker"
                                  data-toggle="datetimepicker">
                                 <div class="input-group-text"><i class="fa fa-calendar"></i></div>
@@ -67,8 +60,8 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="goalHam">Max People</label>
-                        <input type="text" class="form-control" name="goalHam" id="goalHam" onblur="ham_CheckFunc()"/>
+                        <label for="maxPeople">Max People</label>
+                        <input type="text" class="form-control" name="maxPeople" id="maxPeople" onblur="ham_CheckFunc()"/>
                     </div>
                     <div class="form-group">
                         <label for="contents">Contents:</label>

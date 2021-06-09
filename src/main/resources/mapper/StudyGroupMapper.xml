@@ -40,19 +40,41 @@
     <select id="findAll" resultMap="StudyGroupMemberMap">
         select
         b.study_board_no
-        , b.member_no
-        , b.title
-        , b.contents
-        , b.end_date
-        , b.reg_date
-        , b.people
-        , b.img
-        , b.max_people
-        , m.member_no
-        , m.name
+             , b.member_no
+             , b.title
+             , b.contents
+             , b.end_date
+             , b.reg_date
+             , b.people
+             , b.img
+             , b.max_people
+             , m.member_no
+             , m.name
         from study_board b
-            left join member m on b.member_no = m.member_no
+                 left join member m on b.member_no = m.member_no
     </select>
+
+    <insert id="insert" parameterType="StudyGroup">
+        INSERT INTO study_board
+        (
+         img
+        , title
+        , contents
+        , max_people
+        , member_no
+        , reg_date
+        , end_date
+        )
+        VALUES (
+                #{img}
+               , #{title}
+               , #{contents}
+               , #{maxPeople}
+               , #{memberNo}
+               , now()
+               , #{endDate}
+               )
+    </insert>
 
     <select id="countStudy" resultType="int">
         SELECT COUNT(*)

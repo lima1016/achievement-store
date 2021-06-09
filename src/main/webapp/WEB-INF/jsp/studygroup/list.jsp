@@ -51,13 +51,13 @@
             <div class="row" data-aos="zoom-in" data-aos-delay="100">
                 <c:forEach items="${studyGroups}" var="studyGroup">
                     <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-                        <div class="course-item" onClick="location.href='/studyGroup/detail?studyNo=${studyGroup.studyNo}'">
+                        <div class="course-item" onClick="location.href='/studygroup/detail?studyNo=${studyGroup.studyNo}'">
                             <c:if test="${studyGroup.img eq null}">
                                 <img src="../upload/studyGroup/studyGroup.jpg" class="img-fluid" alt="...">
                             </c:if>
-<%--                            <c:if test="${studyGroup.img ne null}">--%>
-<%--                                <img src="../upload/board/${studyGroup.img}" class="img-fluid" alt="...">--%>
-<%--                            </c:if>--%>
+                            <c:if test="${studyGroup.img ne null}">
+                                <img src="../upload/studyGroup/${studyGroup.img}" class="img-fluid" alt="...">
+                            </c:if>
 
                             <div class="course-content">
                                 <div class="d-flex justify-content-between align-items-center mb-3">

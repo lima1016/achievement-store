@@ -11,7 +11,7 @@ public class StudyGroup {
   private int memberNo;
   private String title;
   private String contents;
-  private Date endDate;
+  private String endDate;
   private Date regDate;
   private String img;
   // 스터디를 신청한 사람 수
@@ -92,11 +92,11 @@ public class StudyGroup {
     this.contents = contents;
   }
 
-  public Date getEndDate() {
+  public String getEndDate() {
     return endDate;
   }
 
-  public void setEndDate(Date endDate) {
+  public void setEndDate(String endDate) {
     this.endDate = endDate;
   }
 
