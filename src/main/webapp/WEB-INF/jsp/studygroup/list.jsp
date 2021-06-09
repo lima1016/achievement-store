@@ -44,7 +44,7 @@
             <c:if test="${not empty loginUser}">
                 <div class="board-button-div">
                     <button class="set-new-goal" type="button"
-                            onclick="location.href='/studyGroup/form'"> set my new goal
+                            onclick="location.href='/studygroup/form'"> create study group
                     </button>
                 </div>
             </c:if>
@@ -68,7 +68,7 @@
                                 <div class="trainer d-flex justify-content-between align-items-center">
                                     <div class="trainer-profile d-flex align-items-center">
                                         <img src="../img/trainers/trainer-1.jpg" class="img-fluid" alt="">
-                                        <span>${studyGroup.memberNo}</span>
+                                        <span>${studyGroup.member.name}</span>
                                     </div>
                                     <div class="trainer-rank d-flex align-items-center">
                                         <i class="bx bx-user"></i>&nbsp;${studyGroup.people}

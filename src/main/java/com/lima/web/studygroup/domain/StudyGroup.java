@@ -1,20 +1,34 @@
 package com.lima.web.studygroup.domain;
 
+import com.lima.web.member.domain.Member;
+
 import java.util.Date;
 
 public class StudyGroup {
 
   private int studyNo;
+  // 스터디 만든이
   private int memberNo;
   private String title;
   private String contents;
   private Date endDate;
   private Date regDate;
   private String img;
+  // 스터디를 신청한 사람 수
   // default = 1
   private int people;
+  // 스터디장이 받고 싶은 사람 수
   private int maxPeople;
 
+  private Member member;
+
+  public Member getMember() {
+    return member;
+  }
+
+  public void setMember(Member member) {
+    this.member = member;
+  }
 
   public int getMaxPeople() {
     return maxPeople;

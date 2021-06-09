@@ -17,8 +17,41 @@
         <result column="img" property="img"/>
     </resultMap>
 
-    <select id="findAll" resultMap="StudyGroupMap">
-        select * from study_board
+    <resultMap type="StudyGroup" id="StudyGroupMemberMap">
+        <id column="study_board_no" property="studyNo"/>
+        <result column="member_no" property="memberNo"/>
+        <result column="title" property="title"/>
+        <result column="contents" property="contents"/>
+        <result column="end_date" property="endDate"/>
+        <result column="reg_date" property="regDate"/>
+        <result column="people" property="people"/>
+        <result column="max_people" property="maxPeople"/>
+        <result column="img" property="img"/>
+
+        <collection property="member" ofType="Member">
+            <id column="member_no" property="memberNo"/>
+            <result column="id" property="id"/>
+            <result column="name" property="name"/>
+            <result column="ham" property="ham"/>
+            <result column="email" property="email"/>
+        </collection>
+    </resultMap>
+
+    <select id="findAll" resultMap="StudyGroupMemberMap">
+        select
+        b.study_board_no
+        , b.member_no
+        , b.title
+        , b.contents
+        , b.end_date
+        , b.reg_date
+        , b.people
+        , b.img
+        , b.max_people
+        , m.member_no
+        , m.name
+        from study_board b
+            left join member m on b.member_no = m.member_no
     </select>
 
     <select id="countStudy" resultType="int">

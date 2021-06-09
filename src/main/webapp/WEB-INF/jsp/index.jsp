@@ -56,8 +56,8 @@
                         </li>
                     </ul>
                     <p>
-                        Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
-                        in voluptate
+                        코시국! 지금은 집에서 함께 공부하는 시간!
+                        오프라인이 아닌 온라인으로 스터디를 모집해보세요!
                     </p>
                     <a href="about.html" class="learn-more-btn">스터디 찾기</a>
                 </div>
@@ -84,12 +84,12 @@
 
                 <div class="col-lg-3 col-6 text-center">
                     <span data-toggle="counter-up">${memberCount}</span>
-                    <p>Achievement Store Members</p>
+                    <p>Members</p>
                 </div>
 
                 <div class="col-lg-3 col-6 text-center">
                     <span data-toggle="counter-up">15</span>
-                    <p>Trainers</p>
+                    <p>Mentors</p>
                 </div>
 
             </div>

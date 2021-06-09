@@ -24,7 +24,6 @@ public class StudyGroupController {
   @GetMapping("list")
   public void findAll(Model model) throws Exception {
     List<StudyGroup> studyGroups = studyGroupService.findAll();
-    System.out.println("studyGroups = " + studyGroups);
     model.addAttribute("studyGroups", studyGroups);
   }
 
@@ -36,4 +35,5 @@ public class StudyGroupController {
   public void insert(StudyGroup studyGroup) throws Exception {
     studyGroupService.insert(studyGroup);
   }
+
 }

@@ -36,7 +36,7 @@
                 <form action="add" method="post" role="form" class="php-email-form" enctype='multipart/form-data'>
                     <section class="photobtn">
                         <div class="thumbnail">
-                            <img id="img" src="../upload/board/study-notebooks.jpg" class="img-fluid" alt="...">
+                            <img id="img" src="../upload/studyGroup/studyGroup.jpg" class="img-fluid" alt="...">
                         </div>
                         <a id="addphoto" href="" class="btn"><i class="icofont-plus-circle"></i></a>
                         <a id="removephoto" href="" class="btn"><i class="icofont-minus-circle"></i></a>
@@ -48,17 +48,15 @@
                             <label for="title">Title:</label>
                             <input type="text" name="title" class="form-control" id="title" placeholder="Title"
                                    data-rule="minlen:4" data-msg="Please enter at least 4 chars"/>
-                            <div class="validate"></div>
                         </div>
                         <div class="col-md-6 form-group">
-                            <label for="goal">Goal:</label>
+                            <label for="goal">Study Goal:</label>
                             <input type="text" class="form-control" name="goal" id="goal" placeholder="Your Goal"
                                    data-rule="minlen:4" data-msg="Please enter at least 4 chars"/>
-                            <div class="validate"></div>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="datetimepicker">Goal Date</label>
+                        <label for="datetimepicker">Recruitment Period</label>
                         <div class="input-group date" id="datetimepicker" data-target-input="nearest">
                             <input type="text" class="form-control datetimepicker-input"
                                    data-target="#datetimepicker" name="goalDate">
@@ -69,18 +67,13 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="myHam">My ham:</label>
-                        <input type="text" class="form-control" id="myHam"
-                               value="${loginUser.ham}" readonly/>
-                        <label for="goalHam">Bet ham:</label>
+                        <label for="goalHam">Max People</label>
                         <input type="text" class="form-control" name="goalHam" id="goalHam" onblur="ham_CheckFunc()"/>
-                        <div id="ownHam_chk"></div>
                     </div>
                     <div class="form-group">
                         <label for="contents">Contents:</label>
                         <textarea class="form-control" name="contents" rows="5" data-rule="required" id="contents"
                                   data-msg="Please write something for us" placeholder="Message"></textarea>
-                        <div class="validate"></div>
                     </div>
 
                     <button class="btn btn-primary boardForm-btn" type="submit">Summit</button>
