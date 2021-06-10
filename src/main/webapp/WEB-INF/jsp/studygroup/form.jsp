@@ -36,7 +36,7 @@
                 <form action="add" method="post" role="form" class="php-email-form" enctype='multipart/form-data'>
                     <section class="photobtn">
                         <div class="thumbnail">
-                            <img id="img" src="../upload/studyGroup/studyGroup.jpg" class="img-fluid" alt="...">
+                            <img id="img" src="../upload/studygroup/studyGroup.jpg" class="img-fluid" alt="...">
                         </div>
                         <a id="addphoto" href="" class="btn"><i class="icofont-plus-circle"></i></a>
                         <a id="removephoto" href="" class="btn"><i class="icofont-minus-circle"></i></a>

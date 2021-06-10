@@ -3,6 +3,7 @@ package com.lima.web.studygroup.domain;
 import com.lima.web.member.domain.Member;
 
 import java.util.Date;
+import java.util.Objects;
 
 public class StudyGroup {
 
@@ -64,9 +65,6 @@ public class StudyGroup {
     return studyNo;
   }
 
-  public void setStudyNo(int studyNo) {
-    this.studyNo = studyNo;
-  }
 
   public int getMemberNo() {
     return memberNo;
@@ -114,5 +112,18 @@ public class StudyGroup {
 
   public void setPeople(int people) {
     this.people = people;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    StudyGroup that = (StudyGroup) o;
+    return studyNo == that.studyNo && memberNo == that.memberNo && people == that.people && maxPeople == that.maxPeople && Objects.equals(title, that.title) && Objects.equals(contents, that.contents) && Objects.equals(endDate, that.endDate) && Objects.equals(regDate, that.regDate) && Objects.equals(img, that.img) && Objects.equals(member, that.member);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(studyNo, memberNo, title, contents, endDate, regDate, img, people, maxPeople, member);
   }
 }

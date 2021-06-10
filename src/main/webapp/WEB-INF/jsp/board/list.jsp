@@ -33,8 +33,7 @@
     <div class="breadcrumbs">
         <div class="container">
             <h2>Share Your Goal!</h2>
-            <p>Est dolorum ut non facere possimus quibusdam eligendi voluptatem. Quia id aut similique quia voluptas sit
-                quaerat debitis. Rerum omnis ipsam aperiam consequatur laboriosam nemo harum praesentium. </p>
+            <p>스스로의 약속을 모두에게 공유하고 지키도록 해보세요!</p>
         </div>
     </div><!-- End Breadcrumbs -->
 

@@ -32,9 +32,8 @@
     <!-- ======= Breadcrumbs ======= -->
     <div class="breadcrumbs">
         <div class="container">
-            <h2>Share Your Goal!</h2>
-            <p>Est dolorum ut non facere possimus quibusdam eligendi voluptatem. Quia id aut similique quia voluptas sit
-                quaerat debitis. Rerum omnis ipsam aperiam consequatur laboriosam nemo harum praesentium. </p>
+            <h2>Find Your Study Group!</h2>
+            <p>스터디를 모집하거나 함께 하고 싶은 스터디에 가입하세요. </p>
         </div>
     </div><!-- End Breadcrumbs -->
 
@@ -53,10 +52,10 @@
                     <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
                         <div class="course-item" onClick="location.href='/studygroup/detail?studyNo=${studyGroup.studyNo}'">
                             <c:if test="${studyGroup.img eq null}">
-                                <img src="../upload/studyGroup/studyGroup.jpg" class="img-fluid" alt="...">
+                                <img src="../upload/studygroup/studyGroup.jpg" class="img-fluid" alt="...">
                             </c:if>
                             <c:if test="${studyGroup.img ne null}">
-                                <img src="../upload/studyGroup/${studyGroup.img}" class="img-fluid" alt="...">
+                                <img src="../upload/studygroup/${studyGroup.img}" class="img-fluid" alt="...">
                             </c:if>
 
                             <div class="course-content">

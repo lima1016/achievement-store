@@ -30,51 +30,54 @@
     <!-- ======= Breadcrumbs ======= -->
     <div class="breadcrumbs" data-aos="fade-in">
         <div class="container">
-            <h2>${board.title}</h2>
+            <h2>${studyGroup.title}</h2>
         </div>
     </div><!-- End Breadcrumbs -->
 
     <!-- ======= Cource Details Section ======= -->
     <section id="course-details" class="course-details">
         <div class="container" data-aos="fade-up">
-            <input name="boardNo" type="hidden" class="form-control" id="form-boardNo"
-                   value="${board.boardNo}" readonly/>
+            <input name="studyNo" type="hidden" class="form-control" id="form-boardNo"
+                   value="${studyGroup.studyNo}" readonly/>
             <div class="row">
                 <div class="col-lg-8">
-                    <c:if test="${board.goalImg eq null}">
-                        <img src="../img/study-notebooks.jpg" class="img-fluid" alt="...">
+                    <c:if test="${studyGroup.img eq null}">
+                        <img src="../upload/studygroup/studyGroup.jpg" class="img-fluid" alt="...">
                     </c:if>
-                    <c:if test="${board.goalImg ne null}">
-                        <img src="${board.goalImg}" class="img-fluid" alt="...">
+                    <c:if test="${studyGroup.img ne null}">
+                        <img src="../upload/studygroup/${studyGroup.img}" class="img-fluid" alt="...">
                     </c:if>
-                    <h3>${board.goal}</h3>
-                    <p>${board.contents}</p>
+                    <p>${studyGroup.contents}</p>
                 </div>
                 <div class="col-lg-4">
 
                     <div class="course-info d-flex justify-content-between align-items-center">
                         <h5>User Name</h5>
-                        <p><a href="#">${board.member.name}</a></p>
+                        <p><a href="#">${studyGroup.member.name}</a></p>
                     </div>
 
                     <div class="course-info d-flex justify-content-between align-items-center">
-                        <h5>Goal Ham</h5>
-                        <p>${board.goalHam} ham</p>
+                        <h5>Max People</h5>
+                        <p>${studyGroup.maxPeople} people</p>
                     </div>
 
                     <div class="course-info d-flex justify-content-between align-items-center">
-                        <h5>Available Seats</h5>
-                        <p>30</p>
+                        <h5>Studying...</h5>
+                        <p>2</p>
                     </div>
 
                     <div class="course-info d-flex justify-content-between align-items-center">
-                        <h5>Goal Date</h5>
+                        <h5>End Date</h5>
                         <p>
-                            <fmt:formatDate pattern="yyy-MM-dd" value="${board.regiDate}"/>
-                            ~ <fmt:formatDate pattern="yyy-MM-dd" value="${board.goalDate}"/>
+                            <fmt:formatDate pattern="yyy-MM-dd" value="${studyGroup.regDate}"/>
+                            ~ <fmt:formatDate pattern="yyy-MM-dd" value="${endDate}"/>
                         </p>
                     </div>
-
+                    <form action="joinStudy" method="post" role="form" class="php-email-form">
+                        <input type="hidden" name="studyNo" value="${studyGroup.studyNo}" readonly/>
+                        <input type="hidden" name="memberNo" value="${loginUser.memberNo}" readonly/>
+                        <button type="submit" class="get-started-btn" type="submit">Join Study</button>
+                    </form>
                 </div>
             </div>
 

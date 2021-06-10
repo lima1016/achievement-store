@@ -76,6 +76,38 @@
                )
     </insert>
 
+    <select id="findBy" parameterType="int" resultMap="StudyGroupMemberMap">
+        select
+            b.study_board_no
+             , b.member_no
+             , b.title
+             , b.contents
+             , b.end_date
+             , b.reg_date
+             , b.people
+             , b.img
+             , b.max_people
+             , m.member_no
+             , m.name
+            from study_board b
+            left join member m on b.member_no = m.member_no
+        where study_board_no = ${studyNo}
+
+    </select>
+
+    <insert id="joinStudy" parameterType="map">
+        INSERT INTO study_members
+            (
+             study_board_no
+             , study_member_no
+            )
+            VALUES
+            (
+             #{studyNo}
+           , #{memberNo}
+            )
+    </insert>
+
     <select id="countStudy" resultType="int">
         SELECT COUNT(*)
         FROM study_board
