@@ -1,6 +1,5 @@
 package com.lima.web.studygroup.controller;
 
-import com.lima.web.board.domain.Board;
 import com.lima.web.member.domain.Member;
 import com.lima.web.studygroup.domain.StudyGroup;
 import com.lima.web.studygroup.service.StudyGroupService;
@@ -15,7 +14,6 @@ import java.io.File;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
@@ -33,7 +31,8 @@ public class StudyGroupController {
   public StudyGroupController(ServletContext sc) {
     uploadDir = sc.getRealPath("/upload/studygroup");
   }
-  private String writeFile (MultipartFile file) throws Exception {
+
+  private String writeFile(MultipartFile file) throws Exception {
     if (file.isEmpty())
       return null;
     String filename = UUID.randomUUID().toString() + ".jpg";
@@ -45,6 +44,7 @@ public class StudyGroupController {
   @GetMapping("list")
   public void findAll(Model model) throws Exception {
     List<StudyGroup> studyGroups = studyGroupService.findAll();
+    studyGroups.forEach(r -> r.setPeople(studyGroupService.joinStudyCnt(r.getStudyNo()) + 1));
     model.addAttribute("studyGroups", studyGroups);
   }
 
@@ -65,6 +65,7 @@ public class StudyGroupController {
     StudyGroup studyGroup = studyGroupService.findBy(studyNo);
     DateFormat dateFormat = new SimpleDateFormat("yyy-MM-dd");
     Date date = dateFormat.parse(studyGroup.getEndDate());
+    studyGroup.setPeople(studyGroupService.joinStudyCnt(studyNo) + 1);
 
     model.addAttribute("endDate", date);
     model.addAttribute("studyGroup", studyGroup);

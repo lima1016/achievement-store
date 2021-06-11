@@ -9,8 +9,12 @@ import java.util.List;
 public interface StudyGroupService {
 
   void insert(StudyGroup studyGroup) throws Exception;
+
   List<StudyGroup> findAll() throws Exception;
+
   StudyGroup findBy(int studyNo);
+
   void joinStudy(int studyNo, int memberNo);
-  void joinStudyCnt();
+
+  int joinStudyCnt(int studyNo);
 }

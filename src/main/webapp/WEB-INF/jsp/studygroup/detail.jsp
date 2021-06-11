@@ -63,7 +63,7 @@
 
                     <div class="course-info d-flex justify-content-between align-items-center">
                         <h5>Studying...</h5>
-                        <p>2</p>
+                        <p>${studyGroup.people}</p>
                     </div>
 
                     <div class="course-info d-flex justify-content-between align-items-center">

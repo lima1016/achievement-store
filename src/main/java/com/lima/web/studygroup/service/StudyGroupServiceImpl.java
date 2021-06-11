@@ -38,7 +38,7 @@ public class StudyGroupServiceImpl implements StudyGroupService{
   }
 
   @Override
-  public void joinStudyCnt() {
-
+  public int joinStudyCnt(int studyNo) {
+    return studyGroupDao.joinStudyCnt(studyNo);
   }
 }

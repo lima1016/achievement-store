@@ -101,15 +101,18 @@
              study_board_no
              , study_member_no
             )
-            VALUES
-            (
-             #{studyNo}
-           , #{memberNo}
-            )
+            VALUES ( #{studyNo}
+                   , #{memberNo})
     </insert>
 
     <select id="countStudy" resultType="int">
         SELECT COUNT(*)
         FROM study_board
+    </select>
+
+    <select id="joinStudyCnt" parameterType="int" resultType="int">
+        SELECT COUNT(*)
+        FROM study_members
+        where study_board_no = ${studyNo}
     </select>
 </mapper>
