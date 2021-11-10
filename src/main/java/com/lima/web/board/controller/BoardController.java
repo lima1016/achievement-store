@@ -26,8 +26,8 @@ import java.util.UUID;
 @SessionAttributes("loginUser")
 public class BoardController {
 
-    @Resource
-    BoardService boardService;
+    @resource
+    boardservice boardservice;
 
     @Resource
     BoardCommentsService boardCommentsService;

@@ -49,6 +49,7 @@
     </resultMap>
 
     <insert id="insertDeposit" parameterType="Deposit">
+        sel
         insert into deposit
         (
         member_no
