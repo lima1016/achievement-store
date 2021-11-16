@@ -7,6 +7,7 @@ import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.PathMatchConfigurer;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.util.UrlPathHelper;
@@ -30,7 +31,7 @@ public class WebConfig implements WebMvcConfigurer {
         return mr;
     }
     @Bean
-    public ViewResolver viewResolver() {
+    public ViewResolver viewResolver(ResourceHandlerRegistry registry) {
         InternalResourceViewResolver vr = new InternalResourceViewResolver("/WEB-INF/jsp/", ".jsp");
         return vr;
     }

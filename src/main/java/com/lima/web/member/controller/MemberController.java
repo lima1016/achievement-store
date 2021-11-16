@@ -4,6 +4,7 @@ import com.lima.web.board.domain.Board;
 import com.lima.web.board.service.BoardService;
 import com.lima.web.member.domain.Member;
 import com.lima.web.member.service.MemberService;
+import io.swagger.annotations.Api;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -21,6 +22,7 @@ import java.util.concurrent.ExecutionException;
 @Controller
 @RequestMapping("/member")
 @SessionAttributes("loginUser")
+@Api("Member Controller API")
 public class MemberController {
 
     @Resource
