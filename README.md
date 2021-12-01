@@ -47,6 +47,7 @@
 [Bug] 
 - 새롭게 추가 하는 기능 혹은 기존에 있던 기능이 작동하지 않음 혹은 기대했던 결과물이 나오지 않음
 - somthing isn't working
+- 
 [Enhancement] 
 - 새롭게 기능을 추가
 - New feature or request
