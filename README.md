@@ -1,5 +1,4 @@
 # achievement-store 
-(A store where users achieve their goals and receive rewards.)
 
 - 처음에 1만원을 가입 기념으로 줌
 
