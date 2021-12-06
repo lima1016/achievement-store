@@ -2,6 +2,7 @@ package com.lima.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 import springfox.documentation.builders.ApiInfoBuilder;
@@ -24,7 +25,7 @@ public class SwaggerConfig extends WebMvcConfigurationSupport {
         .enable(true)
         .select()
         .apis(RequestHandlerSelectors.basePackage("com.lima.web"))
-        .paths(PathSelectors.any())
+        .paths(PathSelectors.ant("/"))
         .build();
   }
 
@@ -36,6 +37,17 @@ public class SwaggerConfig extends WebMvcConfigurationSupport {
         .build();
   }
 
+//  @Override
+//  public void configure(WebSecurity web) throws Exception {
+//    web.ignoring().antMatchers("/v2/api-docs",
+//        "/configuration/ui",
+//        "/swagger-resources/**",
+//        "/configuration/security",
+//        "/swagger-ui.html",
+//        "/webjars/**");
+//  }
+
+  //  extends WebMvcConfigurationSupport
   @Override
   protected void addResourceHandlers(ResourceHandlerRegistry registry) {
     registry.addResourceHandler("swagger-ui.html")
