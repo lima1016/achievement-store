@@ -2,6 +2,7 @@ package com.lima.config;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.FilterType;
+import org.springframework.context.annotation.Import;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 // build.gradle: spring-context
@@ -13,5 +14,6 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @ComponentScan(basePackages = "com.lima")
 // build.gradle: spring-webmvc
 @EnableWebMvc // 자바 설정을 사용하여 스프링 MVC를 활성시키는 방법 (WebConfig관련)
+@Import(SwaggerConfig.class)
 public class AppConfig {
 }
