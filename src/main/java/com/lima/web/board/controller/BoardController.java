@@ -5,7 +5,6 @@ import com.lima.web.board.domain.BoardComments;
 import com.lima.web.board.service.BoardCommentsService;
 import com.lima.web.board.service.BoardService;
 import com.lima.web.member.domain.Member;
-import com.lima.web.member.service.MemberService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -31,7 +30,6 @@ public class BoardController {
 
     @Resource
     BoardCommentsService boardCommentsService;
-
 
     String uploadDir;
 
@@ -96,7 +94,7 @@ public class BoardController {
         model.addAttribute("totalPage", totalPage);
         model.addAttribute("size", size);
         model.addAttribute("beginPage", (pageNo - 2) > 0 ? (pageNo - 2) : 1);
-        model.addAttribute("endPage", (pageNo + 2) < totalPage ? (pageNo + 2) : totalPage);
+        model.addAttribute("endPage", Math.min((pageNo + 2), totalPage)); // (pageNo + 2) < totalPage ? (pageNo + 2) : totalPage);
     }
 
     /**
