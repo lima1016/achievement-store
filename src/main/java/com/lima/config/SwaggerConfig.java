@@ -18,7 +18,6 @@ public class SwaggerConfig extends WebMvcConfigurationSupport {
 
   @Bean
   public Docket api() {
-    System.out.println("스웨거 왜 안돼");
     return new Docket(DocumentationType.SWAGGER_2)
         .apiInfo(apiInfo())
         .enable(true)
